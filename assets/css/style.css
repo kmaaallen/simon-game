@@ -1,0 +1,49 @@
+body{
+    background-color:#000;
+}
+
+div{
+    width:200px;
+    height:200px;
+    display:inline-block;
+}
+h1, p{
+    color:#fff;
+    text-align:center;
+}
+
+.game-field{
+    display: flex;
+    width:100%;
+    justify-content: center;
+}
+
+
+.red-square{
+    background-color:#ff0000;
+    margin-top:50px;
+}
+.yellow-square{
+    background-color:#ffd700;
+}
+.green-square{
+    background-color:#008000;
+    margin-top:50px;
+}
+.blue-square{
+    background-color:#0000e5;
+}
+
+button{
+    width:100px;
+    height:50px;
+    background-color:#fff;
+    color:#000;
+}
+
+#display{
+    width:100px;
+    height:100px;
+    background-color:#fff;
+    color:#000;
+}
