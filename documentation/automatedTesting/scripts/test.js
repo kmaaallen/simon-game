@@ -39,8 +39,16 @@ function newGame(){
 }
 
 function newRound(){
-    
+    generateSequence();
+    displaySequence();
+    playerInput();
 }
+
+function generateSequence(){}
+
+function displaySequence(){}
+
+function playerInput(){}
 
 
 // User Interface functions etc. -----------------------------------------------
