@@ -96,4 +96,16 @@ describe("New Game initiated test suite", function() {
             expect(window.newGame).not.toHaveBeenCalled();
         });
     });
+    describe("expect gameData.count to increment by 1 (i.e go from 0 to 1) when newGame() is executed", function() {
+        it("should increment gameData.count by 1", function() {
+            expect(gameData.count).toEqual(1);
+        });
+    });
+     describe("expect newRound() to be called when newGame() is executed", function() {
+        it("should call newRound() function", function() {
+            spyOn(window, 'newRound');
+            newGame();
+            expect(window.newRound).toHaveBeenCalled();
+        });
+    });
 });
