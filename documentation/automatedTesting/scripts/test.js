@@ -47,5 +47,7 @@ function newRound(){
 document.getElementById('power').addEventListener('click', function(){
     if (gameData.powerStatus === true){
         document.getElementById('display').innerHTML = "ready";
+    } else {
+        document.getElementById('display').innerHTML = '';
     }
 })
