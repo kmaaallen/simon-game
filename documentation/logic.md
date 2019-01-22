@@ -61,3 +61,11 @@ All tested and passed. COMMENT - IS THE NEW GAME FUNCTION REALLY NECESSARY?
 #### User Interface
 1) When newGame() function is called, the display should display the count value 
 (i.e what round the player is on). Tested and passed. code added to gameUI.js file.
+
+## newRound() function calls three functions to enable the game to progress
+These three functions are: generateSequence(), displaySequence() and playerInput().
+### Need to test
+#### Game Logic
+1) When newRound() function is called generateSequence() function is called
+2) When newRound() function is called displaySequence() function is called
+3) When newRound() function is called playerInput() function is called
