@@ -43,3 +43,11 @@ Tested and passed.
 NOTE: Due to earlier tests in start button suite it is impossible to have a start status of true while power status is
 false so that is not included here.
 Tested and passed. Code added to gameLogic.js (i.e conditional added to start code and empty newGame function added)
+
+## New game parameters are set for first round and newRound() function is called.
+Some of the gameData values need to be set for the start of a new game
+### Need to test
+#### When newGame() function is called, gameData.count is incremented by one (i.e goes from 0 to 1)
+Tested and passed.
+#### When newGame() function is called, it calls newRound() function.
+Tested and passed. COMMENT - IS THE NEW GAME FUNCTION REALLY NECESSARY?
