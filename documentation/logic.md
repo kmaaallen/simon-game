@@ -34,4 +34,12 @@ Tested and passed. Code added to gameLogic.js file (i.e powerbutton code updated
 
 ## The game starts
 The game must only start if the power is ON and the start button has been clicked (i.e powerStatus and startStatus are BOTH true)
-### Need to test:
+### Need to test
+#### When start status is true AND power status is true newGame() function is called.
+Tested and passed.
+#### When start status is false and power status is true newGame() function is NOT called.
+Tested and passed.
+#### When start status is false and power status is false newGame() function is NOT called.
+NOTE: Due to earlier tests in start button suite it is impossible to have a start status of true while power status is
+false so that is not included here.
+Tested and passed. Code added to gameLogic.js (i.e conditional added to start code and empty newGame function added)
