@@ -1,6 +1,7 @@
 # Logic used to build the game
 I wrote the code for this game by going through the motions as a player to see what they would expect to see or to happen at each stage.<br>
 Below is a step by step explanation of my process of building the game logic.<br>
+With a separate section for user interface elements underneath the game logic where applicable.<br>
 I separated by gameData object (where the variables for the game are held) from my main game logic and from the user interface 
 changes for clarity and so that it was easier to test and re-purpose code if necessary.
 
@@ -23,8 +24,6 @@ All tested and passed. Code added to gameLogic.js file.
 2) The game display should show '' (i.e. nothing) when power is OFF (powerstatus = false)
 
 
-
-
 ## The player clicks the start button
 The start button has to change state when clicked.
 ### Need to test:
@@ -35,14 +34,13 @@ The start button has to change state when clicked.
 4) The start button changes to OFF state (i.e false) regardless of starting state if the power button goes to OFF state.
 NOTE: ran these tests in random order (to check when start button was changing to false regardless of starting state)<br>
 All tested and passed. Code added to gameLogic.js file (i.e powerbutton code updated to add conditional and start code added).
-#### User Interface
-
-
 
 
 ## The game starts
 The game must only start if the power is ON and the start button is ON. 
 (i.e powerStatus and startStatus are BOTH true having been clicked.)
+The player needs to see this change somehow to indicate game has started
+and what round they are on.
 ### Need to test
 #### Game Logic
 1) When start status is true AND power status is true newGame() function is called.
@@ -51,17 +49,15 @@ The game must only start if the power is ON and the start button is ON.
 NOTE: Due to earlier tests in start button suite it is impossible to have a start status of true while power status is
 false so that is not included here.
 All tested and passed. Code added to gameLogic.js (i.e conditional added to start code and empty newGame function added)
-#### User Interface
-
-
 
 
 ## New game parameters are set for first round and newRound() function is called.
 Some of the gameData values need to be set for the start of a new game
-The player needs to see this change somehow to indicate game has started and what round they are on.
 ### Need to test
 #### Game Logic
 1) When newGame() function is called, gameData.count is incremented by one (i.e goes from 0 to 1)
 2) When newGame() function is called, it calls newRound() function.
 All tested and passed. COMMENT - IS THE NEW GAME FUNCTION REALLY NECESSARY?
 #### User Interface
+1) When newGame() function is called, the display should display the count value 
+(i.e what round the player is on). Tested and passed. code added to gameUI.js file.
