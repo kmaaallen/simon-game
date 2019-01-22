@@ -19,6 +19,7 @@ to continuously reload the page and crash.
 3) The power button changes to OFF state (i.e false) when in ON state and button is clicked.
 All tested and passed. Code added to gameLogic.js file.
 #### User Interface
+1) The game display (div with id = 'display') should show 'ready' when power is ON (i.e powerStatus is true)
 
 
 
