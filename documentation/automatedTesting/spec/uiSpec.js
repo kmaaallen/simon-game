@@ -8,4 +8,13 @@ describe("game display test suite", function(){
           expect(document.getElementById('display').innerHTML).toBe('ready');
       });
     });
+    describe("displays empty string (nothing) when power status is OFF(false)", function(){
+        beforeEach(function(){
+            gameData.powerStatus = true;
+        });
+        it("should display empty string when power status is OFF (false)", function(){
+            powerClick();
+            expect(document.getElementById('display').innerHTML).toBe('');
+        });
+    });
 });
