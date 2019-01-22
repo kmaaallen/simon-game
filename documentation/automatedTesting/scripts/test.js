@@ -24,5 +24,13 @@ if (gameData.powerStatus === false){
 
 document.getElementById('start').onclick = function(){
   gameData.startStatus = !gameData.startStatus;
+  if (gameData.startStatus === true){
+      newGame();
+  }
 };
+
+function newGame(){
+ 
+}
+
 
