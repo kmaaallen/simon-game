@@ -4,4 +4,11 @@ jQuery(document).ready(function(){
 
 document.getElementById('power').onclick = function(){
 gameData.powerStatus = !gameData.powerStatus;
+if (gameData.powerStatus === false){
+    gameData.startStatus = false;
+}
+};
+
+document.getElementById('start').onclick = function(){
+  gameData.startStatus = !gameData.startStatus;
 };
