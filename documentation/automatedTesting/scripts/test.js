@@ -43,4 +43,9 @@ function newRound(){
 }
 
 
-// User Interface functions etc. ------------------------------------------------------------
+// User Interface functions etc. -----------------------------------------------
+document.getElementById('power').addEventListener('click', function(){
+    if (gameData.powerStatus === true){
+        document.getElementById('display').innerHTML = "ready";
+    }
+})
