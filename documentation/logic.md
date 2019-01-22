@@ -20,6 +20,7 @@ to continuously reload the page and crash.
 All tested and passed. Code added to gameLogic.js file.
 #### User Interface
 1) The game display (div with id = 'display') should show 'ready' when power is ON (i.e powerStatus is true)
+2) The game display should show '' (i.e. nothing) when power is OFF (powerstatus = false)
 
 
 
