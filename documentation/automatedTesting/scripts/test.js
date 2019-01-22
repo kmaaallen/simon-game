@@ -1,9 +1,12 @@
+// All script for testing is in same document here but separated in actual project.
+// Game Data Object ------------------------------------------------------------
 var gameData = {
     powerStatus : false,
     startStatus : false,
     count:0
 };
 
+// Game Logic ------------------------------------------------------------------
 //function pageReload(){
  //   location.reload();
 //}
@@ -38,3 +41,6 @@ function newGame(){
 function newRound(){
     
 }
+
+
+// User Interface functions etc. ------------------------------------------------------------
