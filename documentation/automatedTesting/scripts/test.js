@@ -1,5 +1,6 @@
 var gameData = {
-    powerStatus : false
+    powerStatus : false,
+    startStatus : false
 };
 
 //function pageReload(){
@@ -10,6 +11,18 @@ function powerClick(){ // for testing purposes only
     document.getElementById('power').click();
 }
 
+function startClick(){ // for testing purposes only
+    document.getElementById('start').click();
+}
+
 document.getElementById('power').onclick = function(){
 gameData.powerStatus = !gameData.powerStatus;
+if (gameData.powerStatus === false){
+    gameData.startStatus = false;
+}
 };
+
+document.getElementById('start').onclick = function(){
+  gameData.startStatus = !gameData.startStatus;
+};
+
