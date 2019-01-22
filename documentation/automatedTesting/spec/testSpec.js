@@ -42,22 +42,58 @@ describe("start button test suite", function() {
             expect(gameData.startStatus).toEqual(true);
         });
     });
-    describe("start status change to OFF (false)", function(){
-        beforeEach(function(){
+    describe("start status change to OFF (false)", function() {
+        beforeEach(function() {
             gameData.startStatus = true;
         });
-        it("should have a value of false when start button clicked while value is true", function(){
+        it("should have a value of false when start button clicked while value is true", function() {
             startClick();
             expect(gameData.startStatus).toEqual(false);
         });
     });
-    describe("should have a value of OFF (false) when powerStatus is false", function(){
-        beforeEach(function(){
+    describe("should have a value of OFF (false) when powerStatus is false", function() {
+        beforeEach(function() {
             gameData.powerStatus = true;
         });
-       it ("should have a value of false when power button clicked to OFF (i.e also has value of false)", function(){
-           powerClick();
-           expect(gameData.startStatus).toEqual(false);
-       }) 
+        it("should have a value of false when power button clicked to OFF (i.e also has value of false)", function() {
+            powerClick();
+            expect(gameData.startStatus).toEqual(false);
+        });
+    });
+});
+
+describe("New Game initiated test suite", function() {
+    describe("newGame function called when powerStatus and startStatus are BOTH true", function() {
+        beforeEach(function() {
+            gameData.powerStatus = true;
+            gameData.startStatus = false;
+        });
+        it("should call newGame function when both powerstatus and startstatus are true", function() {
+            spyOn(window, 'newGame');
+            startClick();
+            expect(window.newGame).toHaveBeenCalled();
+        });
+    });
+    describe("newGame function NOT called when powerStatus is true and startStatus is false", function() {
+        beforeEach(function() {
+            gameData.powerStatus = true;
+            gameData.startStatus = true;
+        });
+        it("should NOT call new game when powerstatus is true but startstatus is false", function() {
+            spyOn(window, 'newGame');
+            startClick();
+            expect(window.newGame).not.toHaveBeenCalled();
+        });
+    });
+    describe("newGame function NOT called when powerStatus and startStatus are both true", function() {
+        beforeEach(function() {
+            gameData.powerStatus = true;
+            gameData.startStatus = false;
+        });
+        it("should NOT call newGame function when both powerstatus and startstatus are false", function() {
+            spyOn(window, 'newGame');
+            powerClick();
+            expect(window.newGame).not.toHaveBeenCalled();
+        });
     });
 });
