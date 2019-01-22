@@ -109,3 +109,27 @@ describe("New Game initiated test suite", function() {
         });
     });
 });
+
+describe("newRound test suite", function(){
+    describe("generateSequence() function is called", function(){
+        it("should call generateSequence when newRound is executed", function(){
+            spyOn(window, 'generateSequence');
+            newRound();
+            expect(window.generateSequence).toHaveBeenCalled();
+        });
+    });
+    describe("displaySequence() function is called", function(){
+        it("should call displaySequence when newRound is executed", function(){
+            spyOn(window, 'displaySequence');
+            newRound();
+            expect(window.displaySequence).toHaveBeenCalled();
+        });
+    });
+    describe("playerInput() function is called", function(){
+        it ("should call playerInput function when newRound is executed", function(){
+            spyOn(window, 'playerInput');
+            newRound();
+            expect(window.playerInput).toHaveBeenCalled();
+        })
+    })
+});
