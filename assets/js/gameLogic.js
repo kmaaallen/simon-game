@@ -17,5 +17,10 @@ document.getElementById('start').onclick = function(){
 };
 
 function newGame(){
- 
+    gameData.count++;
+    newRound();
+}
+
+function newRound(){
+    
 }
