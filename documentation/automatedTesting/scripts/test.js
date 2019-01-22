@@ -1,6 +1,7 @@
 var gameData = {
     powerStatus : false,
-    startStatus : false
+    startStatus : false,
+    count:0
 };
 
 //function pageReload(){
@@ -30,7 +31,10 @@ document.getElementById('start').onclick = function(){
 };
 
 function newGame(){
- 
+    gameData.count++;
+    newRound();
 }
 
-
+function newRound(){
+    
+}
