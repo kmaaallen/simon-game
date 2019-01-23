@@ -27,7 +27,11 @@ function newRound(){
     playerInput();
 }
 
-function generateSequence(){}
+function generateSequence() {
+    gameData.gameSequence.push(Math.floor(Math.random() * 4 + 1));
+    gameData.count++;
+    displayCount();
+}
 
 function displaySequence(){}
 
