@@ -96,12 +96,7 @@ describe("New Game initiated test suite", function() {
             expect(window.newGame).not.toHaveBeenCalled();
         });
     });
-    describe("expect gameData.count to increment by 1 (i.e go from 0 to 1) when newGame() is executed", function() {
-        it("should increment gameData.count by 1", function() {
-            expect(gameData.count).toEqual(1);
-        });
-    });
-     describe("expect newRound() to be called when newGame() is executed", function() {
+    describe("expect newRound() to be called when newGame() is executed", function() {
         it("should call newRound() function", function() {
             spyOn(window, 'newRound');
             newGame();
@@ -110,26 +105,53 @@ describe("New Game initiated test suite", function() {
     });
 });
 
-describe("newRound test suite", function(){
-    describe("generateSequence() function is called", function(){
-        it("should call generateSequence when newRound is executed", function(){
+describe("newRound test suite", function() {
+    describe("generateSequence() function is called", function() {
+        it("should call generateSequence when newRound is executed", function() {
             spyOn(window, 'generateSequence');
             newRound();
             expect(window.generateSequence).toHaveBeenCalled();
         });
     });
-    describe("displaySequence() function is called", function(){
-        it("should call displaySequence when newRound is executed", function(){
+    describe("displaySequence() function is called", function() {
+        it("should call displaySequence when newRound is executed", function() {
             spyOn(window, 'displaySequence');
             newRound();
             expect(window.displaySequence).toHaveBeenCalled();
         });
     });
-    describe("playerInput() function is called", function(){
-        it ("should call playerInput function when newRound is executed", function(){
+    describe("playerInput() function is called", function() {
+        it("should call playerInput function when newRound is executed", function() {
             spyOn(window, 'playerInput');
             newRound();
             expect(window.playerInput).toHaveBeenCalled();
+        });
+    });
+});
+
+describe("generateSequence test suite", function() {
+    describe("generateSequence being executed should result in sequence which is pushed to array of name 'gameSequence'", function() {
+        it("should show an array called gameSequence of length greater than 0", function() {
+            generateSequence();
+            expect(gameData.gameSequence.length).not.toBe(0);
+        });
+    });
+    describe("gameSequence content should only consist of 1,2,3 or 4", function() {
+        it("should only contain numbers in the range 1 to 4", function(){
+        generateSequence();
+        for (x = 0; x < gameData.gameSequence.length; x++){
+        expect(0 < gameData.gameSequence[x] < 5).toBe(true); 
+        }
+        });
+    });
+    describe("gameData.gameSequence length should be equal to gameData.count", function(){
+        beforeEach(function(){
+            gameData.gameSequence = [];
+            gameData.count = 0;
         })
-    })
+        it("gameData.gameSequence should have a length of gameData.count", function(){
+            generateSequence();
+            expect(gameData.gameSequence.length).toEqual(gameData.count);
+        });
+    });
 });
