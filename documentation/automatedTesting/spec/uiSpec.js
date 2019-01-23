@@ -17,15 +17,14 @@ describe("game display test suite", function(){
             expect(document.getElementById('display').innerHTML).toBe('');
         });
     });
-    describe("displays count value once game has started", function(){
+    describe("displays new gameData.count when it changes", function(){
         beforeEach(function(){
-            gameData.powerStatus = true;
-            gameData.startStatus = false;
+            gameData.gameSequence = [];
             gameData.count = 0;
-        });
-        it("should display count value of '1' when newGame is called (i.e it is the first round)", function(){
-            startClick();
+        })
+        it("should display gameData.count when generateSequence function is called (as this is when count is incremented", function(){
+            generateSequence();
             expect(document.getElementById('display').innerHTML).toBe('1');
         })
-    });
+    })
 });
