@@ -20,6 +20,10 @@ function startClick() { // for testing purposes only
     document.getElementById('start').click();
 }
 
+function timeDelay() { // for testing purposes only
+    //  setTimeout()
+}
+
 document.getElementById('power').onclick = function() {
     gameData.powerStatus = !gameData.powerStatus;
     if (gameData.powerStatus === false) {
@@ -50,7 +54,24 @@ function generateSequence() {
     displayCount();
 }
 
-function displaySequence() {}
+function displaySequence() {
+    for (var i = 0; i < gameData.gameSequence.length; i++) {
+        if (gameData.gameSequence[i] === 1) {
+            red();
+        }
+        else if (gameData.gameSequence[i] === 2) {
+            yellow();
+        }
+        else if (gameData.gameSequence[i] === 3) {
+            green();
+        }
+        else {
+            blue();
+        }
+    }
+}
+
+
 
 function playerInput() {}
 
@@ -66,6 +87,33 @@ document.getElementById('power').addEventListener('click', function() {
 });
 
 function displayCount() {
-        document.getElementById('display').innerHTML = gameData.count;
+    document.getElementById('display').innerHTML = gameData.count;
 }
 
+function red() {
+    $(document.getElementById('1')).addClass('red-light');
+    setTimeout(function() {
+        $(document.getElementById('1')).removeClass('red-light');
+    }, 500);
+}
+
+function yellow() {
+    $(document.getElementById('2')).addClass('yellow-light');
+    setTimeout(function() {
+        $(document.getElementById('2')).removeClass('yellow-light');
+    }, 500);
+}
+
+function green() {
+    $(document.getElementById('3')).addClass('green-light');
+    setTimeout(function() {
+        $(document.getElementById('3')).removeClass('green-light');
+    }, 500);
+}
+
+function blue() {
+    $(document.getElementById('4')).addClass('blue-light');
+    setTimeout(function() {
+        $(document.getElementById('4')).removeClass('blue-light');
+    }, 500);
+}
