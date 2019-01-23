@@ -66,6 +66,8 @@ These three functions are: generateSequence(), displaySequence() and playerInput
 2) When newRound() function is called displaySequence() function is called
 3) When newRound() function is called playerInput() function is called
 Tested and passed. code added to gameUI.js file.
+
+
 ## generateSequence() function generates a sequence for the game to used
 This sequence should be a random sequence consisting of the numbers 1,2,3 or 4.<br>
 This sequence should be pushed into an array defined in the gameData object, called 'gameSequence'.<br>
@@ -82,7 +84,24 @@ i.e. when generateSequence() function is called. So I removed this test from the
 I then added the incrementation code inside the generateSequence function instead.<br>
 Tested and passed. code added to gameUI.js file.
 #### User Interface
-The display should show gameData.count throughout the game and change when the count changes.
+The display should show gameData.count throughout the game and change when the count changes.<br>
 1) Display should show gameData.count when the count changes (i.e when generateSequence is called).
 Tested and passed. Code added to gameUI.js .
 NOTE: removed spec testing display showed '1' when new game called as now redundant - as display is being tested when count is incremented instead.
+
+## The gameSequence is displayed to the player
+Once the gameSequence has been generated it will be shown to the player as a series of 'flashing' coloured lights and sounds.<br>
+The coloured squares will need to have a 'light' class to indicate a change in colour.<br>
+This 'light' class will need to be added to and removed from the coloured squares over a short period of time to indicate 'flashing'.<br>
+The accompanying sound (relative to each colour) will have to play for the same amount of time.<br>
+#### Game logic
+1) Game needs to link each number in the gameSequence to a specific coloured square<br>
+i.e 1 = red, 2 = yellow, 3 = green, 4 = blue.
+2) Game needs to call the function that 'lights up' that coloured square and 'sounds' that square's noise //SOUNDS TO BE ADDED STILL
+All tested and passed, code added to gameUI.js and gameLogic.js files.
+
+#### User Interface
+1) Light class needs to be added to coloured square
+2) Sound needs to be played for relevant coloured square // SOUND CLIPS NOT ADDED YET
+3) Light class needs to be removed after interval of time
+All tested and passed, code added to gameUI.js and gameLogic.js files.
