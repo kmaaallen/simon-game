@@ -33,6 +33,21 @@ function generateSequence() {
     displayCount();
 }
 
-function displaySequence(){}
+function displaySequence() {
+    for (var i = 0; i < gameData.gameSequence.length; i++) {
+        if (gameData.gameSequence[i] === 1) {
+            red();
+        }
+        else if (gameData.gameSequence[i] === 2) {
+            yellow();
+        }
+        else if (gameData.gameSequence[i] === 3) {
+            green();
+        }
+        else {
+            blue();
+        }
+    }
+}
 
 function playerInput(){}
