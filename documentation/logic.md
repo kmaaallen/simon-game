@@ -55,12 +55,8 @@ All tested and passed. Code added to gameLogic.js (i.e conditional added to star
 Some of the gameData values need to be set for the start of a new game
 ### Need to test
 #### Game Logic
-1) When newGame() function is called, gameData.count is incremented by one (i.e goes from 0 to 1)
-2) When newGame() function is called, it calls newRound() function.
+1) When newGame() function is called, it calls newRound() function.
 All tested and passed. COMMENT - IS THE NEW GAME FUNCTION REALLY NECESSARY?
-#### User Interface
-1) When newGame() function is called, the display should display the count value 
-(i.e what round the player is on). Tested and passed. code added to gameUI.js file.
 
 ## newRound() function calls three functions to enable the game to progress
 These three functions are: generateSequence(), displaySequence() and playerInput().
@@ -69,3 +65,24 @@ These three functions are: generateSequence(), displaySequence() and playerInput
 1) When newRound() function is called generateSequence() function is called
 2) When newRound() function is called displaySequence() function is called
 3) When newRound() function is called playerInput() function is called
+Tested and passed. code added to gameUI.js file.
+## generateSequence() function generates a sequence for the game to used
+This sequence should be a random sequence consisting of the numbers 1,2,3 or 4.<br>
+This sequence should be pushed into an array defined in the gameData object, called 'gameSequence'.<br>
+Its length should equal gameData.count at the time it is called.
+### Need to test
+#### Game Logic
+1) When generateSequence() function is executed a sequence is generated and pushed into gameSequence array.
+2) That array consists of 1,2,3 or 4 only (no other numbers/characters/strings)
+3) That array's length is equal to gameData.count
+NOTE: While testing the array's length was equal to gameData.count I came across an issue,
+which was that the count had already been incremented in the startGame function. I realised
+it was more logical to increment the count when a new number had been added to the gameSequence.
+i.e. when generateSequence() function is called. So I removed this test from the New game initiated test suite.
+I then added the incrementation code inside the generateSequence function instead.<br>
+Tested and passed. code added to gameUI.js file.
+#### User Interface
+The display should show gameData.count throughout the game and change when the count changes.
+1) Display should show gameData.count when the count changes (i.e when generateSequence is called).
+Tested and passed. Code added to gameUI.js .
+NOTE: removed spec testing display showed '1' when new game called as now redundant - as display is being tested when count is incremented instead.
