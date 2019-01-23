@@ -137,21 +137,49 @@ describe("generateSequence test suite", function() {
         });
     });
     describe("gameSequence content should only consist of 1,2,3 or 4", function() {
-        it("should only contain numbers in the range 1 to 4", function(){
-        generateSequence();
-        for (x = 0; x < gameData.gameSequence.length; x++){
-        expect(0 < gameData.gameSequence[x] < 5).toBe(true); 
-        }
+        it("should only contain numbers in the range 1 to 4", function() {
+            generateSequence();
+            for (x = 0; x < gameData.gameSequence.length; x++) {
+                expect(0 < gameData.gameSequence[x] < 5).toBe(true);
+            }
         });
     });
-    describe("gameData.gameSequence length should be equal to gameData.count", function(){
-        beforeEach(function(){
+    describe("gameData.gameSequence length should be equal to gameData.count", function() {
+        beforeEach(function() {
             gameData.gameSequence = [];
             gameData.count = 0;
         })
-        it("gameData.gameSequence should have a length of gameData.count", function(){
+        it("gameData.gameSequence should have a length of gameData.count", function() {
             generateSequence();
             expect(gameData.gameSequence.length).toEqual(gameData.count);
         });
     });
 });
+
+describe("display sequence test suite", function() {
+    describe("game should match numbers in gameSequence array with coloured squares", function() {
+        beforeEach(function(){
+            gameData.gameSequence = [1,2,3,4]
+        })
+        it("should call the 'red' function when the number is 1", function() {
+            spyOn(window, 'red');
+            displaySequence();
+            expect(window.red).toHaveBeenCalled();
+        })
+        it("should call the 'yellow' function when the number is 2", function() {
+            spyOn(window, 'yellow');
+            displaySequence();
+            expect(window.yellow).toHaveBeenCalled();
+        })
+        it("should call the 'green' function when the number is 3", function() {
+            spyOn(window, 'green');
+            displaySequence();
+            expect(window.green).toHaveBeenCalled();
+        })
+        it("should call the 'blue' function when the number is 4", function() {
+            spyOn(window, 'blue');
+            displaySequence();
+            expect(window.blue).toHaveBeenCalled();
+        })
+    })
+})
