@@ -209,3 +209,45 @@ describe("player input test suite", function(){
         });
     });
 });
+
+describe("check playerSequence length test suite", function(){
+    describe("player input function should loop unless playerSequence length equals gameSequence length", function(){
+        beforeEach(function(){
+            gameData.gameSequence = [1,2,3,4];
+            gameData.playerSequence = [];
+            playerInput();
+        });
+        it("should call playerInput function again if playerSequence is less than gameSequence", function(){
+            spyOn(window, 'playerInput');
+            redClick();
+            redClick();
+            expect(window.playerInput).toHaveBeenCalled();
+        });
+        it("should call checkSequence function if playerSequence length equals gameSequence length", function(){
+            spyOn(window, 'checkSequence');
+            redClick();
+            redClick();
+            redClick();
+            redClick();
+            expect(window.checkSequence).toHaveBeenCalled();
+        })
+    });
+});
+
+/*describe("check playerSequence test suite", function(){
+    beforeEach(function(){
+        gameData.gameSequence = [1,2,3,4,1,2,3]
+    })
+    describe("check playerSequence length", function(){
+        it("should call 'checkSequence' function when playerSequence length equals gameSequence length", function(){
+            gameData.playerSequence = [1,2,3,4,1,2,3];
+            spyOn(window, 'checkSequence');
+            
+            
+        })
+        it("should NOT call 'checkSequence' function when playerSequence length does not equal gameSequence length", function(){
+            gameData.playerSequence = [1,2,3,4,1,2];
+            
+        })
+    })
+})*/
