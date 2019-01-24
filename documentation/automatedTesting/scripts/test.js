@@ -20,10 +20,6 @@ function startClick() { // for testing purposes only
     document.getElementById('start').click();
 }
 
-function timeDelay() { // for testing purposes only
-    //  setTimeout()
-}
-
 document.getElementById('power').onclick = function() {
     gameData.powerStatus = !gameData.powerStatus;
     if (gameData.powerStatus === false) {
@@ -44,7 +40,7 @@ function newGame() {
 
 function newRound() {
     generateSequence();
-    displaySequence();
+    showSequence();
     playerInput();
 }
 
@@ -54,8 +50,19 @@ function generateSequence() {
     displayCount();
 }
 
-function displaySequence() {
-    for (var i = 0; i < gameData.gameSequence.length; i++) {
+function showSequence (){
+    var i = 0;
+    let sequence = setInterval(function(){
+        displaySequence(i);
+        i++;
+        if (i >= gameData.gameSequence.length){
+            clearInterval(sequence);
+        }
+    }, 1000);
+}
+
+function displaySequence(i) {
+    //for (var i = 0; i < gameData.gameSequence.length; i++) {
         if (gameData.gameSequence[i] === 1) {
             red();
         }
@@ -68,8 +75,11 @@ function displaySequence() {
         else {
             blue();
         }
-    }
+   // }
 }
+
+
+
 
 
 
