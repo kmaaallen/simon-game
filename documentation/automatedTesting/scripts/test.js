@@ -95,20 +95,42 @@ function playerInput() {
  document.getElementById('1').onclick = function(){
         gameData.playerSequence.push(1); 
         red();
+        if (gameData.playerSequence.length < gameData.gameSequence.length){
+            playerInput();
+        } else {
+            checkSequence();
+        }
  };
  document.getElementById('2').onclick = function(){
         gameData.playerSequence.push(2); 
         yellow();
+        if (gameData.playerSequence.length < gameData.gameSequence.length){
+            playerInput();
+        } else {
+            checkSequence();
+        }
  };
  document.getElementById('3').onclick = function(){
         gameData.playerSequence.push(3); 
         green();
+        if (gameData.playerSequence.length < gameData.gameSequence.length){
+            playerInput();
+        } else {
+            checkSequence();
+        }
  };
  document.getElementById('4').onclick = function(){
         gameData.playerSequence.push(4); 
         blue();
+        if (gameData.playerSequence.length < gameData.gameSequence.length){
+            playerInput();
+        } else {
+            checkSequence();
+        }
  };
 }
+
+function checkSequence(){};
 
 
 // User Interface functions etc. -----------------------------------------------
