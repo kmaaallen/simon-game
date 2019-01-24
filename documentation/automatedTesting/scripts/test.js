@@ -139,6 +139,8 @@ function checkSequence(){
         newRound();
     } else if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length === 20){
         newGame();
+    } else {
+        showSequence();
     }
 }
 
