@@ -94,14 +94,24 @@ Once the gameSequence has been generated it will be shown to the player as a ser
 The coloured squares will need to have a 'light' class to indicate a change in colour.<br>
 This 'light' class will need to be added to and removed from the coloured squares over a short period of time to indicate 'flashing'.<br>
 The accompanying sound (relative to each colour) will have to play for the same amount of time.<br>
+### Need to test
 #### Game logic
 1) Game needs to link each number in the gameSequence to a specific coloured square<br>
 i.e 1 = red, 2 = yellow, 3 = green, 4 = blue.
 2) Game needs to call the function that 'lights up' that coloured square and 'sounds' that square's noise //SOUNDS TO BE ADDED STILL
+3) Game needs to move to the next item in the gameSequence array and trigger that colour function until the array is finished.
 All tested and passed, code added to gameUI.js and gameLogic.js files.
-
 #### User Interface
 1) Light class needs to be added to coloured square
 2) Sound needs to be played for relevant coloured square // SOUND CLIPS NOT ADDED YET
 3) Light class needs to be removed after interval of time
+4) There needs to be an interval between each colour in sequence flashing (i.e they go one after the other if sequence is longer than 1 item)
 All tested and passed, code added to gameUI.js and gameLogic.js files.
+
+## The player copies the game sequence
+Once the gameSequence has been displayed the player has to click on 
+the coloured buttons in the same order as the sequence.<br>
+### Need to test
+#### Game Logic
+
+#### User Interface
