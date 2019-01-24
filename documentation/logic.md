@@ -132,10 +132,11 @@ The sequences must be equal for game to progress
 #### Game Logic
 1) checkSequence function needs to compare the two arrays (playersequence and gameSequence)
 2) If they are equal but not 20 numbers in length the game progresses up a round - newRound function must be called
-3) If they are not equal - the gameSequence must be displayed again for the player
-4)If they are equal AND 20 numbers in length (i.e its the last round) - game must restart - newGame function should be called
+3) If they are equal AND 20 numbers in length (i.e its the last round) - game must restart - newGame function should be called
+4) If they are not equal - the gameSequence must be displayed again for the player
 #### User Interface
 1) If incorrect player should see "try again" message in display then see gameSequence repeated
 2) If correct but not the final round player should see count increase in display and a new sequence (one item longer)
 3) If correct and final round player should see 'win' message then re-start game
 
+## When the player wins and a new game is started
