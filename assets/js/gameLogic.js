@@ -98,4 +98,11 @@ function playerInput() {
  };
 }
 
-function checkSequence(){};
+function checkSequence(){
+    if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length < 20){
+        gameData.playerSequence = [];
+        newRound();
+    } else if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length === 20){
+        newGame();
+    }
+}
