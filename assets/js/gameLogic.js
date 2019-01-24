@@ -33,6 +33,17 @@ function generateSequence() {
     displayCount();
 }
 
+function showSequence (){
+    var i = 0;
+    let sequence = setInterval(function(){
+        displaySequence(i);
+        i++;
+        if (i >= gameData.gameSequence.length){
+            clearInterval(sequence);
+        }
+    }, 1000);
+}
+
 function displaySequence(i) {
         if (gameData.gameSequence[i] === 1) {
             red();
@@ -48,4 +59,17 @@ function displaySequence(i) {
         }
 }
 
-function playerInput(){}
+function playerInput() {
+ document.getElementById('1').onclick = function(){
+        gameData.playerSequence.push(1); 
+ };
+ document.getElementById('2').onclick = function(){
+        gameData.playerSequence.push(2); 
+ };
+ document.getElementById('3').onclick = function(){
+        gameData.playerSequence.push(3); 
+ };
+ document.getElementById('4').onclick = function(){
+        gameData.playerSequence.push(4); 
+ };
+}
