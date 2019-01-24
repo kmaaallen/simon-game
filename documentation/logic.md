@@ -113,5 +113,8 @@ Once the gameSequence has been displayed the player has to click on
 the coloured buttons in the same order as the sequence.<br>
 ### Need to test
 #### Game Logic
-
+1) Game has to recognise a player has clicked an option
+2) Game has to connect that option with 1,2,3 or 4
+3) That value has to be pushed into the playerSequence array
 #### User Interface
+1) The player has to see/hear which option they have clicked - i.e square should light up and make sound.
