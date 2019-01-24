@@ -118,3 +118,11 @@ the coloured buttons in the same order as the sequence.<br>
 3) That value has to be pushed into the playerSequence array
 #### User Interface
 1) The player has to see/hear which option they have clicked - i.e square should light up and make sound.
+
+## PlayerSequence is completed
+The player must be able to click on squares UNTIL playerSequence length equals gameSequence length
+### Need to test
+#### Game Logic
+1) PlayerInput function must be looped until the lengths are equal
+2) Once the lengths are equal checkSequence function should be called.
+
