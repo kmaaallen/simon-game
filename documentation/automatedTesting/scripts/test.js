@@ -20,6 +20,19 @@ function startClick() { // for testing purposes only
     document.getElementById('start').click();
 }
 
+function redClick() { // for testing purposes only
+    document.getElementById('1').click();
+}
+function yellowClick() { // for testing purposes only
+    document.getElementById('2').click();
+}
+function greenClick() { // for testing purposes only
+    document.getElementById('3').click();
+}
+function blueClick() { // for testing purposes only
+    document.getElementById('4').click();
+}
+
 document.getElementById('power').onclick = function() {
     gameData.powerStatus = !gameData.powerStatus;
     if (gameData.powerStatus === false) {
@@ -78,12 +91,20 @@ function displaySequence(i) {
    // }
 }
 
-
-
-
-
-
-function playerInput() {}
+function playerInput() {
+ document.getElementById('1').onclick = function(){
+        gameData.playerSequence.push(1); 
+ };
+ document.getElementById('2').onclick = function(){
+        gameData.playerSequence.push(2); 
+ };
+ document.getElementById('3').onclick = function(){
+        gameData.playerSequence.push(3); 
+ };
+ document.getElementById('4').onclick = function(){
+        gameData.playerSequence.push(4); 
+ };
+}
 
 
 // User Interface functions etc. -----------------------------------------------
