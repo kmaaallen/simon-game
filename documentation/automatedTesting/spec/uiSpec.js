@@ -133,3 +133,28 @@ describe("color flashing intervals test suite", function() {
     });
 });
 
+describe("player input visual/audio test suite", function(){
+    describe("player should see colour flash corresponding to their choice made by clicking on square", function(){
+        it("should call red() function when red square is clicked", function(){
+            spyOn(window,'red');
+            redClick();
+            expect(window.red).toHaveBeenCalled();
+        })
+        it("should call yellow() function when yellow square is clicked", function(){
+            spyOn(window,'yellow');
+            yellowClick();
+            expect(window.yellow).toHaveBeenCalled();
+        })
+        it("should call green() function when green square is clicked", function(){
+            spyOn(window,'green');
+            greenClick();
+            expect(window.green).toHaveBeenCalled();
+        })
+        it("should call blue() function when blue square is clicked", function(){
+            spyOn(window,'blue');
+            blueClick();
+            expect(window.blue).toHaveBeenCalled();
+        })
+    })
+})
+
