@@ -158,13 +158,13 @@ describe("generateSequence test suite", function() {
 
 describe("display sequence test suite", function() {
     describe("game should match numbers in gameSequence array with coloured squares", function() {
-        beforeEach(function(){
-        gameData.gameSequence = [1,2,3,4]
+        beforeEach(function() {
+            gameData.gameSequence = [1, 2, 3, 4]
         });
         it("should call the 'red' function when the number is 1", function() {
             spyOn(window, 'red');
             displaySequence(0);
-           // gameData.gameSequence[0];
+            // gameData.gameSequence[0];
             expect(window.red).toHaveBeenCalled();
         });
         it("should call the 'yellow' function when the number is 2", function() {
@@ -185,45 +185,45 @@ describe("display sequence test suite", function() {
     });
 });
 
-describe("player input test suite", function(){
-    beforeEach(function(){
-    gameData.playerSequence = [];
-    playerInput();
+describe("player input test suite", function() {
+    beforeEach(function() {
+        gameData.playerSequence = [];
+        playerInput();
     });
-    describe("player clicks on square and value is added to playerSequence array", function(){
-        it("should push the value 1 into playerSequence array when the red square is clicked", function(){
+    describe("player clicks on square and value is added to playerSequence array", function() {
+        it("should push the value 1 into playerSequence array when the red square is clicked", function() {
             redClick();
             expect(gameData.playerSequence).toEqual([1]);
         });
-        it("should push the value 2 into playerSequence array when the yellow square is clicked", function(){
+        it("should push the value 2 into playerSequence array when the yellow square is clicked", function() {
             yellowClick();
             expect(gameData.playerSequence).toEqual([2]);
         });
-        it("should push the value 3 into playerSequence array when the green square is clicked", function(){
+        it("should push the value 3 into playerSequence array when the green square is clicked", function() {
             greenClick();
             expect(gameData.playerSequence).toEqual([3]);
         });
-        it("should push the value 4 into playerSequence array when the blue square is clicked", function(){
+        it("should push the value 4 into playerSequence array when the blue square is clicked", function() {
             blueClick();
             expect(gameData.playerSequence).toEqual([4]);
         });
     });
 });
 
-describe("check playerSequence length test suite", function(){
-    describe("player input function should loop unless playerSequence length equals gameSequence length", function(){
-        beforeEach(function(){
-            gameData.gameSequence = [1,2,3,4];
+describe("check playerSequence length test suite", function() {
+    describe("player input function should loop unless playerSequence length equals gameSequence length", function() {
+        beforeEach(function() {
+            gameData.gameSequence = [1, 2, 3, 4];
             gameData.playerSequence = [];
             playerInput();
         });
-        it("should call playerInput function again if playerSequence is less than gameSequence", function(){
+        it("should call playerInput function again if playerSequence is less than gameSequence", function() {
             spyOn(window, 'playerInput');
             redClick();
             redClick();
             expect(window.playerInput).toHaveBeenCalled();
         });
-        it("should call checkSequence function if playerSequence length equals gameSequence length", function(){
+        it("should call checkSequence function if playerSequence length equals gameSequence length", function() {
             spyOn(window, 'checkSequence');
             redClick();
             redClick();
@@ -234,20 +234,24 @@ describe("check playerSequence length test suite", function(){
     });
 });
 
-/*describe("check playerSequence test suite", function(){
-    beforeEach(function(){
-        gameData.gameSequence = [1,2,3,4,1,2,3]
+describe("check playerSequence test suite", function() {
+    beforeEach(function() {
+
     })
-    describe("check playerSequence length", function(){
-        it("should call 'checkSequence' function when playerSequence length equals gameSequence length", function(){
-            gameData.playerSequence = [1,2,3,4,1,2,3];
-            spyOn(window, 'checkSequence');
-            
-            
-        })
-        it("should NOT call 'checkSequence' function when playerSequence length does not equal gameSequence length", function(){
-            gameData.playerSequence = [1,2,3,4,1,2];
-            
+    describe("check playerSequence against gameSequence", function() {
+        it("should call newRound function if sequences are the same and length is less than 20", function() {
+            gameData.gameSequence = [1, 2, 3, 4, 1, 2, 3];
+            gameData.playerSequence = [1, 2, 3, 4, 1, 2, 3];
+            spyOn(window, 'newRound');
+            checkSequence();
+            expect(window.newRound).toHaveBeenCalled();
+        });
+        it("should call newGame when player wins, i.e sequence is correct and length is 20", function() {
+            gameData.gameSequence = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+            gameData.playerSequence = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+            spyOn(window, 'newGame');
+            checkSequence();
+            expect(window.newGame).toHaveBeenCalled();
         })
     })
-})*/
+})
