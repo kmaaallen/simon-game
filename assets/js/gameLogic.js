@@ -23,7 +23,7 @@ function newGame(){
 
 function newRound(){
     generateSequence();
-    displaySequence();
+    showSequence();
     playerInput();
 }
 
@@ -33,8 +33,7 @@ function generateSequence() {
     displayCount();
 }
 
-function displaySequence() {
-    for (var i = 0; i < gameData.gameSequence.length; i++) {
+function displaySequence(i) {
         if (gameData.gameSequence[i] === 1) {
             red();
         }
@@ -47,7 +46,6 @@ function displaySequence() {
         else {
             blue();
         }
-    }
 }
 
 function playerInput(){}
