@@ -252,6 +252,13 @@ describe("check playerSequence test suite", function() {
             spyOn(window, 'newGame');
             checkSequence();
             expect(window.newGame).toHaveBeenCalled();
-        })
-    })
-})
+        });
+        it("should call showSequence function if playerSequence is incorrect", function(){
+            gameData.gameSequence = [1, 2, 3, 4, 1, 2, 3];
+            gameData.playerSequence = [1, 2, 3, 4, 1, 2, 4];
+            spyOn(window, 'showSequence');
+            checkSequence();
+            expect(window.showSequence).toHaveBeenCalled();
+        });
+    });
+});
