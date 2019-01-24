@@ -114,10 +114,10 @@ describe("newRound test suite", function() {
         });
     });
     describe("displaySequence() function is called", function() {
-        it("should call displaySequence when newRound is executed", function() {
-            spyOn(window, 'displaySequence');
+        it("should call showSequence when newRound is executed", function() {
+            spyOn(window, 'showSequence');
             newRound();
-            expect(window.displaySequence).toHaveBeenCalled();
+            expect(window.showSequence).toHaveBeenCalled();
         });
     });
     describe("playerInput() function is called", function() {
@@ -148,7 +148,7 @@ describe("generateSequence test suite", function() {
         beforeEach(function() {
             gameData.gameSequence = [];
             gameData.count = 0;
-        })
+        });
         it("gameData.gameSequence should have a length of gameData.count", function() {
             generateSequence();
             expect(gameData.gameSequence.length).toEqual(gameData.count);
@@ -159,27 +159,28 @@ describe("generateSequence test suite", function() {
 describe("display sequence test suite", function() {
     describe("game should match numbers in gameSequence array with coloured squares", function() {
         beforeEach(function(){
-            gameData.gameSequence = [1,2,3,4]
-        })
+        gameData.gameSequence = [1,2,3,4]
+        });
         it("should call the 'red' function when the number is 1", function() {
             spyOn(window, 'red');
-            displaySequence();
+            displaySequence(0);
+           // gameData.gameSequence[0];
             expect(window.red).toHaveBeenCalled();
-        })
+        });
         it("should call the 'yellow' function when the number is 2", function() {
             spyOn(window, 'yellow');
-            displaySequence();
+            displaySequence(1);
             expect(window.yellow).toHaveBeenCalled();
-        })
+        });
         it("should call the 'green' function when the number is 3", function() {
             spyOn(window, 'green');
-            displaySequence();
+            displaySequence(2);
             expect(window.green).toHaveBeenCalled();
-        })
+        });
         it("should call the 'blue' function when the number is 4", function() {
             spyOn(window, 'blue');
-            displaySequence();
+            displaySequence(3);
             expect(window.blue).toHaveBeenCalled();
-        })
-    })
-})
+        });
+    });
+});
