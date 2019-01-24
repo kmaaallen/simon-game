@@ -62,14 +62,18 @@ function displaySequence(i) {
 function playerInput() {
  document.getElementById('1').onclick = function(){
         gameData.playerSequence.push(1); 
+        red();
  };
  document.getElementById('2').onclick = function(){
         gameData.playerSequence.push(2); 
+        yellow();
  };
  document.getElementById('3').onclick = function(){
         gameData.playerSequence.push(3); 
+        green();
  };
  document.getElementById('4').onclick = function(){
         gameData.playerSequence.push(4); 
+        blue();
  };
 }
