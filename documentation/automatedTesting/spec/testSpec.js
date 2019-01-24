@@ -184,3 +184,28 @@ describe("display sequence test suite", function() {
         });
     });
 });
+
+describe("player input test suite", function(){
+    beforeEach(function(){
+    gameData.playerSequence = [];
+    playerInput();
+    });
+    describe("player clicks on square and value is added to playerSequence array", function(){
+        it("should push the value 1 into playerSequence array when the red square is clicked", function(){
+            redClick();
+            expect(gameData.playerSequence).toEqual([1]);
+        });
+        it("should push the value 2 into playerSequence array when the yellow square is clicked", function(){
+            yellowClick();
+            expect(gameData.playerSequence).toEqual([2]);
+        });
+        it("should push the value 3 into playerSequence array when the green square is clicked", function(){
+            greenClick();
+            expect(gameData.playerSequence).toEqual([3]);
+        });
+        it("should push the value 4 into playerSequence array when the blue square is clicked", function(){
+            blueClick();
+            expect(gameData.playerSequence).toEqual([4]);
+        });
+    });
+});
