@@ -139,22 +139,40 @@ describe("player input visual/audio test suite", function(){
             spyOn(window,'red');
             redClick();
             expect(window.red).toHaveBeenCalled();
-        })
+        });
         it("should call yellow() function when yellow square is clicked", function(){
             spyOn(window,'yellow');
             yellowClick();
             expect(window.yellow).toHaveBeenCalled();
-        })
+        });
         it("should call green() function when green square is clicked", function(){
             spyOn(window,'green');
             greenClick();
             expect(window.green).toHaveBeenCalled();
-        })
+        });
         it("should call blue() function when blue square is clicked", function(){
             spyOn(window,'blue');
             blueClick();
             expect(window.blue).toHaveBeenCalled();
-        })
-    })
-})
+        });
+    });
+});
 
+describe ("player messages when sequence checked test suite", function(){
+    describe("player should get win message when game won", function(){
+        it("should display a 'Win!' message when game is won", function(){
+            gameData.gameSequence = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+            gameData.playerSequence = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+            spyOn(window, 'displayWin');
+            checkSequence();
+            expect(window.displayWin).toHaveBeenCalled();
+        });
+        it("should display a 'Try again!' message when playerSequence is incorrect", function(){
+            gameData.gameSequence = [1,2,3,4];
+            gameData.playerSequence = [1,2,4,3];
+            spyOn(window, 'displayTryAgain');
+            checkSequence();
+            expect(window.displayTryAgain).toHaveBeenCalled();
+        })
+    });
+});
