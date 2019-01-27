@@ -98,13 +98,17 @@ function playerInput() {
  };
 }
 
-function checkSequence(){
-    if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length < 20){
+function checkSequence() {
+    if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length < 20) {
         gameData.playerSequence = [];
         newRound();
-    } else if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length === 20){
-        newGame();
-    } else {
-        showSequence();
+    }
+    else if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length === 20) {
+        displayWin();
+        setTimeout(newGame, 1000); 
+    }
+    else {
+        displayTryAgain();
+        setTimeout(showSequence, 1000);
     }
 }
