@@ -138,5 +138,12 @@ The sequences must be equal for game to progress
 1) If incorrect player should see "try again" message in display then see gameSequence repeated
 2) If correct but not the final round player should see count increase in display and a new sequence (one item longer)
 3) If correct and final round player should see 'win' message then re-start game
+4) To give the player time to see these messages there should be a delay before newGame or showSequence functions are shown respectively.
 
 ## When the player wins and a new game is started
+When a new game is started count in display should go back to start and the logic above should be repeated
+### Need to test
+#### Game Logic
+1) Game variables need to be reset to initial values ie. gameSequence, playerSequence = [], count reset to 0.
+#### User Interface
+1) Display should show 1 once new game initiated.
