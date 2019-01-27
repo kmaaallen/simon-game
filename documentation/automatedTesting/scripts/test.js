@@ -23,12 +23,15 @@ function startClick() { // for testing purposes only
 function redClick() { // for testing purposes only
     document.getElementById('1').click();
 }
+
 function yellowClick() { // for testing purposes only
     document.getElementById('2').click();
 }
+
 function greenClick() { // for testing purposes only
     document.getElementById('3').click();
 }
+
 function blueClick() { // for testing purposes only
     document.getElementById('4').click();
 }
@@ -66,12 +69,13 @@ function generateSequence() {
     displayCount();
 }
 
-function showSequence (){
+function showSequence() {
+    displayCount();
     var i = 0;
-    let sequence = setInterval(function(){
+    let sequence = setInterval(function() {
         displaySequence(i);
         i++;
-        if (i >= gameData.gameSequence.length){
+        if (i >= gameData.gameSequence.length) {
             clearInterval(sequence);
         }
     }, 1000);
@@ -79,68 +83,76 @@ function showSequence (){
 
 function displaySequence(i) {
     //for (var i = 0; i < gameData.gameSequence.length; i++) {
-        if (gameData.gameSequence[i] === 1) {
-            red();
-        }
-        else if (gameData.gameSequence[i] === 2) {
-            yellow();
-        }
-        else if (gameData.gameSequence[i] === 3) {
-            green();
-        }
-        else {
-            blue();
-        }
-   // }
+    if (gameData.gameSequence[i] === 1) {
+        red();
+    }
+    else if (gameData.gameSequence[i] === 2) {
+        yellow();
+    }
+    else if (gameData.gameSequence[i] === 3) {
+        green();
+    }
+    else {
+        blue();
+    }
+    // }
 }
 
 function playerInput() {
- document.getElementById('1').onclick = function(){
-        gameData.playerSequence.push(1); 
+    document.getElementById('1').onclick = function() {
+        gameData.playerSequence.push(1);
         red();
-        if (gameData.playerSequence.length < gameData.gameSequence.length){
+        if (gameData.playerSequence.length < gameData.gameSequence.length) {
             playerInput();
-        } else {
+        }
+        else {
             checkSequence();
         }
- };
- document.getElementById('2').onclick = function(){
-        gameData.playerSequence.push(2); 
+    };
+    document.getElementById('2').onclick = function() {
+        gameData.playerSequence.push(2);
         yellow();
-        if (gameData.playerSequence.length < gameData.gameSequence.length){
+        if (gameData.playerSequence.length < gameData.gameSequence.length) {
             playerInput();
-        } else {
+        }
+        else {
             checkSequence();
         }
- };
- document.getElementById('3').onclick = function(){
-        gameData.playerSequence.push(3); 
+    };
+    document.getElementById('3').onclick = function() {
+        gameData.playerSequence.push(3);
         green();
-        if (gameData.playerSequence.length < gameData.gameSequence.length){
+        if (gameData.playerSequence.length < gameData.gameSequence.length) {
             playerInput();
-        } else {
+        }
+        else {
             checkSequence();
         }
- };
- document.getElementById('4').onclick = function(){
-        gameData.playerSequence.push(4); 
+    };
+    document.getElementById('4').onclick = function() {
+        gameData.playerSequence.push(4);
         blue();
-        if (gameData.playerSequence.length < gameData.gameSequence.length){
+        if (gameData.playerSequence.length < gameData.gameSequence.length) {
             playerInput();
-        } else {
+        }
+        else {
             checkSequence();
         }
- };
+    };
 }
 
-function checkSequence(){
-    if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length < 20){
+function checkSequence() {
+    if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length < 20) {
         gameData.playerSequence = [];
         newRound();
-    } else if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length === 20){
-        newGame();
-    } else {
-        showSequence();
+    }
+    else if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length === 20) {
+        displayWin();
+        setTimeout(newGame, 1000); 
+    }
+    else {
+        displayTryAgain();
+        setTimeout(showSequence, 1000);
     }
 }
 
@@ -157,6 +169,14 @@ document.getElementById('power').addEventListener('click', function() {
 
 function displayCount() {
     document.getElementById('display').innerHTML = gameData.count;
+}
+
+function displayWin() {
+    document.getElementById('display').innerHTML = 'Win!';
+}
+
+function displayTryAgain() {
+    document.getElementById('display').innerHTML = 'Try again!';
 }
 
 function red() {
