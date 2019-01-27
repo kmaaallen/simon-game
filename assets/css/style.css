@@ -1,63 +1,75 @@
-body{
-    background-color:#000;
+body {
+    background-color: #000;
 }
 
-div{
-    width:200px;
-    height:200px;
-    display:inline-block;
+h1,
+p {
+    color: #fff;
+    text-align: center;
 }
-h1, p{
-    color:#fff;
+
+.game-field {
+    width: 80%;
+    margin-left: 18%;
+}
+
+.square {
+    float: left;
+    width: 40%;
+    padding-bottom: 40%;
+    margin: 0;
+}
+
+.controls {
+    width: 100px;
     text-align:center;
-}
-
-.game-field{
-    display: flex;
-    width:100%;
-    justify-content: center;
+    margin: 550px auto 0 auto;
 }
 
 
-.red-square{
-    background-color:#ff0000;
-    margin-top:50px;
-}
-.yellow-square{
-    background-color:#ffd700;
-}
-.green-square{
-    background-color:#008000;
-    margin-top:50px;
-}
-.blue-square{
-    background-color:#0000e5;
+.red-square {
+    background-color: #ff0000;
 }
 
-.red-light{
-    background-color:#ff7f7f;
+.yellow-square {
+    background-color: #ffd700;
 }
-.yellow-light{
-    background-color:#ffef99;
+
+.green-square {
+    background-color: #008000;
 }
-.green-light{
+
+.blue-square {
+    background-color: #0000e5;
+}
+
+.red-light {
+    background-color: #ff7f7f;
+}
+
+.yellow-light {
+    background-color: #ffef99;
+}
+
+.green-light {
     background-color: #7fbf7f;
 }
-.blue-light{
-    background-color:#6666ef;
+
+.blue-light {
+    background-color: #6666ef;
 }
 
 
-button{
-    width:100px;
-    height:50px;
-    background-color:#fff;
-    color:#000;
+button {
+    width: 100px;
+    height: 50px;
+    background-color: #fff;
+    color: #000;
 }
 
-#display{
-    width:100px;
-    height:100px;
-    background-color:#fff;
-    color:#000;
+#display {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    color: #000;
 }
