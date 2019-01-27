@@ -236,7 +236,10 @@ describe("check playerSequence length test suite", function() {
 
 describe("check playerSequence test suite", function() {
     beforeEach(function() {
-
+        jasmine.clock().install();
+    })
+    afterEach(function() {
+        jasmine.clock().uninstall();
     })
     describe("check playerSequence against gameSequence", function() {
         it("should call newRound function if sequences are the same and length is less than 20", function() {
@@ -246,19 +249,42 @@ describe("check playerSequence test suite", function() {
             checkSequence();
             expect(window.newRound).toHaveBeenCalled();
         });
-        it("should call newGame when player wins, i.e sequence is correct and length is 20", function() {
+        it("should NOT call newGame when player wins before 1000ms, i.e sequence is correct and length is 20", function() {
             gameData.gameSequence = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
             gameData.playerSequence = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
             spyOn(window, 'newGame');
             checkSequence();
-            expect(window.newGame).toHaveBeenCalled();
+            jasmine.clock().tick(999);
+            expect(window.newGame).not.toHaveBeenCalled();
         });
-        it("should call showSequence function if playerSequence is incorrect", function(){
+        it("should NOT call showSequence before 1000ms function if playerSequence is incorrect", function() {
             gameData.gameSequence = [1, 2, 3, 4, 1, 2, 3];
             gameData.playerSequence = [1, 2, 3, 4, 1, 2, 4];
             spyOn(window, 'showSequence');
             checkSequence();
+            jasmine.clock().tick(999);
+            expect(window.showSequence).not.toHaveBeenCalled();
+        });
+    });
+    describe("check functions are called after a time ", function() {
+        it("should call newGame when player wins after 1000ms, i.e sequence is correct and length is 20", function() {
+            gameData.gameSequence = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+            gameData.playerSequence = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+            spyOn(window, 'newGame');
+            checkSequence();
+            jasmine.clock().tick(1001);
+            expect(window.newGame).toHaveBeenCalled();
+        });
+        it("should call showSequence after 1000ms function if playerSequence is incorrect", function() {
+            gameData.gameSequence = [1, 2, 3, 4, 1, 2, 3];
+            gameData.playerSequence = [1, 2, 3, 4, 1, 2, 4];
+            spyOn(window, 'showSequence');
+            checkSequence();
+            jasmine.clock().tick(1001);
             expect(window.showSequence).toHaveBeenCalled();
         });
     });
 });
+
+
+
