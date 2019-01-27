@@ -97,9 +97,16 @@ describe("New Game initiated test suite", function() {
         });
     });
     describe("expect newRound() to be called when newGame() is executed", function() {
+        beforeEach(function(){
+            jasmine.clock().install();
+        });
+        afterEach(function(){
+            jasmine.clock().uninstall();
+        });
         it("should call newRound() function", function() {
             spyOn(window, 'newRound');
             newGame();
+            jasmine.clock().tick(11);
             expect(window.newRound).toHaveBeenCalled();
         });
     });
@@ -286,5 +293,25 @@ describe("check playerSequence test suite", function() {
     });
 });
 
-
+describe("game reset testing suite", function(){
+    describe("when newGame is called game variables should be reset to initial values", function(){
+        beforeEach(function(){
+            jasmine.clock().install();
+            newGame();
+        });
+        afterEach(function(){
+            jasmine.clock().uninstall();
+        });
+        it("should reset gameSequence to an empty array", function(){
+            jasmine.clock().tick(10);
+            expect(gameData.gameSequence).toEqual([]);
+        });
+        it("should reset playerSequence to an empty array", function(){
+            expect(gameData.playerSequence).toEqual([]);
+        });
+        it("should reset count to zero", function(){
+            expect(gameData.count).toEqual(0);
+        });
+    });
+});
 
