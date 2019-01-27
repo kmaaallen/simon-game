@@ -15,6 +15,15 @@ function displayCount() {
         document.getElementById('display').innerHTML = gameData.count;
 }
 
+function displayWin() {
+    document.getElementById('display').innerHTML = 'Win!';
+}
+
+function displayTryAgain() {
+    document.getElementById('display').innerHTML = 'Try again!';
+}
+
+
 function red() {
     $(document.getElementById('1')).addClass('red-light');
     setTimeout(function() {
