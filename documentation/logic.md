@@ -146,4 +146,4 @@ When a new game is started count in display should go back to start and the logi
 #### Game Logic
 1) Game variables need to be reset to initial values ie. gameSequence, playerSequence = [], count reset to 0.
 #### User Interface
-1) Display should show 1 once new game initiated.
+1) Display should show 1 once new game initiated - already in an earlier test.
