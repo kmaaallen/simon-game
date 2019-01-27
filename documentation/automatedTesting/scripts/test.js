@@ -54,7 +54,7 @@ function newGame() {
     gameData.count = 0;
     gameData.gameSequence = [];
     gameData.playerSequence = [];
-    newRound();
+    setTimeout(newRound, 11); // set timeout only for testing purposes to check game variables reset
 }
 
 function newRound() {
