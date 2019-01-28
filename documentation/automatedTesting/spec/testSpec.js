@@ -254,6 +254,7 @@ describe("check playerSequence test suite", function() {
             gameData.playerSequence = [1, 2, 3, 4, 1, 2, 3];
             spyOn(window, 'newRound');
             checkSequence();
+            jasmine.clock().tick(1000);
             expect(window.newRound).toHaveBeenCalled();
         });
         it("should NOT call newGame when player wins before 1000ms, i.e sequence is correct and length is 20", function() {
