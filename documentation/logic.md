@@ -139,6 +139,7 @@ The sequences must be equal for game to progress
 2) If correct but not the final round player should see count increase in display and a new sequence (one item longer)
 3) If correct and final round player should see 'win' message then re-start game
 4) To give the player time to see these messages there should be a delay before newGame or showSequence functions are shown respectively.
+5) When moving to a newRound there should be a delay so player input and new sequence aren't one straight after the other
 
 ## When the player wins and a new game is started
 When a new game is started count in display should go back to start and the logic above should be repeated
