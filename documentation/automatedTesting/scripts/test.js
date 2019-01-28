@@ -99,6 +99,12 @@ function displaySequence(i) {
 }
 
 function playerInput() {
+    let repeatSequence = setInterval(function(){
+        showSequence();
+        if (gameData.playerSequence.length > 0){
+            clearInterval(showSequence);
+        }
+    }, 5000);
     document.getElementById('1').onclick = function() {
         gameData.playerSequence.push(1);
         red();
