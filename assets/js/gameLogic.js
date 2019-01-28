@@ -68,7 +68,7 @@ function playerInput() {
         if (gameData.playerSequence.length > 0){
             clearInterval(showSequence);
         }
-    }, 5000);
+    }, 7000);
  document.getElementById('1').onclick = function(){
         gameData.playerSequence.push(1); 
         red();
