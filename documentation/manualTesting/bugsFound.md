@@ -6,7 +6,13 @@ Fix - 27/01/19
 1) Re-size control div to be narrower (100px) so it doesn't take up space beyond its button boundaries
 2) Make game grid responsive
 ## The count on round one starts at 2 instead of 1 27/01/19
+Issue - count incremented in both newGame and generatesequence function so new game starts on 2
+Fix - 28/01/19
+1) Removed count++ from newGame function. Count now only incremented when generatesequence is called.
 ## The delay between player inputting sequence, getting it checked and new sequence displaying is too short 27/01/19
+Issue - new sequence is displayed too quickly once player sequence checked.
+Fix - 28/01/19
+1) setTimeout added in checkSequence function before newRound is called.
 ## If there is no player input need to re-display sequence (set interval?) 27/01/19
 ## Function displayTryAgain and displayWin not defined 27/01/19
 Fix - 27/01/19 - forgot to move displayTryAgain and displayWin functions into gameUI.js file from test.js file. Now added.
