@@ -177,3 +177,20 @@ describe ("player messages when sequence checked test suite", function(){
     });
 });
 
+describe("replay game sequence test suite", function(){
+    beforeEach(function(){
+        jasmine.clock().install();
+        gameData.playerSequence = [];
+    });
+    afterEach(function(){
+        jasmine.clock().uninstall();
+    });
+    describe("replay game sequence if no player input after set time", function(){
+        it("should repeat game sequence after five seconds if no player input", function(){
+            spyOn(window, 'showSequence')
+            playerInput();
+            jasmine.clock().tick(5000);
+            expect(window.showSequence).toHaveBeenCalled();
+        });
+    });
+});
