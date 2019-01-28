@@ -17,7 +17,6 @@ document.getElementById('start').onclick = function(){
 };
 
 function newGame(){
-    gameData.count++;
     newRound();
 }
 
@@ -46,15 +45,19 @@ function showSequence (){
 
 function displaySequence(i) {
         if (gameData.gameSequence[i] === 1) {
+            console.log('red');
             red();
         }
         else if (gameData.gameSequence[i] === 2) {
+            console.log('yellow');
             yellow();
         }
         else if (gameData.gameSequence[i] === 3) {
+            console.log('green');
             green();
         }
         else {
+            console.log('blue');
             blue();
         }
 }
@@ -101,7 +104,7 @@ function playerInput() {
 function checkSequence() {
     if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length < 20) {
         gameData.playerSequence = [];
-        newRound();
+        setTimeout(newRound, 1000);
     }
     else if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length === 20) {
         displayWin();
