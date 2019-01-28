@@ -9,20 +9,24 @@ p {
 }
 
 .game-field {
-    width: 80%;
-    margin-left: 18%;
+    width: 90%;
+    margin-left: auto;
+    margin-right:auto;
+    max-width: 400px;
+    max-height: 400px;
 }
 
 .square {
     float: left;
-    width: 40%;
-    padding-bottom: 40%;
-    margin: 0;
+    width: 50%;
+    padding-bottom: 50%;
+    margin-left: auto;
+    margin-right:auto;
 }
 
 .controls {
     width: 100px;
-    text-align:center;
+    text-align: center;
     margin: 550px auto 0 auto;
 }
 
