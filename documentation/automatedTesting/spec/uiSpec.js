@@ -173,6 +173,7 @@ describe ("player messages when sequence checked test suite", function(){
             spyOn(window, 'displayTryAgain');
             checkSequence();
             expect(window.displayTryAgain).toHaveBeenCalled();
-        })
+        });
     });
 });
+
