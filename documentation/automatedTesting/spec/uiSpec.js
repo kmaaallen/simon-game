@@ -189,7 +189,7 @@ describe("replay game sequence test suite", function(){
         it("should repeat game sequence after five seconds if no player input", function(){
             spyOn(window, 'showSequence')
             playerInput();
-            jasmine.clock().tick(5000);
+            jasmine.clock().tick(7000);
             expect(window.showSequence).toHaveBeenCalled();
         });
     });
