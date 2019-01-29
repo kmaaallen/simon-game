@@ -98,12 +98,12 @@ The accompanying sound (relative to each colour) will have to play for the same 
 #### Game logic
 1) Game needs to link each number in the gameSequence to a specific coloured square<br>
 i.e 1 = red, 2 = yellow, 3 = green, 4 = blue.
-2) Game needs to call the function that 'lights up' that coloured square and 'sounds' that square's noise //SOUNDS TO BE ADDED STILL
+2) Game needs to call the function that 'lights up' that coloured square and 'sounds' that square's noise //SOUNDS TO BE TESTED STILL
 3) Game needs to move to the next item in the gameSequence array and trigger that colour function until the array is finished.
 All tested and passed, code added to gameUI.js and gameLogic.js files.
 #### User Interface
 1) Light class needs to be added to coloured square
-2) Sound needs to be played for relevant coloured square // SOUND CLIPS NOT ADDED YET
+2) Sound needs to be played for relevant coloured square // SOUND CLIPS TO BE TESTED
 3) Light class needs to be removed after interval of time
 4) There needs to be an interval between each colour in sequence flashing (i.e they go one after the other if sequence is longer than 1 item)
 All tested and passed, code added to gameUI.js and gameLogic.js files.
@@ -148,3 +148,14 @@ When a new game is started count in display should go back to start and the logi
 1) Game variables need to be reset to initial values ie. gameSequence, playerSequence = [], count reset to 0.
 #### User Interface
 1) Display should show 1 once new game initiated - already in an earlier test.
+
+## When game is in strict mode
+When the game is in strict mode, as soon as the player gets a sequence wrong the game re-starts.
+### Need to test
+#### Game Logic
+1) Game recognises strict mode is ON when strict button is activated by player
+2) Game toggles strict mode between ON and OFF when the strict button is clicked by player
+3) When strict mode is ON i.e strictStatus === true, if a player gets a sequence wrong, instead of "try again" message, the game re-starts.
+4) start again message should display before game re-starts.
+#### User Interface
+1) There needs to be a visual indicator that the game is in strict mode
