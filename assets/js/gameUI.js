@@ -4,7 +4,7 @@ jQuery(document).ready(function(){
 
 document.getElementById('power').addEventListener('click', function() {
     if (gameData.powerStatus === true) {
-        document.getElementById('display').innerHTML = "ready";
+        document.getElementById('display').innerHTML = "Ready";
     }
     else {
         document.getElementById('display').innerHTML = '';
