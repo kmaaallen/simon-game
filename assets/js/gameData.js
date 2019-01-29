@@ -5,5 +5,14 @@ var gameData = {
     gameSequence : [],
     playerSequence : [],
     powerStatus : false,
-    startStatus : false
-}
+    startStatus : false,
+    redAudio: redAudio,
+    yellowAudio : yellowAudio,
+    greenAudio : greenAudio,
+    blueAudio : blueAudio
+};
+
+var redAudio = new Audio('/assets/sounds/simonSound1.mp3');
+var yellowAudio = new Audio('/assets/sounds/simonSound1.mp3');
+var greenAudio = new Audio('/assets/sounds/simonSound1.mp3');
+var blueAudio = new Audio('/assets/sounds/simonSound1.mp3');
