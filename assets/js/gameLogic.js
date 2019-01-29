@@ -16,6 +16,12 @@ document.getElementById('start').onclick = function() {
     }
 };
 
+document.getElementById('strict').onclick = function() {
+    gameData.strictStatus = !gameData.strictStatus;
+    strictDisplay();
+};
+
+
 function newGame() {
     newRound();
 }
@@ -106,6 +112,7 @@ function playerInput() {
     };
 }
 
+
 function checkSequence() {
     if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length < 20) {
         gameData.playerSequence = [];
@@ -113,10 +120,14 @@ function checkSequence() {
     }
     else if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length === 20) {
         displayWin();
-        setTimeout(newGame, 1000);
+        setTimeout(newGame, 1000); 
     }
     else {
+        if(gameData.strictStatus === true){
+            displayStartAgain();
+            setTimeout(newGame, 1000);
+        } else
         displayTryAgain();
-        // setTimeout(showSequence, 1000);
+        setTimeout(showSequence, 1000);
     }
 }
