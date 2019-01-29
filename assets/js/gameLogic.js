@@ -1,26 +1,26 @@
-jQuery(document).ready(function(){
+jQuery(document).ready(function() {
     $.getScript('/assets/js/gameData.js');
 });
 
-document.getElementById('power').onclick = function(){
-gameData.powerStatus = !gameData.powerStatus;
-if (gameData.powerStatus === false){
-    gameData.startStatus = false;
-}
+document.getElementById('power').onclick = function() {
+    gameData.powerStatus = !gameData.powerStatus;
+    if (gameData.powerStatus === false) {
+        gameData.startStatus = false;
+    }
 };
 
-document.getElementById('start').onclick = function(){
-  gameData.startStatus = !gameData.startStatus;
-  if (gameData.startStatus === true){
-      newGame();
-  }
+document.getElementById('start').onclick = function() {
+    gameData.startStatus = !gameData.startStatus;
+    if (gameData.startStatus === true) {
+        newGame();
+    }
 };
 
-function newGame(){
+function newGame() {
     newRound();
 }
 
-function newRound(){
+function newRound() {
     generateSequence();
     showSequence();
     playerInput();
@@ -32,79 +32,78 @@ function generateSequence() {
     displayCount();
 }
 
-function showSequence (){
+function showSequence() {
+    console.log('showSequence');
     var i = 0;
-    let sequence = setInterval(function(){
+    let sequence = setInterval(function() {
         displaySequence(i);
         i++;
-        if (i >= gameData.gameSequence.length){
+        if (i >= gameData.gameSequence.length) {
             clearInterval(sequence);
         }
     }, 1000);
 }
 
 function displaySequence(i) {
-        if (gameData.gameSequence[i] === 1) {
-            console.log('red');
-            red();
-        }
-        else if (gameData.gameSequence[i] === 2) {
-            console.log('yellow');
-            yellow();
-        }
-        else if (gameData.gameSequence[i] === 3) {
-            console.log('green');
-            green();
-        }
-        else {
-            console.log('blue');
-            blue();
-        }
+    if (gameData.gameSequence[i] === 1) {
+        console.log('red');
+        red();
+    }
+    else if (gameData.gameSequence[i] === 2) {
+        console.log('yellow');
+        yellow();
+    }
+    else if (gameData.gameSequence[i] === 3) {
+        console.log('green');
+        green();
+    }
+    else {
+        console.log('blue');
+        blue();
+    }
 }
 
 function playerInput() {
-    let repeatSequence = setInterval(function(){
-        showSequence();
-        if (gameData.playerSequence.length > 0){
-            clearInterval(showSequence);
-        }
-    }, 7000);
- document.getElementById('1').onclick = function(){
-        gameData.playerSequence.push(1); 
+    document.getElementById('1').onclick = function() {
+        gameData.playerSequence.push(1);
         red();
-        if (gameData.playerSequence.length < gameData.gameSequence.length){
+        if (gameData.playerSequence.length < gameData.gameSequence.length) {
             playerInput();
-        } else {
+        }
+        else {
             checkSequence();
         }
- };
- document.getElementById('2').onclick = function(){
-        gameData.playerSequence.push(2); 
+    };
+    document.getElementById('2').onclick = function() {
+        gameData.playerSequence.push(2);
         yellow();
-        if (gameData.playerSequence.length < gameData.gameSequence.length){
+        if (gameData.playerSequence.length < gameData.gameSequence.length) {
             playerInput();
-        } else {
+        }
+        else {
             checkSequence();
         }
- };
- document.getElementById('3').onclick = function(){
-        gameData.playerSequence.push(3); 
+    };
+    document.getElementById('3').onclick = function() {
+        gameData.playerSequence.push(3);
         green();
-        if (gameData.playerSequence.length < gameData.gameSequence.length){
+        if (gameData.playerSequence.length < gameData.gameSequence.length) {
             playerInput();
-        } else {
+        }
+        else {
             checkSequence();
         }
- };
- document.getElementById('4').onclick = function(){
-        gameData.playerSequence.push(4); 
+    };
+    document.getElementById('4').onclick = function() {
+        gameData.playerSequence.push(4);
         blue();
-        if (gameData.playerSequence.length < gameData.gameSequence.length){
+        if (gameData.playerSequence.length < gameData.gameSequence.length) {
             playerInput();
-        } else {
+        }
+        else {
             checkSequence();
         }
- };
+    };
 }
 
 function checkSequence() {
@@ -114,7 +113,7 @@ function checkSequence() {
     }
     else if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length === 20) {
         displayWin();
-        setTimeout(newGame, 1000); 
+        setTimeout(newGame, 1000);
     }
     else {
         displayTryAgain();
