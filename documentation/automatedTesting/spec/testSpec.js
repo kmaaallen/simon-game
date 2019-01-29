@@ -97,10 +97,10 @@ describe("New Game initiated test suite", function() {
         });
     });
     describe("expect newRound() to be called when newGame() is executed", function() {
-        beforeEach(function(){
+        beforeEach(function() {
             jasmine.clock().install();
         });
-        afterEach(function(){
+        afterEach(function() {
             jasmine.clock().uninstall();
         });
         it("should call newRound() function", function() {
@@ -283,7 +283,7 @@ describe("check playerSequence test suite", function() {
             jasmine.clock().tick(1001);
             expect(window.newGame).toHaveBeenCalled();
         });
-        it("should call showSequence after 1000ms function if playerSequence is incorrect", function() {
+        it("should call showSequence after 1000ms if playerSequence is incorrect", function() {
             gameData.gameSequence = [1, 2, 3, 4, 1, 2, 3];
             gameData.playerSequence = [1, 2, 3, 4, 1, 2, 4];
             spyOn(window, 'showSequence');
@@ -291,28 +291,59 @@ describe("check playerSequence test suite", function() {
             jasmine.clock().tick(1001);
             expect(window.showSequence).toHaveBeenCalled();
         });
+        it("should call newGame after 1000ms if strict mode is true and player input is incorrect", function() {
+            gameData.gameSequence = [1, 2, 3, 4, 1, 2, 3];
+            gameData.playerSequence = [1, 2, 3, 4, 1, 2, 4];
+            spyOn(window, 'newGame');
+            gameData.strictStatus = true;
+            checkSequence();
+            jasmine.clock().tick(1001);
+            expect(window.newGame).toHaveBeenCalled();
+        });
+        it("should call NOT call newGame at any time if strict mode is false and player input is incorrect", function() {
+            gameData.gameSequence = [1, 2, 3, 4, 1, 2, 3];
+            gameData.playerSequence = [1, 2, 3, 4, 1, 2, 4];
+            spyOn(window, 'newGame');
+            gameData.strictStatus = false;
+            checkSequence();
+            expect(window.newGame).not.toHaveBeenCalled();
+        });
     });
 });
 
-describe("game reset testing suite", function(){
-    describe("when newGame is called game variables should be reset to initial values", function(){
-        beforeEach(function(){
+describe("game reset testing suite", function() {
+    describe("when newGame is called game variables should be reset to initial values", function() {
+        beforeEach(function() {
             jasmine.clock().install();
             newGame();
         });
-        afterEach(function(){
+        afterEach(function() {
             jasmine.clock().uninstall();
         });
-        it("should reset gameSequence to an empty array", function(){
+        it("should reset gameSequence to an empty array", function() {
             jasmine.clock().tick(10);
             expect(gameData.gameSequence).toEqual([]);
         });
-        it("should reset playerSequence to an empty array", function(){
+        it("should reset playerSequence to an empty array", function() {
             expect(gameData.playerSequence).toEqual([]);
         });
-        it("should reset count to zero", function(){
+        it("should reset count to zero", function() {
             expect(gameData.count).toEqual(0);
         });
     });
 });
 
+describe("strict mode test suite", function() {
+    describe("strict mode toggle ON", function() {
+        it("should change strictStatus to true when strict button is clicked when strict status is false", function() {
+            strictStatus = false;
+            strictClick();
+            expect(gameData.strictStatus).toBe(true);
+        });
+        it("should change strictStatus to false when strict button is clicked while in true state", function() {
+            strictStatus = true;
+            strictClick();
+            expect(gameData.strictStatus).toBe(false);
+        });
+    });
+});
