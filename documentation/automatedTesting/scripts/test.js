@@ -3,7 +3,7 @@
 var gameData = {
     powerStatus: false,
     startStatus: false,
-   // strictStatus: false,
+    strictStatus: false,
     count: 0,
     gameSequence: [],
     playerSequence:[],
