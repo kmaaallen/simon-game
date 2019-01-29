@@ -4,9 +4,18 @@ var gameData = {
     powerStatus: false,
     startStatus: false,
     count: 0,
-    gameSequence: []
+    gameSequence: [],
+    playerSequence:[],
+    redAudio: redAudio,
+    yellowAudio : yellowAudio,
+    greenAudio : greenAudio,
+    blueAudio : blueAudio
 };
 
+var redAudio = new Audio('/assets/sounds/simonSound1.mp3');
+var yellowAudio = new Audio('/assets/sounds/simonSound1.mp3');
+var greenAudio = new Audio('/assets/sounds/simonSound1.mp3');
+var blueAudio = new Audio('/assets/sounds/simonSound1.mp3');
 // Game Logic ------------------------------------------------------------------
 //function pageReload(){
 //   location.reload();
@@ -99,12 +108,6 @@ function displaySequence(i) {
 }
 
 function playerInput() {
-    let repeatSequence = setInterval(function(){
-        showSequence();
-        if (gameData.playerSequence.length > 0){
-            clearInterval(showSequence);
-        }
-    }, 7000);
     document.getElementById('1').onclick = function() {
         gameData.playerSequence.push(1);
         red();
@@ -145,6 +148,12 @@ function playerInput() {
             checkSequence();
         }
     };
+    let repeatSequence = setInterval(function(){
+        showSequence();
+        if (gameData.playerSequence.length > 0){
+            clearInterval(showSequence);
+        }
+    }, 7000);
 }
 
 function checkSequence() {
@@ -162,6 +171,17 @@ function checkSequence() {
     }
 }
 
+ /*let repeatSequence = setInterval(function() {
+         checkSequence();
+         if (gameData.playerSequence.length != 0) {
+             clearInterval(repeatSequence);
+         }
+     }, 7000);
+    setTimeout(checkSequence, 7000);
+     if (gameData.playerSequence.length === 0) {
+        setTimeout(showSequence, 1000);
+    }
+*/
 
 // User Interface functions etc. -----------------------------------------------
 document.getElementById('power').addEventListener('click', function() {
@@ -187,6 +207,7 @@ function displayTryAgain() {
 
 function red() {
     $(document.getElementById('1')).addClass('red-light');
+    //gameData.redAudio.play();
     setTimeout(function() {
         $(document.getElementById('1')).removeClass('red-light');
     }, 500);
@@ -194,6 +215,7 @@ function red() {
 
 function yellow() {
     $(document.getElementById('2')).addClass('yellow-light');
+   // playSoundYellow();
     setTimeout(function() {
         $(document.getElementById('2')).removeClass('yellow-light');
     }, 500);
@@ -201,6 +223,7 @@ function yellow() {
 
 function green() {
     $(document.getElementById('3')).addClass('green-light');
+    //playSoundGreen();
     setTimeout(function() {
         $(document.getElementById('3')).removeClass('green-light');
     }, 500);
@@ -208,7 +231,21 @@ function green() {
 
 function blue() {
     $(document.getElementById('4')).addClass('blue-light');
+    //playSoundBlue();
     setTimeout(function() {
         $(document.getElementById('4')).removeClass('blue-light');
     }, 500);
 }
+
+/*function playSoundRed(){
+    gameData.redAudio.play();
+}
+function playSoundYellow(){
+    gameData.yellowAudio.play();
+}
+function playSoundGreen(){
+    gameData.greenAudio.play();
+}
+function playSoundBlue(){
+    gameData.blueAudio.play();
+}*/
