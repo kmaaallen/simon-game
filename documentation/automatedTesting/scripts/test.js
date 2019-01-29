@@ -3,6 +3,7 @@
 var gameData = {
     powerStatus: false,
     startStatus: false,
+   // strictStatus: false,
     count: 0,
     gameSequence: [],
     playerSequence:[],
@@ -27,6 +28,10 @@ function powerClick() { // for testing purposes only
 
 function startClick() { // for testing purposes only
     document.getElementById('start').click();
+}
+
+function strictClick() { // for testing purposes only
+   document.getElementById('strict').click();
 }
 
 function redClick() { // for testing purposes only
@@ -57,6 +62,11 @@ document.getElementById('start').onclick = function() {
     if (gameData.startStatus === true) {
         newGame();
     }
+};
+
+document.getElementById('strict').onclick = function() {
+    gameData.strictStatus = !gameData.strictStatus;
+    strictDisplay();
 };
 
 function newGame() {
@@ -166,6 +176,10 @@ function checkSequence() {
         setTimeout(newGame, 1000); 
     }
     else {
+        if(gameData.strictStatus === true){
+            displayStartAgain();
+            setTimeout(newGame, 1000);
+        } else
         displayTryAgain();
         setTimeout(showSequence, 1000);
     }
@@ -205,6 +219,18 @@ function displayTryAgain() {
     document.getElementById('display').innerHTML = 'Try again!';
 }
 
+function strictDisplay(){
+    if (gameData.strictStatus === true){
+        document.getElementById('strict').innerHTML = "Strict Mode ON";
+    } else {
+        document.getElementById('strict').innerHTML = "Strict Mode OFF";
+    }
+}
+
+function displayStartAgain(){
+    document.getElementById('display').innerHTML = 'Wrong! Start again!';
+}
+
 function red() {
     $(document.getElementById('1')).addClass('red-light');
     //gameData.redAudio.play();
@@ -236,6 +262,7 @@ function blue() {
         $(document.getElementById('4')).removeClass('blue-light');
     }, 500);
 }
+
 
 /*function playSoundRed(){
     gameData.redAudio.play();
