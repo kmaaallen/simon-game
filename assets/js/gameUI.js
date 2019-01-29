@@ -26,6 +26,7 @@ function displayTryAgain() {
 
 function red() {
     $(document.getElementById('1')).addClass('red-light');
+    gameData.redAudio.play();
     setTimeout(function() {
         $(document.getElementById('1')).removeClass('red-light');
     }, 500);
@@ -33,6 +34,7 @@ function red() {
 
 function yellow() {
     $(document.getElementById('2')).addClass('yellow-light');
+    gameData.yellowAudio.play();
     setTimeout(function() {
         $(document.getElementById('2')).removeClass('yellow-light');
     }, 500);
@@ -40,6 +42,7 @@ function yellow() {
 
 function green() {
     $(document.getElementById('3')).addClass('green-light');
+    gameData.greenAudio.play();
     setTimeout(function() {
         $(document.getElementById('3')).removeClass('green-light');
     }, 500);
@@ -47,6 +50,7 @@ function green() {
 
 function blue() {
     $(document.getElementById('4')).addClass('blue-light');
+    gameData.blueAudio.play();
     setTimeout(function() {
         $(document.getElementById('4')).removeClass('blue-light');
     }, 500);
