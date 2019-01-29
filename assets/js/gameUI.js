@@ -23,6 +23,17 @@ function displayTryAgain() {
     document.getElementById('display').innerHTML = 'Try again!';
 }
 
+function strictDisplay(){
+    if (gameData.strictStatus === true){
+        document.getElementById('strict').innerHTML = "Strict Mode ON";
+    } else {
+        document.getElementById('strict').innerHTML = "Strict Mode OFF";
+    }
+}
+
+function displayStartAgain(){
+    document.getElementById('display').innerHTML = 'Wrong! Start again!';
+}
 
 function red() {
     $(document.getElementById('1')).addClass('red-light');
