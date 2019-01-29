@@ -20,8 +20,10 @@ Fix - 28/01/19
 ## If there is no player input need to re-display sequence (set interval?) 27/01/19
 Issue - if the player doesn't copy the sequence the game just stops at this point. <br>
 After a time if no player input the sequence should replay to prompt the player to do something.
-Fix - 28/01/19
+
 1) 
 
 ## Function displayTryAgain and displayWin not defined 27/01/19
 Fix - 27/01/19 - forgot to move displayTryAgain and displayWin functions into gameUI.js file from test.js file. Now added.
+
+## Interval before repeating sequence (7 seconds) only works on first round when gameSequence length is 1. 28/01/19
