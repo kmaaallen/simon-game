@@ -32,3 +32,5 @@
 
 ### Acknowledgements
 
+Sounds for the simon game were taken from : https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-a-simon-game/
+
