@@ -117,6 +117,6 @@ function checkSequence() {
     }
     else {
         displayTryAgain();
-        setTimeout(showSequence, 1000);
+        // setTimeout(showSequence, 1000);
     }
 }
