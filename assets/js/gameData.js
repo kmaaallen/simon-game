@@ -6,6 +6,7 @@ var gameData = {
     playerSequence : [],
     powerStatus : false,
     startStatus : false,
+    strictStatus: false,
     redAudio: redAudio,
     yellowAudio : yellowAudio,
     greenAudio : greenAudio,
