@@ -59,7 +59,7 @@ document.getElementById('power').onclick = function() {
 
 document.getElementById('start').onclick = function() {
     gameData.startStatus = !gameData.startStatus;
-    if (gameData.startStatus === true) {
+    if (gameData.startStatus === true && gameData.powerStatus === true) {
         newGame();
     }
 };
