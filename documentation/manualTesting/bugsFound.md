@@ -35,3 +35,5 @@ Fix - 29/01/19 - made display box longer.
 Fix - 30/01/19 - adjusted start click function to check BOTH power and start were true. Added specs and tested.
 
 ## startStatus not changing back to false if on and power is clicked on 30/01/19
+Fix - 30/01/19 - changed specs to test for start button ONLY turning ON when power is already on and only turning OFF
+when power button is turned off. Tested and adjusted code.
