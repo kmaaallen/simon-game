@@ -33,21 +33,23 @@ describe("start button test suite", function() {
             expect(gameData.startStatus).toEqual(false);
         });
     });
-    describe("start status change to ON (true)", function() {
+    describe("start status change to ON (true) only when power is already ON", function() {
         beforeEach(function() {
             gameData.startStatus = false;
+            gameData.powerStatus = true;
         });
         it("should have a value of true when start button clicked while value is false", function() {
             startClick();
             expect(gameData.startStatus).toEqual(true);
         });
     });
-    describe("start status change to OFF (false)", function() {
+    describe("start status change to OFF (false) when power is turned OFF", function() {
         beforeEach(function() {
             gameData.startStatus = true;
+            gameData.powerStatus = true;
         });
         it("should have a value of false when start button clicked while value is true", function() {
-            startClick();
+            powerClick();
             expect(gameData.startStatus).toEqual(false);
         });
     });
