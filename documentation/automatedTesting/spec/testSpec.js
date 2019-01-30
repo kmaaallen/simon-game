@@ -85,7 +85,7 @@ describe("New Game initiated test suite", function() {
             expect(window.newGame).not.toHaveBeenCalled();
         });
     });
-    describe("newGame function NOT called when powerStatus and startStatus are both true", function() {
+    describe("newGame function NOT called when powerStatus and startStatus are both false", function() {
         beforeEach(function() {
             gameData.powerStatus = true;
             gameData.startStatus = false;
@@ -93,6 +93,17 @@ describe("New Game initiated test suite", function() {
         it("should NOT call newGame function when both powerstatus and startstatus are false", function() {
             spyOn(window, 'newGame');
             powerClick();
+            expect(window.newGame).not.toHaveBeenCalled();
+        });
+    });
+    describe ("newGame function is NOT called when powerstatus is false and startstatus is true", function(){
+        beforeEach(function() {
+            gameData.powerStatus = false;
+            gameData.startStatus = false;
+        });
+        it("should NOT call newGame function when startstatus is true but powerstatus is false",function(){
+            spyOn(window, 'newGame');
+            startClick();
             expect(window.newGame).not.toHaveBeenCalled();
         });
     });
