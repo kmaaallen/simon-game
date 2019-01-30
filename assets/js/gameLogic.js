@@ -11,7 +11,7 @@ document.getElementById('power').onclick = function() {
 
 document.getElementById('start').onclick = function() {
     gameData.startStatus = !gameData.startStatus;
-    if (gameData.startStatus === true) {
+    if (gameData.startStatus === true && gameData.powerStatus === true) {
         newGame();
     }
 };
@@ -23,6 +23,10 @@ document.getElementById('strict').onclick = function() {
 
 
 function newGame() {
+    console.log ('calling new game?');
+    gameData.count = 0;
+    gameData.gameSequence = [];
+    gameData.playerSequence = [];
     newRound();
 }
 
@@ -125,6 +129,7 @@ function checkSequence() {
     else {
         if(gameData.strictStatus === true){
             displayStartAgain();
+            console.log('got here');
             setTimeout(newGame, 1000);
         } else
         displayTryAgain();
