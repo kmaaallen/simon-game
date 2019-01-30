@@ -10,8 +10,8 @@ document.getElementById('power').onclick = function() {
 };
 
 document.getElementById('start').onclick = function() {
-    gameData.startStatus = !gameData.startStatus;
-    if (gameData.startStatus === true && gameData.powerStatus === true) {
+    if (gameData.powerStatus === true  &&  gameData.startStatus === false) {
+        gameData.startStatus = !gameData.startStatus;
         newGame();
     }
 };
