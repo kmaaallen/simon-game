@@ -222,10 +222,10 @@ describe("player input test suite", function() {
 
 describe("check playerSequence length test suite", function() {
     beforeEach(function() {
-            gameData.gameSequence = [1, 2, 3, 4];
-            gameData.playerSequence = [];
-            playerInput();
-        });
+        gameData.gameSequence = [1, 2, 3, 4];
+        gameData.playerSequence = [];
+        playerInput();
+    });
     describe("player input function should loop unless playerSequence length equals gameSequence length", function() {
         it("should call playerInput function again if playerSequence is less than gameSequence", function() {
             spyOn(window, 'playerInput');
@@ -288,6 +288,14 @@ describe("check playerSequence test suite", function() {
             checkSequence();
             expect(window.newGame).not.toHaveBeenCalled();
         });
+        if ("should call displayStartAgain if player sequence wrong in strict mode", function() {
+                gameData.gameSequence = [1, 2, 3, 4, 1, 2, 3];
+                gameData.playerSequence = [1, 2, 3, 4, 1, 2, 4];
+                gameData.strictStatus = true;
+                spyOn(window, 'displayStartAgain');
+                checkSequence();
+                expect(window.displayTryAgain).toHaveBeenCalled();
+            });
     });
 });
 
