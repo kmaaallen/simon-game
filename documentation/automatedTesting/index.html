@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document - test index.html</title>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/jasmine.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/jasmine-html.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/boot.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/jasmine.css" />
-    
+
 </head>
+
 <body>
-     <div class="game-field">
-    <div class="container">
-        <div class="red-square" id = "1"></div>
-        <div class="yellow-square" id = "2"></div>
+    <div class="game-field">
+
+        <div class="red-square" id="1"></div>
+        <div class="yellow-square" id="2"></div>
+
+
+        <div class="green-square" id="3"></div>
+        <div class="blue-square" id="4"></div>
+
+        <div class="controls">
+            <div class="strict-square square" id="strict"><button id="strict-button">Strict Mode</button></div>
+            <div class="start-square square" id="start"><button>Start<span id="start-span"></span></button></div>
+            <div class="power-square square" id="power"><button>Power<span id="power-span"></span></button></div>
+            <div id="display" class="display-square square"></div>
+        </div>
     </div>
-    <div class="container">
-        <div class="green-square" id = "3"></div>
-        <div class="blue-square" id = "4"></div>
-    </div>
-    </div>
-    
-    <div class="controls">
-        <button name="strict" id ="strict">Strict Mode</button>
-        <button name="Start" id= "start">Start</button>
-        <button name="Power" id= "power">Power</button>
-        <div id="display"></div>
-    </div>
-    
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/test.js"></script>
     <script type="text/javascript" src="spec/testSpec.js"></script>
     <script type="text/javascript" src="spec/uiSpec.js"></script>
 </body>
+
 </html>
