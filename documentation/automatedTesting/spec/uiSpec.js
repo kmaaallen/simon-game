@@ -189,11 +189,28 @@ describe("strictmode button display test suite", function() {
             expect(document.getElementById('strict-button').innerHTML).toBe('Strict Mode ON');
             expect(document.getElementById('strict-button').className).toBe('on');
         });
-        it("should display strict mode on message when strict mode is off", function() {
+        it("should display strict mode off message when strict mode is off", function() {
             gameData.strictStatus = true;
             strictClick();
             expect(document.getElementById('strict-button').innerHTML).toBe('Strict Mode OFF');
             expect(document.getElementById('strict-button').className).toBe('off');
         });
-    })
-})
+    });
+});
+
+describe("power button display test suite", function() {
+    describe("power button appearance depending on mode", function() {
+        it("should display power on message when power is on", function() {
+            gameData.powerStatus = false;
+            powerClick();
+            expect(document.getElementById('power-button').innerHTML).toBe('Power ON');
+            expect(document.getElementById('power-button').className).toBe('on');
+        });
+        it("should display power off message when power is off", function() {
+            gameData.powerStatus = true;
+            powerClick();
+            expect(document.getElementById('power-button').innerHTML).toBe('Power OFF');
+            expect(document.getElementById('power-button').className).toBe('off');
+        });
+    });
+});
