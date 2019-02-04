@@ -4,10 +4,16 @@ jQuery(document).ready(function(){
 
 document.getElementById('power').addEventListener('click', function() {
     if (gameData.powerStatus === true) {
-        document.getElementById('display').innerHTML = "Ready";
+        document.getElementById('display').innerHTML = "ready";
+        document.getElementById('power-button').innerHTML = "Power ON";
+        $(document.getElementById('power-button')).removeClass('off');
+        $(document.getElementById('power-button')).addClass('on');
     }
     else {
         document.getElementById('display').innerHTML = '';
+        document.getElementById('power-button').innerHTML = "Power OFF";
+        $(document.getElementById('power-button')).removeClass('on');
+        $(document.getElementById('power-button')).addClass('off');
     }
 });
 
@@ -30,7 +36,7 @@ function strictDisplay() {
         $(document.getElementById('strict-button')).addClass('on');
     }
     else {
-        document.getElementById('strict-button').innerHTML = "OFF";
+        document.getElementById('strict-button').innerHTML = "Strict Mode OFF";
         $(document.getElementById('strict-button')).removeClass('on');
         $(document.getElementById('strict-button')).addClass('off');
     }
