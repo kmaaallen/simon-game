@@ -43,7 +43,7 @@ function strictDisplay() {
 }
 
 function displayStartAgain(){
-    document.getElementById('display').innerHTML = 'Wrong! Start again!';
+    document.getElementById('display').innerHTML = 'Start again!';
 }
 
 function red() {
