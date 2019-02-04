@@ -4,7 +4,7 @@ jQuery(document).ready(function(){
 
 document.getElementById('power').addEventListener('click', function() {
     if (gameData.powerStatus === true) {
-        document.getElementById('display').innerHTML = "ready";
+        document.getElementById('display').innerHTML = "Ready";
         document.getElementById('power-button').innerHTML = "Power ON";
         $(document.getElementById('power-button')).removeClass('off');
         $(document.getElementById('power-button')).addClass('on');
