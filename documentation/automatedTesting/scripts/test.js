@@ -227,10 +227,14 @@ function displayTryAgain() {
 
 function strictDisplay() {
     if (gameData.strictStatus === true) {
-        document.getElementById('strict').innerHTML = "Strict Mode ON";
+        document.getElementById('strict-button').innerHTML = "Strict Mode ON";
+        $(document.getElementById('strict-button')).removeClass('off');
+        $(document.getElementById('strict-button')).addClass('on');
     }
     else {
-        document.getElementById('strict').innerHTML = "Strict Mode OFF";
+        document.getElementById('strict-button').innerHTML = "Strict Mode OFF";
+        $(document.getElementById('strict-button')).removeClass('on');
+        $(document.getElementById('strict-button')).addClass('off');
     }
 }
 
