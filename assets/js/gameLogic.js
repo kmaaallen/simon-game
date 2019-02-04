@@ -37,7 +37,6 @@ function newGame() {
 function newRound() {
     generateSequence();
     showSequence();
-    playerInput();
 }
 
 function generateSequence() {
@@ -59,6 +58,7 @@ function showSequence() {
 }
 
 function displaySequence(i) {
+    console.log('got to display sequence');
     if (gameData.gameSequence[i] === 1) {
         console.log('red');
         red();
@@ -75,9 +75,12 @@ function displaySequence(i) {
         console.log('blue');
         blue();
     }
+    gameData.playerSequence = [];
+    playerInput();
 }
 
 function playerInput() {
+    console.log('got to player input');
     document.getElementById('1').onclick = function() {
         gameData.playerSequence.push(1);
         red();
@@ -122,6 +125,7 @@ function playerInput() {
 
 
 function checkSequence() {
+    console.log('checkSequencecalled')
     if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length < 20) {
         gameData.playerSequence = [];
         setTimeout(newRound, 1000);
@@ -133,11 +137,11 @@ function checkSequence() {
     else {
         if (gameData.strictStatus === true) {
             displayStartAgain();
-            console.log('got here');
             setTimeout(newGame, 3000);
         }
         else {
             displayTryAgain();
+            console.log('got here');
             setTimeout(showSequence, 1000);
         }
     }
