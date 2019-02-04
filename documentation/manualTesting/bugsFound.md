@@ -39,3 +39,7 @@ Fix - 30/01/19 - changed specs to test for start button ONLY turning ON when pow
 when power button is turned off. Tested and adjusted code.
 
 ## Turning power off doesn't seem to turn off game... 31/01/19
+Fix - 4/02/19 - adjusted test code for power/start click interaction and updated specs for testing.
+startStatus is now only true when start button is clicked when power is already on. i.e
+clicking the start button while the power is off does nothing to change start status.
+When poer button is switched of start status is changed to false if true and remains false if false.
