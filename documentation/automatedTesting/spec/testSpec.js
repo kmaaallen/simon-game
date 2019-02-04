@@ -1,28 +1,44 @@
 describe("power button test suite", function() {
-    describe("Initial power status", function() {
+    describe("initial power status", function() {
         it("should have an initial value of false", function() {
-            //pageReload();
             expect(gameData.powerStatus).toEqual(false);
         });
     });
-
-    describe("power status change to ON (true) ", function() {
-        beforeEach(function() {
-            gameData.powerStatus = false;
-        });
+    describe("power status change between ON(true) and OFF(false) on click", function() {
         it("should have a value of true when power button clicked while value is false", function() {
+            gameData.powerStatus = false;
             powerClick();
             expect(gameData.powerStatus).toEqual(true);
         });
-    });
-
-    describe("power status change to OFF (false)", function() {
-        beforeEach(function() {
-            gameData.powerStatus = true;
-        });
         it("should have a value of false when power button clicked while value is true", function() {
+            gameData.powerStatus = true;
             powerClick();
             expect(gameData.powerStatus).toEqual(false);
+        });
+    });
+    describe("when power is OFF, player cannot click coloured squares", function() {
+        beforeEach(function() {
+            gameData.powerStatus = false;
+            redClick();
+            yellowClick();
+            greenClick();
+            blueClick();
+        });
+        it("should NOT call color function red when red button is clicked", function() {
+            spyOn(window, 'red');
+            expect(window.red).not.toHaveBeenCalled();
+        });
+        it("should NOT call color function yellow when yellow button is clicked", function() {
+            spyOn(window, 'yellow');
+            expect(window.yellow).not.toHaveBeenCalled();
+        });
+        it("should NOT call color function green when green button is clicked", function() {
+            spyOn(window, 'green');
+            expect(window.green).not.toHaveBeenCalled();
+        });
+        it("should NOT call color function blue when blue button is clicked", function() {
+            spyOn(window, 'blue');
+            expect(window.blue).not.toHaveBeenCalled();
         });
     });
 });
@@ -33,79 +49,58 @@ describe("start button test suite", function() {
             expect(gameData.startStatus).toEqual(false);
         });
     });
-    describe("start status change to ON (true) only when power is already ON", function() {
+    describe("start status should only change to true only when powerStatus is true", function() {
         beforeEach(function() {
             gameData.startStatus = false;
             gameData.powerStatus = true;
         });
-        it("should have a value of true when start button clicked while value is false", function() {
+        it("should have a value of true when start button clicked", function() {
             startClick();
             expect(gameData.startStatus).toEqual(true);
         });
     });
-    describe("start status change to OFF (false) when power is turned OFF", function() {
+    describe("start status should be false whenever powerStatus is false", function() {
         beforeEach(function() {
             gameData.startStatus = true;
             gameData.powerStatus = true;
-        });
-        it("should have a value of false when start button clicked while value is true", function() {
             powerClick();
+        });
+        it("start status should have a value of false when powerStatus changes to false", function() {
             expect(gameData.startStatus).toEqual(false);
         });
-    });
-    describe("should have a value of OFF (false) when powerStatus is false", function() {
         beforeEach(function() {
-            gameData.powerStatus = true;
-        });
-        it("should have a value of false when power button clicked to OFF (i.e also has value of false)", function() {
+            gameData.startStatus = false;
+            gameData.powerStatus = false;
             powerClick();
+        });
+        it("startStatus should remain false when powerStatus changes to true until start button clicked", function() {
             expect(gameData.startStatus).toEqual(false);
         });
     });
 });
 
+
 describe("New Game initiated test suite", function() {
     describe("newGame function called when powerStatus and startStatus are BOTH true", function() {
-        beforeEach(function() {
+        it("should call newGame function when both powerstatus and startstatus are true", function() {
             gameData.powerStatus = true;
             gameData.startStatus = false;
-        });
-        it("should call newGame function when both powerstatus and startstatus are true", function() {
             spyOn(window, 'newGame');
             startClick();
             expect(window.newGame).toHaveBeenCalled();
         });
-    });
-    describe("newGame function NOT called when powerStatus is true and startStatus is false", function() {
-        beforeEach(function() {
-            gameData.powerStatus = true;
-            gameData.startStatus = true;
-        });
-        it("should NOT call new game when powerstatus is true but startstatus is false", function() {
-            spyOn(window, 'newGame');
-            startClick();
-            expect(window.newGame).not.toHaveBeenCalled();
-        });
-    });
-    describe("newGame function NOT called when powerStatus and startStatus are both false", function() {
-        beforeEach(function() {
+        it("should NOT call newGame function when both powerstatus and startstatus are false", function() {
             gameData.powerStatus = true;
             gameData.startStatus = false;
-        });
-        it("should NOT call newGame function when both powerstatus and startstatus are false", function() {
             spyOn(window, 'newGame');
             powerClick();
             expect(window.newGame).not.toHaveBeenCalled();
         });
-    });
-    describe ("newGame function is NOT called when powerstatus is false and startstatus is true", function(){
-        beforeEach(function() {
+        it("should NOT call new game when powerstatus is true but startstatus is false", function() {
             gameData.powerStatus = false;
             gameData.startStatus = false;
-        });
-        it("should NOT call newGame function when startstatus is true but powerstatus is false",function(){
             spyOn(window, 'newGame');
-            startClick();
+            powerClick();
             expect(window.newGame).not.toHaveBeenCalled();
         });
     });
@@ -126,21 +121,18 @@ describe("New Game initiated test suite", function() {
 });
 
 describe("newRound test suite", function() {
-    describe("generateSequence() function is called", function() {
+    describe("generateSequence, displaySequence and playerInput functions are called", function() {
         it("should call generateSequence when newRound is executed", function() {
             spyOn(window, 'generateSequence');
             newRound();
             expect(window.generateSequence).toHaveBeenCalled();
         });
-    });
-    describe("displaySequence() function is called", function() {
         it("should call showSequence when newRound is executed", function() {
             spyOn(window, 'showSequence');
             newRound();
+
             expect(window.showSequence).toHaveBeenCalled();
         });
-    });
-    describe("playerInput() function is called", function() {
         it("should call playerInput function when newRound is executed", function() {
             spyOn(window, 'playerInput');
             newRound();
@@ -151,14 +143,13 @@ describe("newRound test suite", function() {
 
 describe("generateSequence test suite", function() {
     describe("generateSequence being executed should result in sequence which is pushed to array of name 'gameSequence'", function() {
-        it("should show an array called gameSequence of length greater than 0", function() {
+        beforeEach(function() {
             generateSequence();
+        });
+        it("should show an array called gameSequence of length greater than 0", function() {
             expect(gameData.gameSequence.length).not.toBe(0);
         });
-    });
-    describe("gameSequence content should only consist of 1,2,3 or 4", function() {
         it("should only contain numbers in the range 1 to 4", function() {
-            generateSequence();
             for (x = 0; x < gameData.gameSequence.length; x++) {
                 expect(0 < gameData.gameSequence[x] < 5).toBe(true);
             }
@@ -168,9 +159,9 @@ describe("generateSequence test suite", function() {
         beforeEach(function() {
             gameData.gameSequence = [];
             gameData.count = 0;
+            generateSequence();
         });
         it("gameData.gameSequence should have a length of gameData.count", function() {
-            generateSequence();
             expect(gameData.gameSequence.length).toEqual(gameData.count);
         });
     });
@@ -179,12 +170,11 @@ describe("generateSequence test suite", function() {
 describe("display sequence test suite", function() {
     describe("game should match numbers in gameSequence array with coloured squares", function() {
         beforeEach(function() {
-            gameData.gameSequence = [1, 2, 3, 4]
+            gameData.gameSequence = [1, 2, 3, 4];
         });
         it("should call the 'red' function when the number is 1", function() {
             spyOn(window, 'red');
             displaySequence(0);
-            // gameData.gameSequence[0];
             expect(window.red).toHaveBeenCalled();
         });
         it("should call the 'yellow' function when the number is 2", function() {
@@ -206,11 +196,11 @@ describe("display sequence test suite", function() {
 });
 
 describe("player input test suite", function() {
-    beforeEach(function() {
-        gameData.playerSequence = [];
-        playerInput();
-    });
     describe("player clicks on square and value is added to playerSequence array", function() {
+        beforeEach(function() {
+            playerInput();
+            gameData.playerSequence = [];
+        });
         it("should push the value 1 into playerSequence array when the red square is clicked", function() {
             redClick();
             expect(gameData.playerSequence).toEqual([1]);
@@ -231,15 +221,14 @@ describe("player input test suite", function() {
 });
 
 describe("check playerSequence length test suite", function() {
-    describe("player input function should loop unless playerSequence length equals gameSequence length", function() {
-        beforeEach(function() {
+    beforeEach(function() {
             gameData.gameSequence = [1, 2, 3, 4];
             gameData.playerSequence = [];
             playerInput();
         });
+    describe("player input function should loop unless playerSequence length equals gameSequence length", function() {
         it("should call playerInput function again if playerSequence is less than gameSequence", function() {
             spyOn(window, 'playerInput');
-            redClick();
             redClick();
             expect(window.playerInput).toHaveBeenCalled();
         });
@@ -250,74 +239,52 @@ describe("check playerSequence length test suite", function() {
             redClick();
             redClick();
             expect(window.checkSequence).toHaveBeenCalled();
-        })
+        });
     });
 });
 
 describe("check playerSequence test suite", function() {
     beforeEach(function() {
         jasmine.clock().install();
-    })
+    });
     afterEach(function() {
         jasmine.clock().uninstall();
-    })
+    });
     describe("check playerSequence against gameSequence", function() {
-        it("should call newRound function if sequences are the same and length is less than 20", function() {
+        it("should only call newRound function after 1000ms if sequences are the same and length is less than 20", function() {
             gameData.gameSequence = [1, 2, 3, 4, 1, 2, 3];
             gameData.playerSequence = [1, 2, 3, 4, 1, 2, 3];
             spyOn(window, 'newRound');
             checkSequence();
+            expect(window.newRound).not.toHaveBeenCalled();
             jasmine.clock().tick(1000);
             expect(window.newRound).toHaveBeenCalled();
         });
-        it("should NOT call newGame when player wins before 1000ms, i.e sequence is correct and length is 20", function() {
+        it("should only call newGame when player wins after 1000ms, i.e sequence is correct and length is 20", function() {
             gameData.gameSequence = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
             gameData.playerSequence = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
             spyOn(window, 'newGame');
             checkSequence();
-            jasmine.clock().tick(999);
             expect(window.newGame).not.toHaveBeenCalled();
+            jasmine.clock().tick(1000);
+            expect(window.newGame).toHaveBeenCalled();
         });
-        it("should NOT call showSequence before 1000ms function if playerSequence is incorrect", function() {
+        it("should only call showSequence after 1000ms if playerSequence is incorrect and strictStatus is false", function() {
             gameData.gameSequence = [1, 2, 3, 4, 1, 2, 3];
             gameData.playerSequence = [1, 2, 3, 4, 1, 2, 4];
+            gameData.strictStatus = false;
             spyOn(window, 'showSequence');
             checkSequence();
-            jasmine.clock().tick(999);
+
             expect(window.showSequence).not.toHaveBeenCalled();
-        });
-    });
-    describe("check functions are called after a time ", function() {
-        it("should call newGame when player wins after 1000ms, i.e sequence is correct and length is 20", function() {
-            gameData.gameSequence = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-            gameData.playerSequence = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-            spyOn(window, 'newGame');
-            checkSequence();
-            jasmine.clock().tick(1001);
-            expect(window.newGame).toHaveBeenCalled();
-        });
-        it("should call showSequence after 1000ms if playerSequence is incorrect", function() {
-            gameData.gameSequence = [1, 2, 3, 4, 1, 2, 3];
-            gameData.playerSequence = [1, 2, 3, 4, 1, 2, 4];
-            spyOn(window, 'showSequence');
-            checkSequence();
-            jasmine.clock().tick(1001);
+            jasmine.clock().tick(1000);
             expect(window.showSequence).toHaveBeenCalled();
-        });
-        it("should call newGame after 1000ms if strict mode is true and player input is incorrect", function() {
-            gameData.gameSequence = [1, 2, 3, 4, 1, 2, 3];
-            gameData.playerSequence = [1, 2, 3, 4, 1, 2, 4];
-            spyOn(window, 'newGame');
-            gameData.strictStatus = true;
-            checkSequence();
-            jasmine.clock().tick(1001);
-            expect(window.newGame).toHaveBeenCalled();
         });
         it("should call NOT call newGame at any time if strict mode is false and player input is incorrect", function() {
             gameData.gameSequence = [1, 2, 3, 4, 1, 2, 3];
             gameData.playerSequence = [1, 2, 3, 4, 1, 2, 4];
-            spyOn(window, 'newGame');
             gameData.strictStatus = false;
+            spyOn(window, 'newGame');
             checkSequence();
             expect(window.newGame).not.toHaveBeenCalled();
         });
@@ -349,12 +316,12 @@ describe("game reset testing suite", function() {
 describe("strict mode test suite", function() {
     describe("strict mode toggle ON", function() {
         it("should change strictStatus to true when strict button is clicked when strict status is false", function() {
-            strictStatus = false;
+            gameData.strictStatus = false;
             strictClick();
             expect(gameData.strictStatus).toBe(true);
         });
         it("should change strictStatus to false when strict button is clicked while in true state", function() {
-            strictStatus = true;
+            gameData.strictStatus = true;
             strictClick();
             expect(gameData.strictStatus).toBe(false);
         });
