@@ -186,12 +186,14 @@ describe("strictmode button display test suite", function() {
         it("should display strict mode on message when strict mode is on", function() {
             gameData.strictStatus = false;
             strictClick();
-            expect(document.getElementById('strict').innerHTML).toBe('Strict Mode ON');
+            expect(document.getElementById('strict-button').innerHTML).toBe('Strict Mode ON');
+            expect(document.getElementById('strict-button').className).toBe('on');
         });
         it("should display strict mode on message when strict mode is off", function() {
             gameData.strictStatus = true;
             strictClick();
-            expect(document.getElementById('strict').innerHTML).toBe('Strict Mode OFF');
+            expect(document.getElementById('strict-button').innerHTML).toBe('Strict Mode OFF');
+            expect(document.getElementById('strict-button').className).toBe('off');
         });
     })
 })
