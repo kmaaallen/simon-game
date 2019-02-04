@@ -43,3 +43,6 @@ Fix - 4/02/19 - adjusted test code for power/start click interaction and updated
 startStatus is now only true when start button is clicked when power is already on. i.e
 clicking the start button while the power is off does nothing to change start status.
 When poer button is switched of start status is changed to false if true and remains false if false.
+
+## game still calling show sequence in strict mode even when player sequence is wrong 4/2/19
+fix - 4/2/19 - missing braces {} - added - fixed.
