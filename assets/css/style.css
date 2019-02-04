@@ -131,4 +131,12 @@ button {
     background-color: #6666ef;
 }
 
+.on{
+    color: green;
+}
+
+.off{
+    color:red;
+}
+
 
