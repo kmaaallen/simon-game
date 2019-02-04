@@ -6,6 +6,10 @@ document.getElementById('power').onclick = function() {
     gameData.powerStatus = !gameData.powerStatus;
     if (gameData.powerStatus === false) {
         gameData.startStatus = false;
+        document.getElementById('1').onclick = function(){};
+        document.getElementById('2').onclick = function(){};
+        document.getElementById('3').onclick = function(){};
+        document.getElementById('4').onclick = function(){};
     }
 };
 
