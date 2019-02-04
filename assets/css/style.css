@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 
 body {
+    font-family:"Roboto", sans-serif;
     background-color: #fafafa;
 }
 
@@ -94,6 +95,10 @@ button {
     border: 5px solid black;
     margin-left: 20px;
     margin-top: 0;
+}
+
+button:focus{
+    outline: none;
 }
 
 
