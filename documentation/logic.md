@@ -159,3 +159,10 @@ When the game is in strict mode, as soon as the player gets a sequence wrong the
 4) start again message should display before game re-starts.
 #### User Interface
 1) There needs to be a visual indicator that the game is in strict mode
+
+## The player turns the game off
+When the power button is in OFF mode colored buttons should not be able to be clicked.
+### Need to test
+#### Game Logic
+1) When power button is set to off mode, and player presses on a colored button nothing should happen
+i.e the color functions which are triggered during player input should NOT be called.
