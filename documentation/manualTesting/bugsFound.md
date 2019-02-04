@@ -46,3 +46,7 @@ When poer button is switched of start status is changed to false if true and rem
 
 ## game still calling show sequence in strict mode even when player sequence is wrong 4/2/19
 fix - 4/2/19 - missing braces {} - added - fixed.
+
+## power button clickable area extends onto blue square - accidentally turning power off when clicking on blue 4/2/19
+fix - 4/2/19 - adjusted widths of power/start/strict-squares so no overlap.
+Consequently had to change translations as well.
