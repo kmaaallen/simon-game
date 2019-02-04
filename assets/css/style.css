@@ -11,11 +11,12 @@ p {
 }
 
 .game-field {
+    position: relative;
     width: 90%;
     margin-left: auto;
-    margin-right:auto;
-    max-width: 400px;
-    max-height: 400px;
+    margin-right: auto;
+    max-width: 600px;
+    max-height: 600px;
 }
 
 .square {
@@ -23,14 +24,62 @@ p {
     width: 50%;
     padding-bottom: 50%;
     margin-left: auto;
-    margin-right:auto;
+    margin-right: auto;
 }
 
 .controls {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    margin: 420px auto 0 auto;
+    position: absolute;
+    width: 90%;
+    margin-left: 25%;
+    margin-top: 25%;
+    max-width: 300px;
+    max-height: 300px;
+    z-index: 10;
+}
+
+button{
+    width:100px;
+    height:50px;
+    background-color: #666;
+    color:#fff;
+    border-radius:23px;
+    margin-left:30px;
+    transform: translateY(50px);
+    
+    
+}
+
+.strict-square {
+    background-color: #fff;
+    border-radius: 300px 0px 0px 0px;
+    width: 150px;
+    height: 150px;
+    padding-bottom: 0px;
+}
+
+.start-square {
+    background-color: #fff;
+    border-radius: 0px 300px 0px 0px;
+    width: 150px;
+    height: 150px;
+    padding-bottom: 0px;
+}
+
+.power-square {
+    background-color: #fff;
+    border-radius: 0px 0px 0px 300px;
+    width: 150px;
+    height: 150px;
+    padding-bottom: 0px;
+}
+
+.display-square {
+    background-color: #fff;
+    border-radius: 0px 0px 300px 0px;
+    width: 150px;
+    height: 150px;
+    padding-bottom: 0px;
+    text-align: center;
 }
 
 
@@ -71,17 +120,3 @@ p {
 }
 
 
-button {
-    width: 100px;
-    height: 50px;
-    background-color: #fff;
-    color: #000;
-}
-
-#display {
-    width: 200px;
-    background-color: #fff;
-    color: #000;
-    text-align: center;
-    line-height: 50px;
-}
