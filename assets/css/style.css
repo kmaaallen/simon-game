@@ -1,107 +1,119 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
 body {
-    background-color: #000;
-    font-family: "Roboto", sans-serif;
+  background-color: #fafafa;
 }
 
 h1,
 p {
-    color: #fff;
+    color: #000;
     text-align: center;
 }
 
 .game-field {
-    position: relative;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 600px;
-    max-height: 600px;
-}
-
-.square {
-    float: left;
-    width: 50%;
-    padding-bottom: 50%;
-    margin-left: auto;
-    margin-right: auto;
+  height: 600px;
+  width: 600px;
+  margin: 0 auto;
+  background-color: #000;
+  border-radius: 600px;
 }
 
 .controls {
-    position: absolute;
-    width: 90%;
-    margin-left: 25%;
-    margin-top: 25%;
-    max-width: 300px;
-    max-height: 300px;
-    z-index: 10;
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+  transform: translateY(-450px);
+  z-index: 10;
+  background-color: #fff;
+  border-radius: 300px;
+  border: 5px solid black;
 }
 
-button{
-    width:100px;
-    height:50px;
-    background-color: #666;
-    color:#fff;
-    border-radius:23px;
-    margin-left:30px;
-    transform: translateY(50px);
-    
-    
+.red-square {
+  background-color: red;
+  height: 290px;
+  width: 290px;
+  z-index: 5;
+  border-radius: 300px 0 0 0;
+  border: 5px solid black;
+}
+.yellow-square {
+  background-color: yellow;
+  height: 290px;
+  width: 290px;
+  z-index: 5;
+  border-radius: 0 300px 0 0;
+  border: 5px solid black;
+  float: right;
+  transform: translateY(-300px);
+}
+.green-square {
+  background-color: green;
+  height: 290px;
+  width: 290px;
+  z-index: 5;
+  border-radius: 0 0 0 300px;
+  border: 5px solid black;
+}
+.blue-square {
+  background-color: blue;
+  height: 290px;
+  width: 290px;
+  z-index: 5;
+  border-radius: 0 0 300px 0;
+  border: 5px solid black;
+  float: right;
+  transform: translateY(-300px);
 }
 
 .strict-square {
-    background-color: #fff;
-    border-radius: 300px 0px 0px 0px;
-    width: 150px;
-    height: 150px;
-    padding-bottom: 0px;
+  display: grid;
+  grid-template-columns: 100px 100px;
+  grid-template-rows: 50px;
+  text-align: center;
+  width: 300px;
+   transform: translate(80px,-180px);
 }
 
 .start-square {
-    background-color: #fff;
-    border-radius: 0px 300px 0px 0px;
-    width: 150px;
-    height: 150px;
-    padding-bottom: 0px;
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 50px;
+  text-align: center;
+  width: 300px;
+  transform: translate(80px,-180px);
 }
 
 .power-square {
-    background-color: #fff;
-    border-radius: 0px 0px 0px 300px;
-    width: 150px;
-    height: 150px;
-    padding-bottom: 0px;
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 50px;
+  text-align: center;
+  width: 300px;
+   transform: translate(80px,-180px);
 }
 
 .display-square {
-    background-color: #fff;
-    border-radius: 0px 0px 300px 0px;
-    width: 150px;
-    height: 150px;
-    padding-bottom: 0px;
-    text-align: center;
+  height: 75px;
+  width: 100px;
+  background-color: pink;
+  color: #000;
+  text-align: center;
+  transform: translate(100px, -430px);
+  margin-top: 10px;
 }
 
-
-.red-square {
-    background-color: #ff0000;
-    border-radius: 300px 0px 0px 0px;
+button {
+  width: 100px;
+  height: 40px;
+  background-color: #2f2f2f;
+  color: #fff;
+  border-radius: 23px;
+  border: none;
+  margin-left: 15px;
+  margin-top: 0;
 }
 
-.yellow-square {
-    background-color: #ffd700;
-    border-radius: 0px 300px 0px 0px;
-}
-
-.green-square {
-    background-color: #008000;
-    border-radius: 0px 0px 0px 300px;
-}
-
-.blue-square {
-    background-color: #0000e5;
-    border-radius: 0px 0px 300px 0px;
-}
 
 .red-light {
     background-color: #ff7f7f;
