@@ -181,6 +181,13 @@ describe("player messages when sequence checked test suite", function() {
     });
 });
 
+describe("strictmode fail display", function(){
+    it("should display start again message when player wrong in strict mode", function(){
+         displayStartAgain();
+         expect(document.getElementById('display').innerHTML).toBe('Start Again!');
+    });
+});
+
 describe("strictmode button display test suite", function() {
     describe("strict button appearance depending on mode", function() {
         it("should display strict mode on message when strict mode is on", function() {
