@@ -6,15 +6,15 @@ document.getElementById('power').onclick = function() {
     gameData.powerStatus = !gameData.powerStatus;
     if (gameData.powerStatus === false) {
         gameData.startStatus = false;
-        document.getElementById('1').onclick = function(){};
-        document.getElementById('2').onclick = function(){};
-        document.getElementById('3').onclick = function(){};
-        document.getElementById('4').onclick = function(){};
+        document.getElementById('1').onclick = function() {};
+        document.getElementById('2').onclick = function() {};
+        document.getElementById('3').onclick = function() {};
+        document.getElementById('4').onclick = function() {};
     }
 };
 
 document.getElementById('start').onclick = function() {
-    if (gameData.powerStatus === true  &&  gameData.startStatus === false) {
+    if (gameData.powerStatus === true && gameData.startStatus === false) {
         gameData.startStatus = !gameData.startStatus;
         newGame();
     }
@@ -27,7 +27,7 @@ document.getElementById('strict').onclick = function() {
 
 
 function newGame() {
-    console.log ('calling new game?');
+    console.log('calling new game?');
     gameData.count = 0;
     gameData.gameSequence = [];
     gameData.playerSequence = [];
@@ -128,15 +128,17 @@ function checkSequence() {
     }
     else if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length === 20) {
         displayWin();
-        setTimeout(newGame, 1000); 
+        setTimeout(newGame, 1000);
     }
     else {
-        if(gameData.strictStatus === true){
+        if (gameData.strictStatus === true) {
             displayStartAgain();
             console.log('got here');
-            setTimeout(newGame, 1000);
-        } else
-        displayTryAgain();
-        setTimeout(showSequence, 1000);
+            setTimeout(newGame, 3000);
+        }
+        else {
+            displayTryAgain();
+            setTimeout(showSequence, 1000);
+        }
     }
 }
