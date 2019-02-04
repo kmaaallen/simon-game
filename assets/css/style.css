@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 
 body {
-  background-color: #fafafa;
+    background-color: #fafafa;
 }
 
 h1,
@@ -11,107 +11,114 @@ p {
 }
 
 .game-field {
-  height: 600px;
-  width: 600px;
-  margin: 0 auto;
-  background-color: #000;
-  border-radius: 600px;
+    height: 600px;
+    width: 600px;
+    margin: 0 auto;
+    background-color: #000;
+    border-radius: 600px;
 }
 
 .controls {
-  height: 300px;
-  width: 300px;
-  margin: 0 auto;
-  transform: translateY(-450px);
-  z-index: 10;
-  background-color: #fff;
-  border-radius: 300px;
-  border: 5px solid black;
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+    transform: translateY(-450px);
+    z-index: 10;
+    background-color: #fff;
+    border-radius: 300px;
+    border: 5px solid black;
 }
 
 .red-square {
-  background-color: red;
-  height: 290px;
-  width: 290px;
-  z-index: 5;
-  border-radius: 300px 0 0 0;
-  border: 5px solid black;
+    background-color: red;
+    height: 290px;
+    width: 290px;
+    z-index: 5;
+    border-radius: 300px 0 0 0;
+    border: 5px solid black;
 }
+
 .yellow-square {
-  background-color: yellow;
-  height: 290px;
-  width: 290px;
-  z-index: 5;
-  border-radius: 0 300px 0 0;
-  border: 5px solid black;
-  float: right;
-  transform: translateY(-300px);
+    background-color: yellow;
+    height: 290px;
+    width: 290px;
+    z-index: 5;
+    border-radius: 0 300px 0 0;
+    border: 5px solid black;
+    float: right;
+    transform: translateY(-300px);
 }
+
 .green-square {
-  background-color: green;
-  height: 290px;
-  width: 290px;
-  z-index: 5;
-  border-radius: 0 0 0 300px;
-  border: 5px solid black;
+    background-color: green;
+    height: 290px;
+    width: 290px;
+    z-index: 5;
+    border-radius: 0 0 0 300px;
+    border: 5px solid black;
 }
+
 .blue-square {
-  background-color: blue;
-  height: 290px;
-  width: 290px;
-  z-index: 5;
-  border-radius: 0 0 300px 0;
-  border: 5px solid black;
-  float: right;
-  transform: translateY(-300px);
+    background-color: blue;
+    height: 290px;
+    width: 290px;
+    z-index: 5;
+    border-radius: 0 0 300px 0;
+    border: 5px solid black;
+    float: right;
+    transform: translateY(-300px);
 }
 
 .strict-square {
-  display: grid;
-  grid-template-columns: 100px 100px;
-  grid-template-rows: 50px;
-  text-align: center;
-  width: 300px;
-   transform: translate(80px,-180px);
+    display: grid;
+    grid-template-columns: 100px 100px;
+    grid-template-rows: 50px;
+    text-align: center;
+    width: 300px;
+    transform: translate(80px, -170px);
 }
 
 .start-square {
-  display: grid;
-  grid-template-columns: 300px;
-  grid-template-rows: 50px;
-  text-align: center;
-  width: 300px;
-  transform: translate(80px,-180px);
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 50px;
+    text-align: center;
+    width: 300px;
+    transform: translate(80px, -170px);
 }
 
 .power-square {
-  display: grid;
-  grid-template-columns: 300px;
-  grid-template-rows: 50px;
-  text-align: center;
-  width: 300px;
-   transform: translate(80px,-180px);
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 50px;
+    text-align: center;
+    width: 300px;
+    transform: translate(80px, -170px);
 }
 
 .display-square {
-  height: 75px;
-  width: 100px;
-  background-color: pink;
-  color: #000;
-  text-align: center;
-  transform: translate(100px, -430px);
-  margin-top: 10px;
+    font-weight: bold;
+    height: 75px;
+    width: 100px;
+    background-color: #d7d6d6;
+    color: #000;
+    text-align: center;
+    line-height: 75px;
+    transform: translate(95px, -430px);
+    margin-top: 10px;
+    border-radius: 23px;
+    border: 5px solid black;
 }
 
 button {
-  width: 100px;
-  height: 40px;
-  background-color: #2f2f2f;
-  color: #fff;
-  border-radius: 23px;
-  border: none;
-  margin-left: 15px;
-  margin-top: 0;
+    width: 100px;
+    height: 40px;
+    background-color: #d7d6d6;
+    color: #000;
+    border-radius: 23px;
+    border: 5px solid black;
+    margin-left: 20px;
+    margin-top: 0;
 }
 
 
@@ -131,12 +138,10 @@ button {
     background-color: #6666ef;
 }
 
-.on{
+.on {
     color: green;
 }
 
-.off{
-    color:red;
+.off {
+    color: red;
 }
-
-
