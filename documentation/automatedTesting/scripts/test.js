@@ -82,7 +82,6 @@ function newRound() {
     gameData.clickability = true;
     generateSequence();
     showSequence();
-    playerInput();
 }
 
 function generateSequence() {
@@ -117,7 +116,8 @@ function displaySequence(i) {
     else {
         blue();
     }
-    // }
+    gameData.playerSequence = [];
+    playerInput();
 }
 
 function playerInput() {
