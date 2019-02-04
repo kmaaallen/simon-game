@@ -23,11 +23,16 @@ function displayTryAgain() {
     document.getElementById('display').innerHTML = 'Try again!';
 }
 
-function strictDisplay(){
-    if (gameData.strictStatus === true){
-        document.getElementById('strict').innerHTML = "Strict Mode ON";
-    } else {
-        document.getElementById('strict').innerHTML = "Strict Mode OFF";
+function strictDisplay() {
+    if (gameData.strictStatus === true) {
+        document.getElementById('strict-button').innerHTML = "Strict Mode ON";
+        $(document.getElementById('strict-button')).removeClass('off');
+        $(document.getElementById('strict-button')).addClass('on');
+    }
+    else {
+        document.getElementById('strict-button').innerHTML = "OFF";
+        $(document.getElementById('strict-button')).removeClass('on');
+        $(document.getElementById('strict-button')).addClass('off');
     }
 }
 
