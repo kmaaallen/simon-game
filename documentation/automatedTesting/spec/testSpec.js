@@ -130,13 +130,7 @@ describe("newRound test suite", function() {
         it("should call showSequence when newRound is executed", function() {
             spyOn(window, 'showSequence');
             newRound();
-
             expect(window.showSequence).toHaveBeenCalled();
-        });
-        it("should call playerInput function when newRound is executed", function() {
-            spyOn(window, 'playerInput');
-            newRound();
-            expect(window.playerInput).toHaveBeenCalled();
         });
     });
 });
@@ -191,6 +185,19 @@ describe("display sequence test suite", function() {
             spyOn(window, 'blue');
             displaySequence(3);
             expect(window.blue).toHaveBeenCalled();
+        });
+    });
+    describe("should call playerInput function", function() {
+        it("it should call playerInput function", function() {
+            spyOn(window, 'playerInput');
+            displaySequence();
+            expect(window.playerInput).toHaveBeenCalled();
+        });
+    });
+    describe("playerSequence should be reset", function(){
+        it("should be empty when playerInput is called", function(){
+           playerInput();
+           expect(gameData.playerSequence).toEqual([]);
         });
     });
 });
