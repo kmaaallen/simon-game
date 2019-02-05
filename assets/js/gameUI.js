@@ -1,5 +1,5 @@
 jQuery(document).ready(function(){
-    $.getScript('/assets/js/gameLogic.js');
+    $.getScript('assets/js/gameLogic.js');
 });
 
 document.getElementById('power').addEventListener('click', function() {

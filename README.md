@@ -1,5 +1,6 @@
-# Your Project's Name
+# Simon Game
 
+This project is available to view as : https://kmaaallen.github.io/simon-game/
  
 ## UX
  
