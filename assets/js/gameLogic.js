@@ -27,7 +27,6 @@ document.getElementById('strict').onclick = function() {
 
 
 function newGame() {
-    console.log('calling new game?');
     gameData.count = 0;
     gameData.gameSequence = [];
     gameData.playerSequence = [];
@@ -46,7 +45,6 @@ function generateSequence() {
 }
 
 function showSequence() {
-    console.log('showSequence');
     var i = 0;
     let sequence = setInterval(function() {
         displaySequence(i);
@@ -58,21 +56,16 @@ function showSequence() {
 }
 
 function displaySequence(i) {
-    console.log('got to display sequence');
     if (gameData.gameSequence[i] === 1) {
-        console.log('red');
         red();
     }
     else if (gameData.gameSequence[i] === 2) {
-        console.log('yellow');
         yellow();
     }
     else if (gameData.gameSequence[i] === 3) {
-        console.log('green');
         green();
     }
     else {
-        console.log('blue');
         blue();
     }
     gameData.playerSequence = [];
@@ -80,7 +73,6 @@ function displaySequence(i) {
 }
 
 function playerInput() {
-    console.log('got to player input');
     document.getElementById('1').onclick = function() {
         gameData.playerSequence.push(1);
         red();
