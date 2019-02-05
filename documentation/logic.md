@@ -17,9 +17,9 @@ I did try to mitigate this by using the 'location.reload()' function however thi
 to continuously reload the page and crash.
 2) The power button changes to ON state (i.e true) when in OFF state and button is clicked.
 3) The power button changes to OFF state (i.e false) when in ON state and button is clicked.
-    document.getElementById('power').onclick = function() {
+    <pre><code>document.getElementById('power').onclick = function() {
         gameData.powerStatus = !gameData.powerStatus;
-    };
+    };</pre></code>
 #### User Interface
 1) The game display (div with id = 'display') should show 'ready' when power is ON (i.e powerStatus is true)
 2) The game display should show '' (i.e. nothing) when power is OFF (powerstatus = false)
