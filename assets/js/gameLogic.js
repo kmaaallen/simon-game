@@ -45,12 +45,18 @@ function generateSequence() {
 }
 
 function showSequence() {
+    document.getElementById('1').onclick = function() {};
+    document.getElementById('2').onclick = function() {};
+    document.getElementById('3').onclick = function() {};
+    document.getElementById('4').onclick = function() {};
     var i = 0;
     let sequence = setInterval(function() {
+        gameData.clickable = false;
         displaySequence(i);
         i++;
         if (i >= gameData.gameSequence.length) {
             clearInterval(sequence);
+            playerInput();
         }
     }, 1000);
 }
@@ -69,7 +75,6 @@ function displaySequence(i) {
         blue();
     }
     gameData.playerSequence = [];
-    playerInput();
 }
 
 function playerInput() {
@@ -116,8 +121,8 @@ function playerInput() {
 }
 
 
+
 function checkSequence() {
-    console.log('checkSequencecalled')
     if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length < 20) {
         gameData.playerSequence = [];
         setTimeout(newRound, 1000);
@@ -132,8 +137,8 @@ function checkSequence() {
             setTimeout(newGame, 3000);
         }
         else {
+            console.log('wrongInput');
             displayTryAgain();
-            console.log('got here');
             setTimeout(showSequence, 1000);
         }
     }
