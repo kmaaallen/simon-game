@@ -50,3 +50,26 @@ fix - 4/2/19 - missing braces {} - added - fixed.
 ## power button clickable area extends onto blue square - accidentally turning power off when clicking on blue 4/2/19
 fix - 4/2/19 - adjusted widths of power/start/strict-squares so no overlap.
 Consequently had to change translations as well.
+
+## player can click on buttons when the game sequence is being displayed - disruptive 6/2/19
+Fix - 6/2/19 - added empty functions on click for coloured buttons into the top of show sequence.
+-moved player input call into sequence so it is only called when display sequence is finished.
+Thus every time show sequence is called clicking on the coloured buttons does nothing until the sequence has finished being displayed.
+<pre><code>
+function showSequence() {
+    document.getElementById('1').onclick = function() {};
+    document.getElementById('2').onclick = function() {};
+    document.getElementById('3').onclick = function() {};
+    document.getElementById('4').onclick = function() {};
+    var i = 0;
+    let sequence = setInterval(function() {
+        gameData.clickable = false;
+        displaySequence(i);
+        i++;
+        if (i >= gameData.gameSequence.length) {
+            clearInterval(sequence);
+            playerInput();
+        }
+    }, 1000);
+}
+</code></pre>
