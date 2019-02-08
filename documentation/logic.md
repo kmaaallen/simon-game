@@ -21,7 +21,7 @@ The power button has to change state when clicked.
 The player has to see this change somehow.
 #### Game Logic
 1) The power button is in OFF state (i.e false) when page is first opened.
-NOTE: When running these tests I unchecked the 'run tests in random order' option in Jasmine.
+<br> When running these tests I un-checked the 'run tests in random order' option in Jasmine.
 This is because if the "Initial power status" spec is run after the "power status change to ON" then
 the test doesn't pass (as it may see the initial value as 'true' if some of the other tests have run before it).
 I did try to mitigate this by using the 'location.reload()' function however this caused my jasmine application
@@ -54,8 +54,8 @@ document.getElementById('strict').onclick = function() {
 </code></pre>
    
 #### User Interface
-1) The game display should show 'Ready' when power is ON (i.e powerStatus is true)
-2) The game display should show '' (i.e. nothing) when power is OFF (powerstatus = false)
+1) The game display should show 'Ready' when power is ON (i.e powerStatus is true).
+2) The game display should show '' (i.e. nothing) when power is OFF (powerstatus = false).
 
 First I had to add an event listener to recognise when the power button was pressed.<br>
 Then I had to check if power was ON or OFF.<br>
@@ -81,7 +81,7 @@ The start button has to change state when clicked.
 #### Game Logic
 1) The start button is in OFF state (i.e false) when page is first opened.
 
-I also set the startStatus to an inital value of false as I didn't want the game to start as soon as the page was loaded.:
+I also set the startStatus to an inital value of false as I didn't want the game to start as soon as the page was loaded:
 <pre><code>var gameData = {
     powerStatus : false,
     startStatus : false
@@ -98,7 +98,6 @@ Then I created a function that changed between ON and OFF (i.e true and false) w
 };</code></pre>
 
 4) The start button changes to OFF state (i.e false) regardless of starting state if the power button goes to OFF state.
-NOTE: ran these tests in random order (to check when start button was changing to false regardless of starting state)<br>
 
 To get the start status to change to OFF (false) when power was clicked off I had to add a conditional to my power onclick function.<br>
 <pre><code>document.getElementById('power').onclick = function() {
@@ -125,13 +124,13 @@ I changed my start onclick function so it only triggered a change of state from 
 
 ## The game starts
 The game must only start if the power is ON and the start button is ON. 
-(i.e powerStatus and startStatus are BOTH true having been clicked.)
+(i.e powerStatus and startStatus are BOTH true, having been clicked.)
 The player needs to see this change somehow to indicate game has started and to see what round they are on.
 #### Game Logic
 1) When start status is true AND power status is true newGame() function is called.
 2) When start status is false and power status is true newGame() function is NOT called.
 3) When start status is false and power status is false newGame() function is NOT called.
-NOTE: Due to earlier tests in start button suite it is impossible to have a start status of true while power status is
+Due to earlier tests in start button suite it is impossible to have a start status of true while power status is
 false so that is not included here.<br>
 I needed to create a function that would start the game for the player. I called this function newGame and called it in my start onclick function.
 This meant when power was ON, start had been clicked, newGame would be called.
@@ -143,8 +142,8 @@ This meant when power was ON, start had been clicked, newGame would be called.
 };</code></pre>
 
 #### User Interface
-1) The player needs to see the game has started
-To achieve this I decided to display the round number(the count) in the display. From earlier the display is showing the 'Ready' message as the power is ON.
+1) The player needs to see the game has started.
+To achieve this I decided to display the round number (the count) in the display. From earlier, the display is showing the 'Ready' message as the power is ON.
 Now I wanted to show a number indicating the first round was now starting.
 
 I created a 'displayCount()' UI function that grabs the display element and changes its innerHTML to the count and called it within the start onclick function like so:
@@ -218,8 +217,8 @@ This sequence should be pushed into an array defined in the gameData object, cal
 Its length should equal gameData.count at the time it is called.
 
 #### Game Logic
-1) When generateSequence() function is executed a sequence is generated and pushed into gameSequence array.
-2) That array consists of 1,2,3 or 4 only (no other numbers/characters/strings)
+1) When generateSequence() function is executed, a sequence is generated and pushed into gameSequence array.
+2) That array consists of 1,2,3 or 4 only (no other numbers/characters/strings).
 
 <pre><code>
 function generateSequence() {
@@ -296,7 +295,7 @@ function displaySequence(i) { // this function determines the outcome of each it
 
 The light classes need to be added and removed onto the coloured buttons when each one is identified by the displaySequence function.
 The sound assigned to each colour also needs to be played.
-I created four functions (one for each colour) as below which are expanded on in the user interface section below:
+I created four functions (one for each colour) as below, which are expanded on in the user interface section below:
 <pre><code>
 function displaySequence(i) { // this function determines the outcome of each iteration depending on what number i is
     if (gameData.gameSequence[i] === 1) {
@@ -316,6 +315,7 @@ function displaySequence(i) { // this function determines the outcome of each it
 
 3) Game needs to move to the next item in the gameSequence array and trigger that colour function until the array is finished.
 The showSequence loop above takes care of this.
+
 
 #### User Interface
 1) Light class needs to be added to coloured square
@@ -363,7 +363,7 @@ var blueAudio = new Audio('assets/sounds/simonSound4.mp3');
 I had to define them first as the play method would not work if they were defined within the game object.
 
 3) Light class needs to be removed after interval of time
-4) There needs to be an interval between each colour in sequence flashing (i.e they go one after the other if sequence is longer than 1 item)
+4) There needs to be an interval between each colour in sequence flashing (i.e they go one after the other if sequence is longer than 1 item).
 I had to 'grab' the coloured button by the ID (1,2,3 and 4 respectively) and apply the appropriate light colour class and play the sound.
 To create the illusion of flashing I had to use the setTimeout method within my colour functions otherwise the add and remove class would happen simultaneously with no visual change for the player. 
 I set a timeout on the remove class accordingly.
@@ -405,7 +405,7 @@ function blue() {
 Once the gameSequence has been displayed the player has to click on the coloured buttons in the same order as the sequence.<br>
 The purpose of the playerInput function is to record the sequence of buttons the player clicks on.
 #### Game Logic
-1) Game has to recognise a player has clicked an option
+1) Game has to recognise a player has clicked an option.<br>
 I added event listeners to the playerInput function for a click on a coloured button like so:
 <pre><code>
 function playerInput() {
@@ -443,10 +443,12 @@ function playerInput() {
         gameData.playerSequence.push(4);
     };
 }
+</code></pre>
 
 #### User Interface
 1) The player has to see/hear which option they have clicked - i.e square should light up and make sound.
 To this end I added the same colour functions as used in the displaySequence function so the player experiences the same flash and sound.
+
 <pre><code>
 function playerInput() {
     document.getElementById('1').onclick = function() {
@@ -551,7 +553,27 @@ function checkSequence() {
 }
 </code></pre>
 
+5) playerSequence array must be cleared before next player input otherwise the arrays will never match.
+<br> To clear this I added the code below to the displaySequence function - thus, everytime a sequence was displayed by the game, the player sequence was 
+reset to empty ready for new player input.
 
+<pre><code>
+function displaySequence(i) {
+    if (gameData.gameSequence[i] === 1) {
+        red();
+    }
+    else if (gameData.gameSequence[i] === 2) {
+        yellow();
+    }
+    else if (gameData.gameSequence[i] === 3) {
+        green();
+    }
+    else {
+        blue();
+    }
+    gameData.playerSequence = []; // player sequence reset to empty array
+}
+</code></pre>
 
 #### User Interface
 After the playerSequence is checked the player needs to see some visual indication of the result:
@@ -630,3 +652,30 @@ document.getElementById('power').onclick = function() {
     }
 };
 </code></pre>
+
+## Picked up during initial manual testing and from user feedback
+4) Player should only be able to click the board while adding to playerSequence and not at any other, otherwise the sequence may not display correctly to the player.<br>
+To achieve this I had to stop the colour functions being called whilst the player input function was not active.<br>
+As with the power button above, I cleared the onclick functions for my coloured button ids. I did this within the showSequence function
+because it needed to happen before the next game sequence was displayed (i.e display sequence was called).
+
+<pre><code>
+function showSequence() {
+    document.getElementById('1').onclick = function() {};
+    document.getElementById('2').onclick = function() {};
+    document.getElementById('3').onclick = function() {};
+    document.getElementById('4').onclick = function() {};
+    var i = 0;
+    let sequence = setInterval(function() {
+        gameData.clickable = false;
+        displaySequence(i);
+        i++;
+        if (i >= gameData.gameSequence.length) {
+            clearInterval(sequence);
+            playerInput();
+        }
+    }, 1000);
+}
+</code></pre>
+
+The coloured buttons would then become clickable again once playerInput was called.
