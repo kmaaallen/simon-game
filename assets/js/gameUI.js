@@ -1,4 +1,4 @@
-jQuery(document).ready(function(){
+jQuery(document).ready(function() {
     $.getScript('assets/js/gameLogic.js');
 });
 
@@ -18,7 +18,7 @@ document.getElementById('power').addEventListener('click', function() {
 });
 
 function displayCount() {
-        document.getElementById('display').innerHTML = gameData.count;
+    document.getElementById('display').innerHTML = gameData.count;
 }
 
 function displayWin() {
@@ -42,7 +42,7 @@ function strictDisplay() {
     }
 }
 
-function displayStartAgain(){
+function displayStartAgain() {
     document.getElementById('display').innerHTML = 'Start again!';
 }
 
@@ -77,3 +77,4 @@ function blue() {
         $(document.getElementById('4')).removeClass('blue-light');
     }, 500);
 }
+
