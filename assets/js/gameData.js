@@ -7,10 +7,6 @@ var gameData = {
     powerStatus : false,
     startStatus : false,
     strictStatus: false,
-    redAudio: redAudio,
-    yellowAudio : yellowAudio,
-    greenAudio : greenAudio,
-    blueAudio : blueAudio,
 };
 
 var redAudio = new Audio('assets/sounds/simonSound1.mp3');
