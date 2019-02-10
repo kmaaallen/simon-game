@@ -97,51 +97,6 @@ function playerInput() {
 }
 
 
-/*
-(segment.red).onclick = function() {
-    gameData.playerSequence.push(1);
-    colour(redAudio, 1, 'red-light');
-    if (gameData.playerSequence.length < gameData.gameSequence.length) {
-        playerInput();
-    }
-    else {
-        checkSequence();
-    }
-};
-(segment.yellow).onclick = function() {
-    gameData.playerSequence.push(2);
-    colour(yellowAudio, 2, 'yellow-light');
-    if (gameData.playerSequence.length < gameData.gameSequence.length) {
-        playerInput();
-    }
-    else {
-        checkSequence();
-    }
-};
-(segment.green).onclick = function() {
-    gameData.playerSequence.push(3);
-    colour(greenAudio, 3, 'green-light');
-    if (gameData.playerSequence.length < gameData.gameSequence.length) {
-        playerInput();
-    }
-    else {
-        checkSequence();
-    }
-};
-(segment.blue).onclick = function() {
-    gameData.playerSequence.push(4);
-    colour(blueAudio, 4, 'blue-light');
-    if (gameData.playerSequence.length < gameData.gameSequence.length) {
-        playerInput();
-    }
-    else {
-        checkSequence();
-    }
-};*/
-
-
-
-
 function checkSequence() {
     if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length < 20) {
         gameData.playerSequence = [];
