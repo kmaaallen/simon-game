@@ -177,42 +177,49 @@ function checkSequence() {
         setTimeout(newRound, 1000);
     }
     else if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length === 20) {
-        displayWin();
+        displayMessage(display.win);
+        //displayWin();
         setTimeout(newGame, 1000);
     }
     else {
         if (gameData.strictStatus === true) {
-            displayStartAgain();
-            setTimeout(newGame, 1000);
+            displayMessage(display.startAgain);
+            //displayStartAgain();
+            setTimeout(newGame, 3000);
         }
-        else
-            displayTryAgain();
-        setTimeout(showSequence, 1000);
+        else {
+            console.log('wrongInput');
+            displayMessage(display.tryAgain);
+            //displayTryAgain();
+            setTimeout(showSequence, 1000);
+        }
     }
 }
 
-/*let repeatSequence = setInterval(function() {
-         checkSequence();
-         if (gameData.playerSequence.length != 0) {
-             clearInterval(repeatSequence);
-         }
-     }, 7000);
-    setTimeout(checkSequence, 7000);
-     if (gameData.playerSequence.length === 0) {
-        setTimeout(showSequence, 1000);
-    }
-*/
 
 // User Interface functions etc. -----------------------------------------------
+
+var display = {
+    ready: 'Ready',
+    blank: '',
+    win: 'Win!',
+    tryAgain: 'Try Again!',
+    startAgain: 'Start Again!',
+}
+
+function displayMessage(message) {
+    document.getElementById('display').innerHTML = (message);
+}
+
 document.getElementById('power').addEventListener('click', function() {
     if (gameData.powerStatus === true) {
-        document.getElementById('display').innerHTML = "ready";
+        displayMessage(display.ready);
         document.getElementById('power-button').innerHTML = "Power ON";
         $(document.getElementById('power-button')).removeClass('off');
         $(document.getElementById('power-button')).addClass('on');
     }
     else {
-        document.getElementById('display').innerHTML = '';
+        displayMessage(display.blank);
         document.getElementById('power-button').innerHTML = "Power OFF";
         $(document.getElementById('power-button')).removeClass('on');
         $(document.getElementById('power-button')).addClass('off');
@@ -223,13 +230,6 @@ function displayCount() {
     document.getElementById('display').innerHTML = gameData.count;
 }
 
-function displayWin() {
-    document.getElementById('display').innerHTML = 'Win!';
-}
-
-function displayTryAgain() {
-    document.getElementById('display').innerHTML = 'Try again!';
-}
 
 function strictDisplay() {
     if (gameData.strictStatus === true) {
@@ -244,9 +244,6 @@ function strictDisplay() {
     }
 }
 
-function displayStartAgain() {
-    document.getElementById('display').innerHTML = 'Start Again!';
-}
 
 function colour(colourAudio, id, className) {
     $(document.getElementById(id)).addClass(className);
@@ -256,49 +253,3 @@ function colour(colourAudio, id, className) {
     }, 500);
 }
 
-/*
-function red() {
-    $(document.getElementById('1')).addClass('red-light');
-    //gameData.redAudio.play();
-    setTimeout(function() {
-        $(document.getElementById('1')).removeClass('red-light');
-    }, 500);
-}
-
-function yellow() {
-    $(document.getElementById('2')).addClass('yellow-light');
-    // playSoundYellow();
-    setTimeout(function() {
-        $(document.getElementById('2')).removeClass('yellow-light');
-    }, 500);
-}
-
-function green() {
-    $(document.getElementById('3')).addClass('green-light');
-    //playSoundGreen();
-    setTimeout(function() {
-        $(document.getElementById('3')).removeClass('green-light');
-    }, 500);
-}
-
-function blue() {
-    $(document.getElementById('4')).addClass('blue-light');
-    //playSoundBlue();
-    setTimeout(function() {
-        $(document.getElementById('4')).removeClass('blue-light');
-    }, 500);
-}
-*/
-
-/*function playSoundRed(){
-    gameData.redAudio.play();
-}
-function playSoundYellow(){
-    gameData.yellowAudio.play();
-}
-function playSoundGreen(){
-    gameData.greenAudio.play();
-}
-function playSoundBlue(){
-    gameData.blueAudio.play();
-}*/
