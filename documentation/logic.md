@@ -647,6 +647,41 @@ function checkSequence() {
 }
 </code></pre>
 
+I later refactored the code so displayWin, displayStartAgain and displayTryAgain could be combined into a generic function called displayMessage.
+To do this I added a display object to the gameUI.js file which would contain the messages as strings.
+<pre><code>
+var display = {
+    ready: 'Ready',
+    blank: '',
+    win: 'Win!',
+    tryAgain: 'Try Again!',
+    startAgain: 'Start Again!',
+}
+
+function displayMessage(message) {
+    document.getElementById('display').innerHTML = (message);
+}
+</code></pre>
+
+This meant the checkSequence function would now call displayMessage function with different parameters each time, instead of three separate functions.
+I also included the messages to be displayed depending on the powerStatus to make my code more readable like so:
+<pre><code>
+document.getElementById('power').addEventListener('click', function() {
+    if (gameData.powerStatus === true) {
+        displayMessage(display.ready); // this line is replaced with new function
+        document.getElementById('power-button').innerHTML = "Power ON";
+        $(document.getElementById('power-button')).removeClass('off');
+        $(document.getElementById('power-button')).addClass('on');
+    }
+    else {
+        displayMessage(display.blank);
+        document.getElementById('power-button').innerHTML = "Power OFF";
+        $(document.getElementById('power-button')).removeClass('on');
+        $(document.getElementById('power-button')).addClass('off');
+    }
+});
+</code></pre>
+
 ## The player turns the game off
 When the power button is in OFF mode colored buttons should not be able to be clicked.
 #### Game Logic
