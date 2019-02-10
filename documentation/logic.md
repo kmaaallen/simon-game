@@ -536,6 +536,25 @@ function playerInput() {
 }
 </code></pre>
 
+This function was later refactored using a new function (playerclick) to avoid repetition:
+<pre><code>
+function playerInput() {
+    function playerclick(colourAudio, id, className) {
+        gameData.playerSequence.push(id);
+        colour(colourAudio, id, className);
+        if (gameData.playerSequence.length < gameData.gameSequence.length) {
+            playerInput();
+        }
+        else {
+            checkSequence();
+        }
+    }
+    (segment.red).onclick = function() { playerclick(redAudio, 1, 'red-light') };
+    (segment.yellow).onclick = function() { playerclick(yellowAudio, 2, 'yellow-light') };
+    (segment.green).onclick = function() { playerclick(greenAudio, 3, 'green-light') };
+    (segment.blue).onclick = function() { playerclick(blueAudio, 4, 'blue-light') };
+}
+</code></pre>
 
 ## PlayerSequence is checked against gameSequence
 The sequences must be equal for game to progress
