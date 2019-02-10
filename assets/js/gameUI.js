@@ -11,11 +11,21 @@ var display = {
     startAgain: 'Start Again!',
 }
 
-function displayMessage(message) {
-    document.getElementById('display').innerHTML = (message);
+var segment = {
+    red: document.getElementById('1'),
+    yellow: document.getElementById('2'),
+    green: document.getElementById('3'),
+    blue: document.getElementById('4'),
+    clickoff: function(colour){
+        (this.red).onclick = function(){};
+        (this.yellow).onclick = function(){};
+        (this.green).onclick = function(){};
+        (this.blue).onclick = function(){};
+    }
 }
 
-document.getElementById('power').addEventListener('click', function() {
+document.getElementById('power').onclick = function() {
+    gameData.powerStatus = !gameData.powerStatus;
     if (gameData.powerStatus === true) {
         displayMessage(display.ready);
         document.getElementById('power-button').innerHTML = "Power ON";
@@ -23,12 +33,30 @@ document.getElementById('power').addEventListener('click', function() {
         $(document.getElementById('power-button')).addClass('on');
     }
     else {
+        gameData.startStatus = false;
+        segment.clickoff();
         displayMessage(display.blank);
         document.getElementById('power-button').innerHTML = "Power OFF";
         $(document.getElementById('power-button')).removeClass('on');
         $(document.getElementById('power-button')).addClass('off');
     }
-});
+};
+
+document.getElementById('start').onclick = function() {
+    if (gameData.powerStatus === true && gameData.startStatus === false) {
+        gameData.startStatus = !gameData.startStatus;
+        newGame();
+    }
+};
+
+document.getElementById('strict').onclick = function() {
+    gameData.strictStatus = !gameData.strictStatus;
+    strictDisplay();
+};
+
+function displayMessage(message) {
+    document.getElementById('display').innerHTML = (message);
+}
 
 function displayCount() {
     document.getElementById('display').innerHTML = gameData.count;
