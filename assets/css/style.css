@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 
 body {
-    font-family:"Roboto", sans-serif;
+    font-family: "Roboto", sans-serif;
     background-color: #e1e1e1;
 }
 
@@ -10,6 +10,8 @@ p {
     color: #000;
     text-align: center;
 }
+
+/*---------Game Board --------------------*/
 
 .game-field {
     height: 300px;
@@ -97,10 +99,11 @@ button {
     margin-top: 0;
 }
 
-button:focus{
+button:focus {
     outline: none;
 }
 
+/*-----Classes that are added and removed----------*/
 
 .red-light {
     background-color: #ff7f7f;
@@ -129,7 +132,7 @@ button:focus{
 /*-----Media Queries ------*/
 
 @media(min-width:768px) {
-     .game-field {
+    .game-field {
         height: 500px;
         width: 500px;
     }
@@ -142,7 +145,8 @@ button:focus{
         height: 240px;
         width: 240px;
     }
-    .yellow-square, .blue-square {
+    .yellow-square,
+    .blue-square {
         transform: translateY(-250px);
     }
 
@@ -158,7 +162,7 @@ button:focus{
 }
 
 @media(min-width:992px) {
-         .game-field {
+    .game-field {
         height: 600px;
         width: 600px;
     }
@@ -171,7 +175,8 @@ button:focus{
         height: 290px;
         width: 290px;
     }
-    .yellow-square, .blue-square {
+    .yellow-square,
+    .blue-square {
         transform: translateY(-300px);
     }
 
