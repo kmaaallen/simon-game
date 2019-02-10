@@ -25,7 +25,9 @@ p {
     height: 150px;
     width: 150px;
     margin: 0 auto;
-    transform: translateY(-235px);
+    -webkit-transform: translateY(-235px);
+        -ms-transform: translateY(-235px);
+            transform: translateY(-235px);
     z-index: 10;
     background-color: #3d3d3d;
     border-radius: 300px;
@@ -48,7 +50,9 @@ p {
     background-color: yellow;
     border-radius: 0 300px 0 0;
     float: right;
-    transform: translateY(-155px);
+      -webkit-transform: translateY(-155px);
+        -ms-transform: translateY(-155px);
+            transform: translateY(-155px);
 }
 
 .green-square {
@@ -60,18 +64,30 @@ p {
     background-color: blue;
     border-radius: 0 0 300px 0;
     float: right;
-    transform: translateY(-155px);
+      -webkit-transform: translateY(-155px);
+        -ms-transform: translateY(-155px);
+            transform: translateY(-155px);
 }
 
 .strict-square,
 .start-square,
 .power-square {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 300px;
     grid-template-columns: 300px;
+    -ms-grid-rows: 50px;
     grid-template-rows: 50px;
     text-align: center;
     width: 150px;
-    transform: translate(5px, 90px);
+    -webkit-transform: translate(5px, 90px);
+        -ms-transform: translate(5px, 90px);
+            transform: translate(5px, 90px);
+}
+
+.strict-square > *:nth-child(1), .start-square > *:nth-child(1), .power-square > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
 }
 
 .display-square {
@@ -82,7 +98,9 @@ p {
     color: #000;
     text-align: center;
     line-height: 75px;
-    transform: translate(20px, -280px);
+    -webkit-transform: translate(20px, -280px);
+        -ms-transform: translate(20px, -280px);
+            transform: translate(20px, -280px);
     margin-top: 10px;
     border-radius: 23px;
     border: 5px solid black;
@@ -139,7 +157,9 @@ button:focus {
     .controls {
         height: 300px;
         width: 300px;
-        transform: translateY(-405px);
+        -webkit-transform: translateY(-405px);
+            -ms-transform: translateY(-405px);
+                transform: translateY(-405px);
     }
     .square {
         height: 240px;
@@ -147,17 +167,23 @@ button:focus {
     }
     .yellow-square,
     .blue-square {
-        transform: translateY(-250px);
+        -webkit-transform: translateY(-250px);
+            -ms-transform: translateY(-250px);
+                transform: translateY(-250px);
     }
 
     .strict-square,
     .start-square,
     .power-square {
-        transform: translate(80px, 130px);
+        -webkit-transform: translate(80px, 130px);
+            -ms-transform: translate(80px, 130px);
+                transform: translate(80px, 130px);
     }
 
     .display-square {
-        transform: translate(95px, -140px);
+        -webkit-transform: translate(95px, -140px);
+            -ms-transform: translate(95px, -140px);
+                transform: translate(95px, -140px);
     }
 }
 
@@ -169,7 +195,9 @@ button:focus {
     .controls {
         height: 300px;
         width: 300px;
-        transform: translateY(-450px);
+        -webkit-transform: translateY(-450px);
+            -ms-transform: translateY(-450px);
+                transform: translateY(-450px);
     }
     .square {
         height: 290px;
@@ -177,16 +205,22 @@ button:focus {
     }
     .yellow-square,
     .blue-square {
-        transform: translateY(-300px);
+        -webkit-transform: translateY(-300px);
+            -ms-transform: translateY(-300px);
+                transform: translateY(-300px);
     }
 
     .strict-square,
     .start-square,
     .power-square {
-        transform: translate(80px, 120px);
+        -webkit-transform: translate(80px, 120px);
+            -ms-transform: translate(80px, 120px);
+                transform: translate(80px, 120px);
     }
 
     .display-square {
-        transform: translate(95px, -140px);
+        -webkit-transform: translate(95px, -140px);
+            -ms-transform: translate(95px, -140px);
+                transform: translate(95px, -140px);
     }
 }
