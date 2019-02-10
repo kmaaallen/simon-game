@@ -401,6 +401,20 @@ function blue() {
 }
 </code></pre>
 
+I later refactored the above into a single generic function. This enabled the removal of the audio from the gameData object also.
+<pre><code>
+function colour (colourAudio, id, className){
+    $(document.getElementById(id)).addClass(className);
+    colourAudio.play();
+    setTimeout(function(){
+     $(document.getElementById(id)).removeClass(className);  
+    }, 500);
+}
+</code></pre>
+
+The specs in the automated testing suite were then edited accordingly to test for the colour function being called.
+
+
 ## The player copies the game sequence - developing the playerInput function
 Once the gameSequence has been displayed the player has to click on the coloured buttons in the same order as the sequence.<br>
 The purpose of the playerInput function is to record the sequence of buttons the player clicks on.
