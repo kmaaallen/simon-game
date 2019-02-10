@@ -536,7 +536,22 @@ function playerInput() {
 }
 </code></pre>
 
-This function was later refactored using a new function (playerclick) to avoid repetition:
+This function was later refactored using a new function (playerclick) to avoid repetition.
+An object called 'segment' was also added to the gameUI.js file to make code more readable and to reduce repetition.
+<pre><code>
+var segment = {
+    red: document.getElementById('1'), // instead of writing out 'document.getElementById('1') each time I can simply use segment.red'
+    yellow: document.getElementById('2'),
+    green: document.getElementById('3'),
+    blue: document.getElementById('4'),
+    clickoff: function(colour){ // this function can be called now instead of four lines of code (one for each onclick on each coloured segment)
+        (this.red).onclick = function(){};
+        (this.yellow).onclick = function(){};
+        (this.green).onclick = function(){};
+        (this.blue).onclick = function(){};
+    }
+}
+</code></pre>
 <pre><code>
 function playerInput() {
     function playerclick(colourAudio, id, className) {
@@ -605,6 +620,25 @@ function displaySequence(i) {
         blue();
     }
     gameData.playerSequence = []; // player sequence reset to empty array
+}
+</code></pre>
+
+This was then updated using the refactored colour function code like so:
+<pre><code>
+function displaySequence(i) {
+    if (gameData.gameSequence[i] === 1) {
+        colour(redAudio, 1, 'red-light'); // this uses the generic colour function. Hasn't reduced code here but has in gameUI.js.
+    }
+    else if (gameData.gameSequence[i] === 2) {
+        colour(yellowAudio, 2, 'yellow-light');
+    }
+    else if (gameData.gameSequence[i] === 3) {
+        colour(greenAudio, 3, 'green-light');
+    }
+    else {
+        colour(blueAudio, 4, 'blue-light');
+    }
+    gameData.playerSequence = [];
 }
 </code></pre>
 
@@ -721,6 +755,11 @@ document.getElementById('power').onclick = function() {
 };
 </code></pre>
 
+This section was re-factored replacing the four lines of document.getElementById with a single line:
+<pre><code>
+ segment.clickoff();
+</code></pre>
+
 ## Picked up during initial manual testing and from user feedback
 4) Player should only be able to click the board while adding to playerSequence and not at any other, otherwise the sequence may not display correctly to the player.<br>
 To achieve this I had to stop the colour functions being called whilst the player input function was not active.<br>
@@ -729,8 +768,8 @@ because it needed to happen before the next game sequence was displayed (i.e dis
 
 <pre><code>
 function showSequence() {
-    document.getElementById('1').onclick = function() {};
-    document.getElementById('2').onclick = function() {};
+    document.getElementById('1').onclick = function() {}; //these lines were replaced with method from segment object
+    document.getElementById('2').onclick = function() {}; // see below
     document.getElementById('3').onclick = function() {};
     document.getElementById('4').onclick = function() {};
     var i = 0;
@@ -746,4 +785,7 @@ function showSequence() {
 }
 </code></pre>
 
-The coloured buttons would then become clickable again once playerInput was called.
+Again, these four lines were later replaced with a single line of code :
+<pre><code>  segment.clickoff(); </code></pre>
+
+The coloured buttons would then become clickable again once playerInput was called (i.e the call for segment method is overwritten)
