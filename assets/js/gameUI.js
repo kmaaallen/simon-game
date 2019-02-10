@@ -1,16 +1,27 @@
 jQuery(document).ready(function() {
     $.getScript('assets/js/gameLogic.js');
-});
+}); 
+var display = {
+    ready: 'Ready',
+    blank: '',
+    win: 'Win!',
+    tryAgain: 'Try Again!',
+    startAgain: 'Start Again!',
+}
+
+function displayMessage(message) {
+    document.getElementById('display').innerHTML = (message);
+}
 
 document.getElementById('power').addEventListener('click', function() {
     if (gameData.powerStatus === true) {
-        document.getElementById('display').innerHTML = "Ready";
+        displayMessage(display.ready);
         document.getElementById('power-button').innerHTML = "Power ON";
         $(document.getElementById('power-button')).removeClass('off');
         $(document.getElementById('power-button')).addClass('on');
     }
     else {
-        document.getElementById('display').innerHTML = '';
+        displayMessage(display.blank);
         document.getElementById('power-button').innerHTML = "Power OFF";
         $(document.getElementById('power-button')).removeClass('on');
         $(document.getElementById('power-button')).addClass('off');
@@ -19,14 +30,6 @@ document.getElementById('power').addEventListener('click', function() {
 
 function displayCount() {
     document.getElementById('display').innerHTML = gameData.count;
-}
-
-function displayWin() {
-    document.getElementById('display').innerHTML = 'Win!';
-}
-
-function displayTryAgain() {
-    document.getElementById('display').innerHTML = 'Try again!';
 }
 
 function strictDisplay() {
@@ -42,10 +45,6 @@ function strictDisplay() {
     }
 }
 
-function displayStartAgain() {
-    document.getElementById('display').innerHTML = 'Start again!';
-}
-
 function colour (colourAudio, id, className){
     $(document.getElementById(id)).addClass(className);
     colourAudio.play();
@@ -53,36 +52,3 @@ function colour (colourAudio, id, className){
      $(document.getElementById(id)).removeClass(className);  
     }, 500);
 }
-
-/*function red() {
-    $(document.getElementById('1')).addClass('red-light');
-    gameData.redAudio.play();
-    setTimeout(function() {
-        $(document.getElementById('1')).removeClass('red-light');
-    }, 500);
-}
-
-function yellow() {
-    $(document.getElementById('2')).addClass('yellow-light');
-    gameData.yellowAudio.play();
-    setTimeout(function() {
-        $(document.getElementById('2')).removeClass('yellow-light');
-    }, 500);
-}
-
-function green() {
-    $(document.getElementById('3')).addClass('green-light');
-    gameData.greenAudio.play();
-    setTimeout(function() {
-        $(document.getElementById('3')).removeClass('green-light');
-    }, 500);
-}
-
-function blue() {
-    $(document.getElementById('4')).addClass('blue-light');
-    gameData.blueAudio.play();
-    setTimeout(function() {
-        $(document.getElementById('4')).removeClass('blue-light');
-    }, 500);
-}*/
-
