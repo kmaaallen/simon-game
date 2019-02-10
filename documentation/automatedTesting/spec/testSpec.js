@@ -24,21 +24,9 @@ describe("power button test suite", function() {
             greenClick();
             blueClick();
         });
-        it("should NOT call color function red when red button is clicked", function() {
-            spyOn(window, 'red');
-            expect(window.red).not.toHaveBeenCalled();
-        });
-        it("should NOT call color function yellow when yellow button is clicked", function() {
-            spyOn(window, 'yellow');
-            expect(window.yellow).not.toHaveBeenCalled();
-        });
-        it("should NOT call color function green when green button is clicked", function() {
-            spyOn(window, 'green');
-            expect(window.green).not.toHaveBeenCalled();
-        });
-        it("should NOT call color function blue when blue button is clicked", function() {
-            spyOn(window, 'blue');
-            expect(window.blue).not.toHaveBeenCalled();
+        it("should NOT call color function when a coloured button is clicked", function() {
+            spyOn(window, 'colour');
+            expect(window.colour).not.toHaveBeenCalled();
         });
     });
 });
@@ -49,7 +37,7 @@ describe("start button test suite", function() {
             expect(gameData.startStatus).toEqual(false);
         });
     });
-    describe("start status should only change to true only when powerStatus is true", function() {
+    describe("start status should only change to true when powerStatus is true", function() {
         beforeEach(function() {
             gameData.startStatus = false;
             gameData.powerStatus = true;
@@ -161,43 +149,48 @@ describe("generateSequence test suite", function() {
     });
 });
 
+describe("showSequence test suite", function(){
+    describe("should call playerInput function", function() {
+        it("it should call playerInput function when displaySequence is finished", function() {
+            spyOn(window, 'playerInput');
+            showSequence();
+            gameData.gameSequence = [1];
+            var i = 3;
+            expect(window.playerInput).toHaveBeenCalled();
+        });
+    });
+});
+
 describe("display sequence test suite", function() {
     describe("game should match numbers in gameSequence array with coloured squares", function() {
         beforeEach(function() {
             gameData.gameSequence = [1, 2, 3, 4];
         });
-        it("should call the 'red' function when the number is 1", function() {
-            spyOn(window, 'red');
+        it("should call the colour function with (redAudio, 1, 'red-light') when the number is 1", function() {
+            spyOn(window, 'colour');
             displaySequence(0);
-            expect(window.red).toHaveBeenCalled();
+            expect(window.colour).toHaveBeenCalledWith(redAudio, 1, 'red-light');
         });
-        it("should call the 'yellow' function when the number is 2", function() {
-            spyOn(window, 'yellow');
+        it("should call the the colour function with (yellowAudio, 2, 'yellow-light')when the number is 2", function() {
+            spyOn(window, 'colour');
             displaySequence(1);
-            expect(window.yellow).toHaveBeenCalled();
+            expect(window.colour).toHaveBeenCalledWith(yellowAudio, 2, 'yellow-light');
         });
-        it("should call the 'green' function when the number is 3", function() {
-            spyOn(window, 'green');
+        it("should call the the colour function with (greenAudio, 3, 'green-light') when the number is 3", function() {
+            spyOn(window, 'colour');
             displaySequence(2);
-            expect(window.green).toHaveBeenCalled();
+            expect(window.colour).toHaveBeenCalledWith(greenAudio, 3, 'green-light');
         });
-        it("should call the 'blue' function when the number is 4", function() {
-            spyOn(window, 'blue');
+        it("should call the the colour function with (blueAudio, 4, 'blue-light') when the number is 4", function() {
+            spyOn(window, 'colour');
             displaySequence(3);
-            expect(window.blue).toHaveBeenCalled();
+            expect(window.colour).toHaveBeenCalledWith(blueAudio, 4, 'blue-light');
         });
     });
-    describe("should call playerInput function", function() {
-        it("it should call playerInput function", function() {
-            spyOn(window, 'playerInput');
+    describe("playerSequence should be reset", function() {
+        it("should be empty when displaySequence is first called", function() {
             displaySequence();
-            expect(window.playerInput).toHaveBeenCalled();
-        });
-    });
-    describe("playerSequence should be reset", function(){
-        it("should be empty when playerInput is called", function(){
-           playerInput();
-           expect(gameData.playerSequence).toEqual([]);
+            expect(gameData.playerSequence).toEqual([]);
         });
     });
 });
@@ -295,14 +288,14 @@ describe("check playerSequence test suite", function() {
             checkSequence();
             expect(window.newGame).not.toHaveBeenCalled();
         });
-        if ("should call displayStartAgain if player sequence wrong in strict mode", function() {
-                gameData.gameSequence = [1, 2, 3, 4, 1, 2, 3];
-                gameData.playerSequence = [1, 2, 3, 4, 1, 2, 4];
-                gameData.strictStatus = true;
-                spyOn(window, 'displayStartAgain');
-                checkSequence();
-                expect(window.displayTryAgain).toHaveBeenCalled();
-            });
+        it("should call displayStartAgain if player sequence wrong in strict mode", function() {
+            gameData.gameSequence = [1, 2, 3, 4, 1, 2, 3];
+            gameData.playerSequence = [1, 2, 3, 4, 1, 2, 4];
+            gameData.strictStatus = true;
+            spyOn(window, 'displayStartAgain');
+            checkSequence();
+            expect(window.displayStartAgain).toHaveBeenCalled();
+        });
     });
 });
 
