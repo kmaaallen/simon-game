@@ -2,29 +2,6 @@ jQuery(document).ready(function() {
     $.getScript('assets/js/gameData.js');
 });
 
-document.getElementById('power').onclick = function() {
-    gameData.powerStatus = !gameData.powerStatus;
-    if (gameData.powerStatus === false) {
-        gameData.startStatus = false;
-        segment.onclick = function() {};
-        /*(segment.yellow).onclick = function() {};
-        (segment.green).onclick = function() {};
-        (segment.blue).onclick = function() {};*/
-    }
-};
-
-document.getElementById('start').onclick = function() {
-    if (gameData.powerStatus === true && gameData.startStatus === false) {
-        gameData.startStatus = !gameData.startStatus;
-        newGame();
-    }
-};
-
-document.getElementById('strict').onclick = function() {
-    gameData.strictStatus = !gameData.strictStatus;
-    strictDisplay();
-};
-
 
 function newGame() {
     gameData.count = 0;
@@ -45,13 +22,9 @@ function generateSequence() {
 }
 
 function showSequence() {
-    (segment.red).onclick = function() {};
-    (segment.yellow).onclick = function() {};
-    (segment.green).onclick = function() {};
-    (segment.blue).onclick = function() {};
+    segment.clickoff();
     var i = 0;
     let sequence = setInterval(function() {
-        gameData.clickable = false;
         displaySequence(i);
         i++;
         if (i >= gameData.gameSequence.length) {
