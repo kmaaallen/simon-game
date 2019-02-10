@@ -46,7 +46,15 @@ function displayStartAgain() {
     document.getElementById('display').innerHTML = 'Start again!';
 }
 
-function red() {
+function colour (colourAudio, id, className){
+    $(document.getElementById(id)).addClass(className);
+    colourAudio.play();
+    setTimeout(function(){
+     $(document.getElementById(id)).removeClass(className);  
+    }, 500);
+}
+
+/*function red() {
     $(document.getElementById('1')).addClass('red-light');
     gameData.redAudio.play();
     setTimeout(function() {
@@ -76,5 +84,5 @@ function blue() {
     setTimeout(function() {
         $(document.getElementById('4')).removeClass('blue-light');
     }, 500);
-}
+}*/
 
