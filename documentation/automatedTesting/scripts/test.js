@@ -9,13 +9,6 @@ var gameData = {
     playerSequence: [],
 };
 
-var segment = {
-    red: document.getElementById('1'),
-    yellow: document.getElementById('2'),
-    green: document.getElementById('3'),
-    blue: document.getElementById('4')
-}
-
 var redAudio = new Audio('/assets/sounds/simonSound1.mp3');
 var yellowAudio = new Audio('/assets/sounds/simonSound1.mp3');
 var greenAudio = new Audio('/assets/sounds/simonSound1.mp3');
@@ -53,26 +46,6 @@ function blueClick() { // for testing purposes only
     document.getElementById('4').click();
 }
 
-document.getElementById('power').onclick = function() {
-    gameData.powerStatus = !gameData.powerStatus;
-    if (gameData.powerStatus === false) {
-        gameData.startStatus = false;
-        gameData.clickability = false;
-    }
-};
-
-document.getElementById('start').onclick = function() {
-    if (gameData.powerStatus === true && gameData.startStatus === false) {
-        gameData.startStatus = !gameData.startStatus;
-        newGame();
-    }
-};
-
-document.getElementById('strict').onclick = function() {
-    gameData.strictStatus = !gameData.strictStatus;
-    strictDisplay();
-};
-
 function newGame() {
     gameData.count = 0;
     gameData.gameSequence = [];
@@ -93,10 +66,7 @@ function generateSequence() {
 }
 
 function showSequence() {
-    document.getElementById('1').onclick = function() {};
-    document.getElementById('2').onclick = function() {};
-    document.getElementById('3').onclick = function() {};
-    document.getElementById('4').onclick = function() {};
+    segment.clickoff();
     var i = 0;
     let sequence = setInterval(function() {
         displaySequence(i);
@@ -177,11 +147,25 @@ var display = {
     startAgain: 'Start Again!',
 }
 
+var segment = {
+    red: document.getElementById('1'),
+    yellow: document.getElementById('2'),
+    green: document.getElementById('3'),
+    blue: document.getElementById('4'),
+    clickoff: function(colour){
+        (this.red).onclick = function(){};
+        (this.yellow).onclick = function(){};
+        (this.green).onclick = function(){};
+        (this.blue).onclick = function(){};
+    }
+}
+
 function displayMessage(message) {
     document.getElementById('display').innerHTML = (message);
 }
 
-document.getElementById('power').addEventListener('click', function() {
+document.getElementById('power').onclick = function() {
+    gameData.powerStatus = !gameData.powerStatus;
     if (gameData.powerStatus === true) {
         displayMessage(display.ready);
         document.getElementById('power-button').innerHTML = "Power ON";
@@ -189,12 +173,26 @@ document.getElementById('power').addEventListener('click', function() {
         $(document.getElementById('power-button')).addClass('on');
     }
     else {
+        gameData.startStatus = false;
+        segment.clickoff();
         displayMessage(display.blank);
         document.getElementById('power-button').innerHTML = "Power OFF";
         $(document.getElementById('power-button')).removeClass('on');
         $(document.getElementById('power-button')).addClass('off');
     }
-});
+};
+
+document.getElementById('start').onclick = function() {
+    if (gameData.powerStatus === true && gameData.startStatus === false) {
+        gameData.startStatus = !gameData.startStatus;
+        newGame();
+    }
+};
+
+document.getElementById('strict').onclick = function() {
+    gameData.strictStatus = !gameData.strictStatus;
+    strictDisplay();
+};
 
 function displayCount() {
     document.getElementById('display').innerHTML = gameData.count;
