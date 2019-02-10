@@ -6,10 +6,10 @@ document.getElementById('power').onclick = function() {
     gameData.powerStatus = !gameData.powerStatus;
     if (gameData.powerStatus === false) {
         gameData.startStatus = false;
-        document.getElementById('1').onclick = function() {};
-        document.getElementById('2').onclick = function() {};
-        document.getElementById('3').onclick = function() {};
-        document.getElementById('4').onclick = function() {};
+        segment.onclick = function() {};
+        /*(segment.yellow).onclick = function() {};
+        (segment.green).onclick = function() {};
+        (segment.blue).onclick = function() {};*/
     }
 };
 
@@ -45,10 +45,10 @@ function generateSequence() {
 }
 
 function showSequence() {
-    document.getElementById('1').onclick = function() {};
-    document.getElementById('2').onclick = function() {};
-    document.getElementById('3').onclick = function() {};
-    document.getElementById('4').onclick = function() {};
+    (segment.red).onclick = function() {};
+    (segment.yellow).onclick = function() {};
+    (segment.green).onclick = function() {};
+    (segment.blue).onclick = function() {};
     var i = 0;
     let sequence = setInterval(function() {
         gameData.clickable = false;
@@ -63,7 +63,7 @@ function showSequence() {
 
 function displaySequence(i) {
     if (gameData.gameSequence[i] === 1) {
-       colour(redAudio, 1, 'red-light');
+        colour(redAudio, 1, 'red-light');
     }
     else if (gameData.gameSequence[i] === 2) {
         colour(yellowAudio, 2, 'yellow-light');
@@ -72,53 +72,73 @@ function displaySequence(i) {
         colour(greenAudio, 3, 'green-light');
     }
     else {
-       colour(blueAudio, 4, 'blue-light');
+        colour(blueAudio, 4, 'blue-light');
     }
     gameData.playerSequence = [];
 }
 
+
+
 function playerInput() {
-    document.getElementById('1').onclick = function() {
-        gameData.playerSequence.push(1);
-        colour(redAudio, 1, 'red-light');
+    function playerclick(colourAudio, id, className) {
+        gameData.playerSequence.push(id);
+        colour(colourAudio, id, className);
         if (gameData.playerSequence.length < gameData.gameSequence.length) {
             playerInput();
         }
         else {
             checkSequence();
         }
-    };
-    document.getElementById('2').onclick = function() {
-        gameData.playerSequence.push(2);
-        colour(yellowAudio, 2, 'yellow-light');
-        if (gameData.playerSequence.length < gameData.gameSequence.length) {
-            playerInput();
-        }
-        else {
-            checkSequence();
-        }
-    };
-    document.getElementById('3').onclick = function() {
-        gameData.playerSequence.push(3);
-        colour(greenAudio, 3, 'green-light');
-        if (gameData.playerSequence.length < gameData.gameSequence.length) {
-            playerInput();
-        }
-        else {
-            checkSequence();
-        }
-    };
-    document.getElementById('4').onclick = function() {
-        gameData.playerSequence.push(4);
-        colour(blueAudio, 4, 'blue-light');
-        if (gameData.playerSequence.length < gameData.gameSequence.length) {
-            playerInput();
-        }
-        else {
-            checkSequence();
-        }
-    };
+    }
+    (segment.red).onclick = function() { playerclick(redAudio, 1, 'red-light') };
+    (segment.yellow).onclick = function() { playerclick(yellowAudio, 2, 'yellow-light') };
+    (segment.green).onclick = function() { playerclick(greenAudio, 3, 'green-light') };
+    (segment.blue).onclick = function() { playerclick(blueAudio, 4, 'blue-light') };
 }
+
+
+/*
+(segment.red).onclick = function() {
+    gameData.playerSequence.push(1);
+    colour(redAudio, 1, 'red-light');
+    if (gameData.playerSequence.length < gameData.gameSequence.length) {
+        playerInput();
+    }
+    else {
+        checkSequence();
+    }
+};
+(segment.yellow).onclick = function() {
+    gameData.playerSequence.push(2);
+    colour(yellowAudio, 2, 'yellow-light');
+    if (gameData.playerSequence.length < gameData.gameSequence.length) {
+        playerInput();
+    }
+    else {
+        checkSequence();
+    }
+};
+(segment.green).onclick = function() {
+    gameData.playerSequence.push(3);
+    colour(greenAudio, 3, 'green-light');
+    if (gameData.playerSequence.length < gameData.gameSequence.length) {
+        playerInput();
+    }
+    else {
+        checkSequence();
+    }
+};
+(segment.blue).onclick = function() {
+    gameData.playerSequence.push(4);
+    colour(blueAudio, 4, 'blue-light');
+    if (gameData.playerSequence.length < gameData.gameSequence.length) {
+        playerInput();
+    }
+    else {
+        checkSequence();
+    }
+};*/
+
 
 
 
