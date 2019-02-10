@@ -64,19 +64,15 @@ function showSequence() {
 function displaySequence(i) {
     if (gameData.gameSequence[i] === 1) {
        colour(redAudio, 1, 'red-light');
-       // red();
     }
     else if (gameData.gameSequence[i] === 2) {
         colour(yellowAudio, 2, 'yellow-light');
-        //yellow();
     }
     else if (gameData.gameSequence[i] === 3) {
         colour(greenAudio, 3, 'green-light');
-        //green();
     }
     else {
        colour(blueAudio, 4, 'blue-light');
-        //blue();
     }
     gameData.playerSequence = [];
 }
@@ -85,7 +81,6 @@ function playerInput() {
     document.getElementById('1').onclick = function() {
         gameData.playerSequence.push(1);
         colour(redAudio, 1, 'red-light');
-        //red();
         if (gameData.playerSequence.length < gameData.gameSequence.length) {
             playerInput();
         }
@@ -96,7 +91,6 @@ function playerInput() {
     document.getElementById('2').onclick = function() {
         gameData.playerSequence.push(2);
         colour(yellowAudio, 2, 'yellow-light');
-        //yellow();
         if (gameData.playerSequence.length < gameData.gameSequence.length) {
             playerInput();
         }
@@ -107,7 +101,6 @@ function playerInput() {
     document.getElementById('3').onclick = function() {
         gameData.playerSequence.push(3);
         colour(greenAudio, 3, 'green-light');
-        //green();
         if (gameData.playerSequence.length < gameData.gameSequence.length) {
             playerInput();
         }
@@ -118,7 +111,6 @@ function playerInput() {
     document.getElementById('4').onclick = function() {
         gameData.playerSequence.push(4);
         colour(blueAudio, 4, 'blue-light');
-        //blue();
         if (gameData.playerSequence.length < gameData.gameSequence.length) {
             playerInput();
         }
@@ -136,17 +128,17 @@ function checkSequence() {
         setTimeout(newRound, 1000);
     }
     else if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length === 20) {
-        displayWin();
+        displayMessage(display.win);
         setTimeout(newGame, 1000);
     }
     else {
         if (gameData.strictStatus === true) {
-            displayStartAgain();
+            displayMessage(display.startAgain);
             setTimeout(newGame, 3000);
         }
         else {
             console.log('wrongInput');
-            displayTryAgain();
+            displayMessage(display.tryAgain);
             setTimeout(showSequence, 1000);
         }
     }
