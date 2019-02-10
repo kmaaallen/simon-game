@@ -48,7 +48,7 @@ It is important the player reads this information first so the text has good con
 #### Feature 2 - game board
 The game board contains the coloured segments, the control panel and the buttons/toggles for using the game.
 For the coloured segments I stuck to the original simon game configuration (though the color order is different) and kept the colours bright.
-When a colour is triggered by the sequence (see logic document) the segment lightens and plays a sound.
+When a colour is triggered by the sequence (see logic document) the segment lightens for a time to replicate a flash and plays a sound.
 
 #### Feature 3 - control panel
 The control panel contains the buttons to use the game and the display.
@@ -60,6 +60,7 @@ There are two toggles and one button in this game.
 The start button is a simple click button - this is only used to trigger the game start and so does not need a toggle.
 The strict mode and power toggle switches are to the left with a red background when off and to the right with a green background when active.
 This is so the player knows whether the power is on and whether the game is in strict mode or not.
+These toggles move off the game board on smaller screen sizes so text and display are still readable for the player.
 
 ### Features Left to Implement
 
@@ -105,8 +106,8 @@ This online autoprefix tool was used to check when vendor pre-fixes were necessa
 Available at : https://autoprefixer.github.io/
 
 ### Favicon generator tool
-This online tool was used to generate a favicon for my site. The image uploaded was a screen shot of one of the 'M' characters from my website. 
-The favicon image can be viewed at:  
+This online tool was used to generate a favicon for my site.
+The favicon image can be viewed at:  //STILL TO DO
 The online generator tool is available at: https://www.favicongenerator.com/
 
 ## Testing
@@ -115,7 +116,8 @@ This project used Jasmine to unit test the game logic.
 
 ### Manual Testing
 
-## Deployment
+## Deployment // NEED TO FIX THIS PART - MARKED DOWN LAST TIME.
+This project was deployed on GitHub Pages and can be viewed at: https://kmaaallen.github.io/simon-game/
 
 
 ## Credits
