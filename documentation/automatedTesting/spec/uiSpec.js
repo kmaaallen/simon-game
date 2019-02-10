@@ -5,7 +5,7 @@ describe("game display test suite", function() {
         });
         it("should display 'ready' message when power status is ON (true)", function() {
             powerClick();
-            expect(document.getElementById('display').innerHTML).toBe('ready');
+            expect(document.getElementById('display').innerHTML).toBe('Ready');
         });
     });
     describe("displays empty string (nothing) when power status is OFF(false)", function() {
@@ -166,24 +166,24 @@ describe("player messages when sequence checked test suite", function() {
         it("should display a 'Win!' message when game is won", function() {
             gameData.gameSequence = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
             gameData.playerSequence = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-            spyOn(window, 'displayWin');
+            spyOn(window, 'displayMessage');
             checkSequence();
-            expect(window.displayWin).toHaveBeenCalled();
+            expect(window.displayMessage).toHaveBeenCalledWith(display.win);
         });
         it("should display a 'Try again!' message when playerSequence is incorrect and strict mode off", function() {
             gameData.gameSequence = [1, 2, 3, 4];
             gameData.playerSequence = [1, 2, 4, 3];
             gameData.strictStatus = false;
-            spyOn(window, 'displayTryAgain');
+            spyOn(window, 'displayMessage');
             checkSequence();
-            expect(window.displayTryAgain).toHaveBeenCalled();
+            expect(window.displayMessage).toHaveBeenCalledWith(display.tryAgain);
         });
     });
 });
 
 describe("strictmode fail display", function(){
     it("should display start again message when player wrong in strict mode", function(){
-         displayStartAgain();
+         displayMessage(display.startAgain);
          expect(document.getElementById('display').innerHTML).toBe('Start Again!');
     });
 });
