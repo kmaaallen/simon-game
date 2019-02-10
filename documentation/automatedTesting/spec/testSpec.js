@@ -292,9 +292,9 @@ describe("check playerSequence test suite", function() {
             gameData.gameSequence = [1, 2, 3, 4, 1, 2, 3];
             gameData.playerSequence = [1, 2, 3, 4, 1, 2, 4];
             gameData.strictStatus = true;
-            spyOn(window, 'displayStartAgain');
+            spyOn(window, 'displayMessage');
             checkSequence();
-            expect(window.displayStartAgain).toHaveBeenCalled();
+            expect(window.displayMessage).toHaveBeenCalledWith(display.startAgain);
         });
     });
 });
