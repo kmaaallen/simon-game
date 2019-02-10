@@ -1,6 +1,8 @@
 jQuery(document).ready(function() {
     $.getScript('assets/js/gameLogic.js');
 }); 
+
+
 var display = {
     ready: 'Ready',
     blank: '',
