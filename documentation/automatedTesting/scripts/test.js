@@ -91,84 +91,84 @@ function generateSequence() {
 }
 
 function showSequence() {
-    displayCount();
+    document.getElementById('1').onclick = function() {};
+    document.getElementById('2').onclick = function() {};
+    document.getElementById('3').onclick = function() {};
+    document.getElementById('4').onclick = function() {};
     var i = 0;
     let sequence = setInterval(function() {
         displaySequence(i);
         i++;
         if (i >= gameData.gameSequence.length) {
             clearInterval(sequence);
+            playerInput();
         }
     }, 1000);
 }
 
 function displaySequence(i) {
-    //for (var i = 0; i < gameData.gameSequence.length; i++) {
     if (gameData.gameSequence[i] === 1) {
-        red();
+        colour(redAudio, 1, 'red-light');
     }
     else if (gameData.gameSequence[i] === 2) {
-        yellow();
+        colour(yellowAudio, 2, 'yellow-light');
     }
     else if (gameData.gameSequence[i] === 3) {
-        green();
+        colour(greenAudio, 3, 'green-light');
     }
     else {
-        blue();
+        colour(blueAudio, 4, 'blue-light');
     }
     gameData.playerSequence = [];
-    playerInput();
 }
 
 function playerInput() {
-    if (gameData.clickability == true) {
-        document.getElementById('1').onclick = function() {
-            gameData.playerSequence.push(1);
-            red();
-            if (gameData.playerSequence.length < gameData.gameSequence.length) {
-                playerInput();
-            }
-            else {
-                checkSequence();
-            }
-        };
-        document.getElementById('2').onclick = function() {
-            gameData.playerSequence.push(2);
-            yellow();
-            if (gameData.playerSequence.length < gameData.gameSequence.length) {
-                playerInput();
-            }
-            else {
-                checkSequence();
-            }
-        };
-        document.getElementById('3').onclick = function() {
-            gameData.playerSequence.push(3);
-            green();
-            if (gameData.playerSequence.length < gameData.gameSequence.length) {
-                playerInput();
-            }
-            else {
-                checkSequence();
-            }
-        };
-        document.getElementById('4').onclick = function() {
-            gameData.playerSequence.push(4);
-            blue();
-            if (gameData.playerSequence.length < gameData.gameSequence.length) {
-                playerInput();
-            }
-            else {
-                checkSequence();
-            }
-        };
-        let repeatSequence = setInterval(function() {
-            showSequence();
-            if (gameData.playerSequence.length > 0) {
-                clearInterval(showSequence);
-            }
-        }, 7000);
-    }
+    document.getElementById('1').onclick = function() {
+        gameData.playerSequence.push(1);
+        colour(redAudio, 1, 'red-light');
+        if (gameData.playerSequence.length < gameData.gameSequence.length) {
+            playerInput();
+        }
+        else {
+            checkSequence();
+        }
+    };
+    document.getElementById('2').onclick = function() {
+        gameData.playerSequence.push(2);
+        colour(yellowAudio, 2, 'yellow-light');
+        if (gameData.playerSequence.length < gameData.gameSequence.length) {
+            playerInput();
+        }
+        else {
+            checkSequence();
+        }
+    };
+    document.getElementById('3').onclick = function() {
+        gameData.playerSequence.push(3);
+        colour(greenAudio, 3, 'green-light');
+        if (gameData.playerSequence.length < gameData.gameSequence.length) {
+            playerInput();
+        }
+        else {
+            checkSequence();
+        }
+    };
+    document.getElementById('4').onclick = function() {
+        gameData.playerSequence.push(4);
+        colour(blueAudio, 4, 'blue-light');
+        if (gameData.playerSequence.length < gameData.gameSequence.length) {
+            playerInput();
+        }
+        else {
+            checkSequence();
+        }
+    };
+    let repeatSequence = setInterval(function() {
+        showSequence();
+        if (gameData.playerSequence.length > 0) {
+            clearInterval(showSequence);
+        }
+    }, 7000);
 }
 
 function checkSequence() {
@@ -185,9 +185,9 @@ function checkSequence() {
             displayStartAgain();
             setTimeout(newGame, 1000);
         }
-        else 
+        else
             displayTryAgain();
-            setTimeout(showSequence, 1000);
+        setTimeout(showSequence, 1000);
     }
 }
 
@@ -248,6 +248,15 @@ function displayStartAgain() {
     document.getElementById('display').innerHTML = 'Start Again!';
 }
 
+function colour(colourAudio, id, className) {
+    $(document.getElementById(id)).addClass(className);
+    colourAudio.play();
+    setTimeout(function() {
+        $(document.getElementById(id)).removeClass(className);
+    }, 500);
+}
+
+/*
 function red() {
     $(document.getElementById('1')).addClass('red-light');
     //gameData.redAudio.play();
@@ -279,7 +288,7 @@ function blue() {
         $(document.getElementById('4')).removeClass('blue-light');
     }, 500);
 }
-
+*/
 
 /*function playSoundRed(){
     gameData.redAudio.play();
