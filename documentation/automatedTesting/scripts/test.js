@@ -7,12 +7,14 @@ var gameData = {
     count: 0,
     gameSequence: [],
     playerSequence: [],
-    clickability: false,
-    redAudio: redAudio,
-    yellowAudio: yellowAudio,
-    greenAudio: greenAudio,
-    blueAudio: blueAudio
 };
+
+var segment = {
+    red: document.getElementById('1'),
+    yellow: document.getElementById('2'),
+    green: document.getElementById('3'),
+    blue: document.getElementById('4')
+}
 
 var redAudio = new Audio('/assets/sounds/simonSound1.mp3');
 var yellowAudio = new Audio('/assets/sounds/simonSound1.mp3');
@@ -122,53 +124,21 @@ function displaySequence(i) {
     gameData.playerSequence = [];
 }
 
-function playerInput() {
-    document.getElementById('1').onclick = function() {
-        gameData.playerSequence.push(1);
-        colour(redAudio, 1, 'red-light');
+ function playerInput() {
+    function playerclick(colourAudio, id, className) {
+        gameData.playerSequence.push(id);
+        colour(colourAudio, id, className);
         if (gameData.playerSequence.length < gameData.gameSequence.length) {
             playerInput();
         }
         else {
             checkSequence();
         }
-    };
-    document.getElementById('2').onclick = function() {
-        gameData.playerSequence.push(2);
-        colour(yellowAudio, 2, 'yellow-light');
-        if (gameData.playerSequence.length < gameData.gameSequence.length) {
-            playerInput();
-        }
-        else {
-            checkSequence();
-        }
-    };
-    document.getElementById('3').onclick = function() {
-        gameData.playerSequence.push(3);
-        colour(greenAudio, 3, 'green-light');
-        if (gameData.playerSequence.length < gameData.gameSequence.length) {
-            playerInput();
-        }
-        else {
-            checkSequence();
-        }
-    };
-    document.getElementById('4').onclick = function() {
-        gameData.playerSequence.push(4);
-        colour(blueAudio, 4, 'blue-light');
-        if (gameData.playerSequence.length < gameData.gameSequence.length) {
-            playerInput();
-        }
-        else {
-            checkSequence();
-        }
-    };
-    let repeatSequence = setInterval(function() {
-        showSequence();
-        if (gameData.playerSequence.length > 0) {
-            clearInterval(showSequence);
-        }
-    }, 7000);
+    }
+    (segment.red).onclick = function() { playerclick(redAudio, 1, 'red-light') };
+    (segment.yellow).onclick = function() { playerclick(yellowAudio, 2, 'yellow-light') };
+    (segment.green).onclick = function() { playerclick(greenAudio, 3, 'green-light') };
+    (segment.blue).onclick = function() { playerclick(blueAudio, 4, 'blue-light') };
 }
 
 function checkSequence() {
