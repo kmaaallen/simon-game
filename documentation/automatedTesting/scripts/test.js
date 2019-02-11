@@ -19,7 +19,7 @@ var blueAudio = new Audio('/assets/sounds/simonSound1.mp3');
 //}
 
 function powerClick() { // for testing purposes only
-    document.getElementById('power').click();
+    document.getElementById('power-toggle').click();
 }
 
 function startClick() { // for testing purposes only
@@ -27,7 +27,7 @@ function startClick() { // for testing purposes only
 }
 
 function strictClick() { // for testing purposes only
-    document.getElementById('strict').click();
+    document.getElementById('strict-toggle').click();
 }
 
 function redClick() { // for testing purposes only
@@ -94,7 +94,7 @@ function displaySequence(i) {
     gameData.playerSequence = [];
 }
 
- function playerInput() {
+function playerInput() {
     function playerclick(colourAudio, id, className) {
         gameData.playerSequence.push(id);
         colour(colourAudio, id, className);
@@ -118,19 +118,16 @@ function checkSequence() {
     }
     else if (gameData.playerSequence.join("") === gameData.gameSequence.join("") && gameData.gameSequence.length === 20) {
         displayMessage(display.win);
-        //displayWin();
         setTimeout(newGame, 1000);
     }
     else {
         if (gameData.strictStatus === true) {
             displayMessage(display.startAgain);
-            //displayStartAgain();
             setTimeout(newGame, 3000);
         }
         else {
             console.log('wrongInput');
             displayMessage(display.tryAgain);
-            //displayTryAgain();
             setTimeout(showSequence, 1000);
         }
     }
@@ -152,35 +149,17 @@ var segment = {
     yellow: document.getElementById('2'),
     green: document.getElementById('3'),
     blue: document.getElementById('4'),
-    clickoff: function(colour){
-        (this.red).onclick = function(){};
-        (this.yellow).onclick = function(){};
-        (this.green).onclick = function(){};
-        (this.blue).onclick = function(){};
+    clickoff: function(colour) {
+        (this.red).onclick = function() {};
+        (this.yellow).onclick = function() {};
+        (this.green).onclick = function() {};
+        (this.blue).onclick = function() {};
     }
 }
 
 function displayMessage(message) {
     document.getElementById('display').innerHTML = (message);
 }
-
-document.getElementById('power').onclick = function() {
-    gameData.powerStatus = !gameData.powerStatus;
-    if (gameData.powerStatus === true) {
-        displayMessage(display.ready);
-        document.getElementById('power-button').innerHTML = "Power ON";
-        $(document.getElementById('power-button')).removeClass('off');
-        $(document.getElementById('power-button')).addClass('on');
-    }
-    else {
-        gameData.startStatus = false;
-        segment.clickoff();
-        displayMessage(display.blank);
-        document.getElementById('power-button').innerHTML = "Power OFF";
-        $(document.getElementById('power-button')).removeClass('on');
-        $(document.getElementById('power-button')).addClass('off');
-    }
-};
 
 document.getElementById('start').onclick = function() {
     if (gameData.powerStatus === true && gameData.startStatus === false) {
@@ -189,29 +168,9 @@ document.getElementById('start').onclick = function() {
     }
 };
 
-document.getElementById('strict').onclick = function() {
-    gameData.strictStatus = !gameData.strictStatus;
-    strictDisplay();
-};
-
 function displayCount() {
     document.getElementById('display').innerHTML = gameData.count;
 }
-
-
-function strictDisplay() {
-    if (gameData.strictStatus === true) {
-        document.getElementById('strict-button').innerHTML = "Strict Mode ON";
-        $(document.getElementById('strict-button')).removeClass('off');
-        $(document.getElementById('strict-button')).addClass('on');
-    }
-    else {
-        document.getElementById('strict-button').innerHTML = "Strict Mode OFF";
-        $(document.getElementById('strict-button')).removeClass('on');
-        $(document.getElementById('strict-button')).addClass('off');
-    }
-}
-
 
 function colour(colourAudio, id, className) {
     $(document.getElementById(id)).addClass(className);
@@ -221,3 +180,30 @@ function colour(colourAudio, id, className) {
     }, 500);
 }
 
+document.getElementById('strict-toggle').onclick = function() {
+    gameData.strictStatus = !gameData.strictStatus;
+    if (gameData.strictStatus === true) {
+        $(this).removeClass('positionBefore').addClass('positionAfter');
+        $(document.getElementById('strict-btn')).removeClass('btn-before').addClass('btn-after');
+    }
+    else {
+        $(this).removeClass('positionAfter').addClass('positionBefore');
+        $(document.getElementById('strict-btn')).removeClass('btn-after').addClass('btn-before');
+    }
+};
+
+document.getElementById('power-toggle').onclick = function() {
+    gameData.powerStatus = !gameData.powerStatus;
+    if (gameData.powerStatus === true) {
+        displayMessage(display.ready);
+        $(this).removeClass('positionBefore').addClass('positionAfter');
+        $(document.getElementById('power-btn')).removeClass('btn-before').addClass('btn-after');
+    }
+    else {
+        gameData.startStatus = false;
+        segment.clickoff();
+        displayMessage(display.blank);
+         $(this).removeClass('positionAfter').addClass('positionBefore');
+        $(document.getElementById('power-btn')).removeClass('btn-after').addClass('btn-before');
+    }
+};
