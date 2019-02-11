@@ -190,21 +190,41 @@ describe("strictmode fail display", function(){
 
 describe("strictmode button display test suite", function() {
     describe("strict button appearance depending on mode", function() {
-        it("should display strict mode on message when strict mode is on", function() {
+        it("should display background of green and toggle on right when strict mode is on", function() {
             gameData.strictStatus = false;
             strictClick();
-            expect(document.getElementById('strict-button').innerHTML).toBe('Strict Mode ON');
-            expect(document.getElementById('strict-button').className).toBe('on');
+            expect(document.getElementById('strict-btn').className).toBe('btn-after');
+            expect(document.getElementById('strict-toggle').className).toBe('positionAfter');
         });
-        it("should display strict mode off message when strict mode is off", function() {
+        it("should display background of red and toggle on left when strict mode is off", function() {
             gameData.strictStatus = true;
             strictClick();
-            expect(document.getElementById('strict-button').innerHTML).toBe('Strict Mode OFF');
-            expect(document.getElementById('strict-button').className).toBe('off');
+            expect(document.getElementById('strict-btn').className).toBe('btn-before');
+            expect(document.getElementById('strict-toggle').className).toBe('positionBefore');
         });
     });
 });
 
+describe("power button display test suite", function() {
+    describe("power button appearance depending on status", function() {
+        it("should display background of green and toggle on right when power is on", function() {
+            gameData.powerStatus = false;
+            powerClick();
+            expect(document.getElementById('power-btn').className).toBe('btn-after');
+            expect(document.getElementById('power-toggle').className).toBe('positionAfter');
+        });
+        it("should display background of red and toggle on left when power is off", function() {
+            gameData.powerStatus = true;
+            powerClick();
+            expect(document.getElementById('power-btn').className).toBe('btn-before');
+            expect(document.getElementById('power-toggle').className).toBe('positionBefore');
+        });
+    });
+});
+
+
+
+/*
 describe("power button display test suite", function() {
     describe("power button appearance depending on mode", function() {
         it("should display power on message when power is on", function() {
@@ -221,3 +241,4 @@ describe("power button display test suite", function() {
         });
     });
 });
+*/
