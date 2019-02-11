@@ -69,11 +69,39 @@ Then I had to grab the display div by id ('display') and change its inner conten
     }
 });</code></pre>
 
-3) There needs to be a visual indicator that the game is in strict mode
+3) There needs to be a visual indicator that the game is in strict mode and that the power is on.
 
+I created two toggle buttons for the strict and power buttons. Now, when the player presses on the toggle button there are visual
+indicators the game is on/off and strict mode is on/off.
+<pre><code>
+document.getElementById('strict-toggle').onclick = function() {
+    gameData.strictStatus = !gameData.strictStatus; // changes the status
+    if (gameData.strictStatus === true) {
+        $(this).removeClass('positionBefore').addClass('positionAfter'); // moves toggle element along
+        $(document.getElementById('strict-btn')).removeClass('btn-before').addClass('btn-after'); // changes background colour to green ie. 'on'
+    }
+    else {
+        $(this).removeClass('positionAfter').addClass('positionBefore'); // moves toggle back
+        $(document.getElementById('strict-btn')).removeClass('btn-after').addClass('btn-before'); // restores default red 'off' background colour of button
+    }
+};
 
-
-
+document.getElementById('power-toggle').onclick = function() {
+    gameData.powerStatus = !gameData.powerStatus;
+    if (gameData.powerStatus === true) {
+        displayMessage(display.ready);
+        $(this).removeClass('positionBefore').addClass('positionAfter');
+        $(document.getElementById('power-btn')).removeClass('btn-before').addClass('btn-after');
+    }
+    else {
+        gameData.startStatus = false;
+        segment.clickoff();
+        displayMessage(display.blank);
+         $(this).removeClass('positionAfter').addClass('positionBefore');
+        $(document.getElementById('power-btn')).removeClass('btn-after').addClass('btn-before');
+    }
+};
+</code></pre>
 
 
 ## The player clicks the start button
