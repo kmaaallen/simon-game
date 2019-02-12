@@ -118,16 +118,15 @@ The online generator tool is available at: https://www.favicongenerator.com/
 <br>This project used Jasmine to unit test the game. 
 <br>Specs, the test script and the index page used to run the Jasmine unit tests can be found here: https://github.com/kmaaallen/simon-game/tree/master/documentation/automatedTesting
 
-
-I tried to adhere to the principle of 'Red-Green-Refactor' when testing my code, by writing specs first and then code to pass them.
-Most of the refactoring happened after most of the tests were written and some tests were also adjusted as the code developed.
+For a full outline of my automated testing process please view: https://github.com/kmaaallen/simon-game/blob/master/documentation/automatedTesting/automatedTesting.md
 
 To run the tests:
-run the file: /documentation/automatedTesting/index.html in preview in cloud9.
+As I did: run the file /documentation/automatedTesting/index.html in preview in cloud9.
+Or follow these instructions from the Jasmine documentation on how to install and run Jasmine available at: https://github.com/jasmine/jasmine#installation
 
 
 ### Manual Testing
-A full explanation of the manual testing for this project can be found at: 
+A full explanation of the manual testing for this project can be found at: https://github.com/kmaaallen/simon-game/tree/master/documentation/manualTesting
 
 
 ## Deployment // NEED TO FIX THIS PART - MARKED DOWN LAST TIME.
