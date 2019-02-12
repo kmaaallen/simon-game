@@ -139,6 +139,28 @@ When strict mode is OFF and the player gets the sequence wrong, the message 'Try
 <br>TEST: When the sequence is correct on the final round (tested in both strict mode ON and OFF), a message should be displayed indicating a win.
 <br> PASSED: When the game is won the message "Win!" is shown in the display.
 
+### Responsiveness
+The game needs to be responsive and look well on screens as narrow as 360px and as wide as 3840px
+<br> TEST: Screen re-sized within this width range and assessed visually
+<br> PASSED: Screen looked well on all screen sizes tested
+
+### Cross-browser compatibility
+The game needs to look well and function on different browsers.
+To test this I used my Google Chrome, Safari and Firefox browser on my own laptop - checking for responsiveness and function.
+
+#### Problems Identified
+##### Safari
+1) Not playing sounds
+2) Not loading favicon image
+
+##### Internet Explorer
+1) Not allowing click on toggle buttons
+
+##### Firefox
+1) Not allowing click on toggle buttons
+
+
+
 ## Bugs Found during manual testing (i.e being the player and going through the game)
 ### Problem
 I had an initial issue when clicking on the coloured squares that there were some overlapping with divs and that the game squares were not responsive.
