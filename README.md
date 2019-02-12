@@ -45,13 +45,14 @@ These can be viewed at : https://github.com/kmaaallen/simon-game/tree/master/doc
 #### Feature 1 - Instruction paragraph
 This paragraph is shown at the top of the webpage to ensure prominence.
 It is important the player reads this information first so the text has good contrast to the background.
+
 #### Feature 2 - game board
 The game board contains the coloured segments, the control panel and the buttons/toggles for using the game.
 For the coloured segments I stuck to the original simon game configuration (though the color order is different) and kept the colours bright.
 When a colour is triggered by the sequence (see logic document) the segment lightens for a time to replicate a flash and plays a sound.
 
 #### Feature 3 - control panel
-The control panel contains the buttons to use the game and the display.
+The control panel contains the buttons (on larger screens) to use the game and the display.
 The control panel overlays the coloured segments and is centered.
 This sticks to the original design of the game but also ensures the player can see everything they need in the same place, they don't have to keep looking down or to the side to see the display.
 
@@ -63,6 +64,8 @@ This is so the player knows whether the power is on and whether the game is in s
 These toggles move off the game board on smaller screen sizes so text and display are still readable for the player.
 
 ### Features Left to Implement
+#### No player input catch
+If the game displays and the player does not click any of the buttons to copy the sequence, I would like the game sequence to display again.
 
 ## Technologies Used
 ### HTML, CSS and JavaScript
@@ -102,19 +105,30 @@ HTML validator: https://validator.w3.org
 CSS Validator: http://jigsaw.w3.org/css-validator/
 
 ### Autoprefix tool
-This online autoprefix tool was used to check when vendor pre-fixes were necessary. This was used after my cross-browser testing to identify issues and fix bugs. 
+This online autoprefix tool was used to check when vendor pre-fixes were necessary.
 Available at : https://autoprefixer.github.io/
 
 ### Favicon generator tool
 This online tool was used to generate a favicon for my site.
-The favicon image can be viewed at:  //STILL TO DO
+The favicon image can be viewed at: https://github.com/kmaaallen/simon-game/tree/master/assets/favicon
 The online generator tool is available at: https://www.favicongenerator.com/
 
 ## Testing
 ### Automated Testing
-This project used Jasmine to unit test the game logic. 
+<br>This project used Jasmine to unit test the game. 
+<br>Specs, the test script and the index page used to run the Jasmine unit tests can be found here: https://github.com/kmaaallen/simon-game/tree/master/documentation/automatedTesting
+
+
+I tried to adhere to the principle of 'Red-Green-Refactor' when testing my code, by writing specs first and then code to pass them.
+Most of the refactoring happened after most of the tests were written and some tests were also adjusted as the code developed.
+
+To run the tests:
+run the file: /documentation/automatedTesting/index.html in preview in cloud9.
+
 
 ### Manual Testing
+A full explanation of the manual testing for this project can be found at: 
+
 
 ## Deployment // NEED TO FIX THIS PART - MARKED DOWN LAST TIME.
 This project was deployed on GitHub Pages and can be viewed at: https://kmaaallen.github.io/simon-game/
@@ -122,7 +136,7 @@ This project was deployed on GitHub Pages and can be viewed at: https://kmaaalle
 
 ## Credits
 ### Content
-
+This game is inspired by the original electronic Simon game invented by Ralph Baer and Howard Morrison.
 
 ### Media
 Sounds for the simon game were taken from : https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-a-simon-game/
