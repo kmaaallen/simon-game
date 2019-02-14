@@ -35,6 +35,7 @@ function showSequence() {
 }
 
 function displaySequence(i) {
+    if (gameData.powerStatus === true){
     if (gameData.gameSequence[i] === 1) {
         colour(redAudio, 1, 'red-light');
     }
@@ -48,6 +49,9 @@ function displaySequence(i) {
         colour(blueAudio, 4, 'blue-light');
     }
     gameData.playerSequence = [];
+    } else {
+        return;
+    }
 }
 
 
