@@ -185,14 +185,9 @@ Within this function if the mute argument is 'off' the sounds will play but be m
 I called soundReady with the 'off' argument in the power-toggle click function so set up the sounds for mobile safari to use later.
 Then in the start button click function I called soundReady with an 'on' argument so mute is false for the sounds and they will play when displayed or a square is clicked by the user.
 
-
-###### Safari -Not loading favicon image
-
 ##### Internet Explorer - Not allowing click on toggle buttons
 
 ##### Firefox - Not allowing click on toggle buttons
-
-##### Multiple browsers - if player turns off power while game is displaying or replaying a sequence the sequence continues to play after power is off
 
 
 ## Bugs Found during manual testing (i.e being the player and going through the game)
@@ -213,7 +208,6 @@ A setTimeout method was added in checkSequence function before newRound is calle
 If you press start (without turning on power) - the game starts anyway... 29/01/19
 #### Resolution
 I adjusted start click function to check BOTH power and start were true now game won't start unless power is on.
-
 
 ### Problem
 The game was not turning off when the power button was turned off if start status was still on.
@@ -250,6 +244,33 @@ function showSequence() {
 }
 </code></pre>
 
+### Problem
+If player turns off power while game is displaying or replaying a sequence the sequence continues to play after power is off.
+#### Resolution
+To resolve this issue I added an extra condition to the displaySequence function that meant it would stop as soon as powerStatus was no longer true.
+I then tested this in the live game, turning the power off in the middle of the game displaying a sequence and it worked.
+This is the code modified below: 
+<pre><code>
+function displaySequence(i) {
+    if (gameData.powerStatus === true){ // new condition added
+    if (gameData.gameSequence[i] === 1) {
+        colour(redAudio, 1, 'red-light');
+    }
+    else if (gameData.gameSequence[i] === 2) {
+        colour(yellowAudio, 2, 'yellow-light');
+    }
+    else if (gameData.gameSequence[i] === 3) {
+        colour(greenAudio, 3, 'green-light');
+    }
+    else {
+        colour(blueAudio, 4, 'blue-light');
+    }
+    gameData.playerSequence = [];
+    } else {
+        return; // this causes the function to be exited if the power is turned off
+    }
+}
+</code></pre>
 
 ## Bugs not fixed
 ### Problem 
@@ -257,7 +278,7 @@ If there is no player input the game stops at this point - the sequence should r
 ### Result
 I initially wanted the sequence to replay after a time of inactivity and did attempt to develop some code to this effect.
 However I realised if the player had left the game and it continued to play sound and lights not only might it be irritating, but it might
-run down the devices battery.
+run down the device battery.
 
 I decided not to implement this fix at this time and come up with an alternative solution.
 
