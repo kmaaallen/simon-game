@@ -41,7 +41,7 @@ document.getElementById('power-toggle').onclick = function() {
         displayMessage(display.ready);
         $(this).removeClass('positionBefore').addClass('positionAfter');
         $(document.getElementById('power-btn')).removeClass('btn-before').addClass('btn-after');
-        soundReady();
+        soundReady([redAudio, yellowAudio, greenAudio, blueAudio], 'off');
     }
     else {
         gameData.startStatus = false;
@@ -52,22 +52,24 @@ document.getElementById('power-toggle').onclick = function() {
     }
 };
 
-function soundReady(){
-    blueAudio.play();
-    setTimeout(function(){
-        yellowAudio.play();
-    }, 300);
-    setTimeout(function(){
-        redAudio.play();
-    }, 600);
-    setTimeout(function(){
-         greenAudio.play();
-    }, 900);
+function soundReady(audioArray, mute) {
+    if (mute === 'off') {
+        for (var i = 0; i < audioArray.length; i++) {
+            audioArray[i].muted = true;
+            audioArray[i].play();
+        }
+    }
+    else {
+        for (var i = 0; i < audioArray.length; i++) {
+            audioArray[i].muted = false;
+        }
+    }
 }
 
 document.getElementById('start').onclick = function() {
     if (gameData.powerStatus === true && gameData.startStatus === false) {
         gameData.startStatus = !gameData.startStatus;
+        soundReady([redAudio, yellowAudio, greenAudio, blueAudio], 'on');
         newGame();
     }
 };
