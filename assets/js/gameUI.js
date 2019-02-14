@@ -47,21 +47,21 @@ document.getElementById('power-toggle').onclick = function() {
         gameData.startStatus = false;
         segment.clickoff();
         displayMessage(display.blank);
-         $(this).removeClass('positionAfter').addClass('positionBefore');
+        $(this).removeClass('positionAfter').addClass('positionBefore');
         $(document.getElementById('power-btn')).removeClass('btn-after').addClass('btn-before');
     }
 };
 
 function soundReady(){
-    colour(blueAudio, 4, "");
+    blueAudio.play();
     setTimeout(function(){
-        colour(yellowAudio, 2, "");
+        yellowAudio.play();
     }, 300);
     setTimeout(function(){
-        colour(redAudio, 1, "");
+        redAudio.play();
     }, 600);
     setTimeout(function(){
-         colour(greenAudio, 3, "");
+         greenAudio.play();
     }, 900);
 }
 
