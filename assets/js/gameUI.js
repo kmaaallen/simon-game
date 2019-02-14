@@ -41,6 +41,7 @@ document.getElementById('power-toggle').onclick = function() {
         displayMessage(display.ready);
         $(this).removeClass('positionBefore').addClass('positionAfter');
         $(document.getElementById('power-btn')).removeClass('btn-before').addClass('btn-after');
+        soundReady();
     }
     else {
         gameData.startStatus = false;
@@ -51,6 +52,18 @@ document.getElementById('power-toggle').onclick = function() {
     }
 };
 
+function soundReady(){
+    colour(blueAudio, 4, "");
+    setTimeout(function(){
+        colour(yellowAudio, 2, "");
+    }, 300);
+    setTimeout(function(){
+        colour(redAudio, 1, "");
+    }, 600);
+    setTimeout(function(){
+         colour(greenAudio, 3, "");
+    }, 900);
+}
 
 document.getElementById('start').onclick = function() {
     if (gameData.powerStatus === true && gameData.startStatus === false) {
