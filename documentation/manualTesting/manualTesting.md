@@ -149,16 +149,50 @@ The game needs to look well and function on different browsers.
 To test this I used my Google Chrome, Safari and Firefox browser on my own laptop - checking for responsiveness and function.
 
 #### Problems Identified
-##### Safari
-1) Not playing sounds
-2) Not loading favicon image
+##### Safari- On Safari desktop, all the sounds play but are delayed.
 
-##### Internet Explorer
-1) Not allowing click on toggle buttons
 
-##### Firefox
-1) Not allowing click on toggle buttons
+###### Safari - On Safari desktop if a colour is displayed multiple times in a row it only flashes and sounds once instead of multiple times (this is not an issue on mobile)
 
+##### On Safari mobile the first sound of a displayed sequence will play but not subsequent sounds.
+I used stack overflow to search for a solution and through an answer here : https://stackoverflow.com/questions/31776548/why-cant-javascript-play-audio-files-on-iphone-safari provided by user "Ed Ballot" in August 2015
+was directed to the iOS documentation and an article on IBM's developer site.
+iOS documentation link: https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/Device-SpecificConsiderations/Device-SpecificConsiderations.html
+IBM article link: https://www.ibm.com/developerworks/library/wa-ioshtml5/wa-ioshtml5-pdf.pdf
+
+"the JavaScript play() and load() methods are also inactive until the user initiates playback, unless the play() or load() method is triggered by user action"
+What appears to be the issue is that while the first sound has been initiated by the player pressing start (albeit a few steps through the code), the second sequence isn't initiated by the player.
+Once the player clicks on that colour for player input, it has been initiated and safari will then play that sound.
+
+To work around this I created a soundReady function that is called on the player pressing the power button. 
+<pre><code>
+function soundReady(audioArray, mute) {
+    if (mute === 'off') {
+        for (var i = 0; i < audioArray.length; i++) {
+            audioArray[i].muted = true;
+            audioArray[i].play();
+        }
+    }
+    else {
+        for (var i = 0; i < audioArray.length; i++) {
+            audioArray[i].muted = false;
+        }
+    }
+}
+</code></pre>
+
+Within this function if the mute argument is 'off' the sounds will play but be muted (the player won't hear anything).
+I called soundReady with the 'off' argument in the power-toggle click function so set up the sounds for mobile safari to use later.
+Then in the start button click function I called soundReady with an 'on' argument so mute is false for the sounds and they will play when displayed or a square is clicked by the user.
+
+
+###### Safari -Not loading favicon image
+
+##### Internet Explorer - Not allowing click on toggle buttons
+
+##### Firefox - Not allowing click on toggle buttons
+
+##### Multiple browsers - if player turns off power while game is displaying or replaying a sequence the sequence continues to play after power is off
 
 
 ## Bugs Found during manual testing (i.e being the player and going through the game)
