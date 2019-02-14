@@ -185,10 +185,20 @@ Within this function if the mute argument is 'off' the sounds will play but be m
 I called soundReady with the 'off' argument in the power-toggle click function so set up the sounds for mobile safari to use later.
 Then in the start button click function I called soundReady with an 'on' argument so mute is false for the sounds and they will play when displayed or a square is clicked by the user.
 
-##### Internet Explorer - Not allowing click on toggle buttons
+##### On Safari mobile - when player clicks on segment - box shadow appears
 
-##### Firefox - Not allowing click on toggle buttons
 
+##### Internet Explorer and firefox - Not allowing click on toggle buttons
+I couldn't get the game to start in these two browsers initially as clicking the power button did nothing.
+I used the debugging tool in firefox developer tools and realised the issue was with the initial line of the function, as none of the function further on was being implemented (tested using console.log statements):
+<pre><code>document.getElementById('power-toggle').onclick() = function {...}</code></pre>
+Next I checked there wasn't an issue with the id 'power-toggle' by double checking I hadn't accidentally used it twice in my code and
+then by doing the following in the firefox console:
+<pre><code>document.getElementById('power-toggle')</code></pre>
+This returned the div with that id so I isolated the problem to the onclick function.
+After some searching on stack overflow I found the following answer posted by 'Mamun' on May 4th 2018, "In Firefox, the button itself steals events like mouse events and click of child element".
+Because the toggle switches are divs nested inside buttons in my index.html file they aren't clickable, thus the functions activating the toggle and implementing the game cannot be called.
+To fix this I changed the buttons with ids of 'power-btn' and 'strict-btn' respectively to divs. Re-formatted the CSS for styling and the power and strict toggles now work as desired.
 
 ## Bugs Found during manual testing (i.e being the player and going through the game)
 ### Problem
@@ -200,7 +210,7 @@ This did solve the issue however I later re-designed the game board, removing my
 By manually sizing each div I was able to ensure there was no overlap when the screen size increased or decreased and made managing the responsiveness of the site much easier.
 
 ### Problem
-Issue - new sequence is displayed too quickly once player sequence checked.
+New sequence is displayed too quickly once player sequence checked.
 #### Resolution
 A setTimeout method was added in checkSequence function before newRound is called.
 
@@ -272,17 +282,6 @@ function displaySequence(i) {
 }
 </code></pre>
 
-## Bugs not fixed
-### Problem 
-If there is no player input the game stops at this point - the sequence should replay after an interval?
-### Result
-I initially wanted the sequence to replay after a time of inactivity and did attempt to develop some code to this effect.
-However I realised if the player had left the game and it continued to play sound and lights not only might it be irritating, but it might
-run down the device battery.
-
-I decided not to implement this fix at this time and come up with an alternative solution.
-
-
 ## User Feedback (from family and friends)
 ### Issue: When player gets sequence wrong - replay of sequence goes haywire - not playing in nice order 6/2/19
 #### Resolution
@@ -297,4 +296,15 @@ process step by step.
 2) playerInput was being called before the sequence had finished displaying, this resulted in multiple playerInput calls once showSequence was called to replay the sequence.
 This was leading to multiple instances of the sequence playing at the same time giving a haywire appearance.
 
-The fix for this bug is outlined in the problem above (labelled haywire display)
+The fix for this bug is outlined in the problem labelled 'haywire display' above.
+
+
+## Bugs not fixed
+### Problem 
+If there is no player input the game stops at this point - the sequence should replay after an interval?
+### Result
+I initially wanted the sequence to replay after a time of inactivity and did attempt to develop some code to this effect.
+However I realised if the player had left the game and it continued to play sound and lights not only might it be irritating, but it might
+run down the device battery.
+
+I decided not to implement this fix at this time and come up with an alternative solution.
