@@ -1,6 +1,6 @@
 jQuery(document).ready(function() {
     $.getScript('assets/js/gameLogic.js');
-
+});
 
 var display = {
     ready: 'Ready',
@@ -35,7 +35,7 @@ document.getElementById('strict-toggle').onclick = function() {
     }
 };
 
-$(document.getElementById('power-toggle')).click(function() {
+document.getElementById('power-toggle').onclick = function() {
     gameData.powerStatus = !gameData.powerStatus;
     if (gameData.powerStatus === true) {
         displayMessage(display.ready);
@@ -49,10 +49,10 @@ $(document.getElementById('power-toggle')).click(function() {
          $(this).removeClass('positionAfter').addClass('positionBefore');
         $(document.getElementById('power-btn')).removeClass('btn-after').addClass('btn-before');
     }
-});
+};
 
 
-document.getElementById('start').onclick() = function() {
+document.getElementById('start').onclick = function() {
     if (gameData.powerStatus === true && gameData.startStatus === false) {
         gameData.startStatus = !gameData.startStatus;
         newGame();
@@ -75,4 +75,3 @@ function colour(colourAudio, id, className) {
         $(document.getElementById(id)).removeClass(className);
     }, 500);
 }
-});
