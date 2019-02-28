@@ -149,11 +149,6 @@ The game needs to look well and function on different browsers.
 To test this I used my Google Chrome, Safari and Firefox browser on my own laptop - checking for responsiveness and function.
 
 #### Problems Identified
-##### Safari - if player presses start too quickly after power - sounds play
-
-##### Safari- On Safari desktop, all the sounds play but are delayed.
-
-###### Safari - On Safari desktop if a colour is displayed multiple times in a row it only flashes and sounds once instead of multiple times (this is not an issue on mobile)
 
 ##### On Safari mobile the first sound of a displayed sequence will play but not subsequent sounds.
 I used stack overflow to search for a solution and through an answer here : https://stackoverflow.com/questions/31776548/why-cant-javascript-play-audio-files-on-iphone-safari provided by user "Ed Ballot" in August 2015
@@ -187,7 +182,11 @@ I called soundReady with the 'off' argument in the power-toggle click function s
 Then in the start button click function I called soundReady with an 'on' argument so mute is false for the sounds and they will play when displayed or a square is clicked by the user.
 
 ##### On Safari mobile - when player clicks on segment - box shadow appears
-
+To remove this shadow effect on tap in mobile I used the following code:<br>
+In CSS: -webkit-tap-highlight-color: rgba(0,0,0,0); for each coloured square class<br>
+In JS: document.addEventListener("touchstart", function(){}, true);<br>
+This solution was found through searching google and the code used is from: https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/
+and was written by Chris Coyier on css-tricks.com.
 
 ##### Internet Explorer and firefox - Not allowing click on toggle buttons
 I couldn't get the game to start in these two browsers initially as clicking the power button did nothing.
