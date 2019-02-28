@@ -136,6 +136,8 @@ This project was deployed on GitHub Pages and can be viewed at: https://kmaaalle
 ## Credits
 ### Content
 This game is inspired by the original electronic Simon game invented by Ralph Baer and Howard Morrison.
+The code snippets used to remove the gray highlight on tap in mobile devices was taken from :  https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/
+and was written by Chris Coyier on css-tricks.com.
 
 ### Media
 Sounds for the simon game were taken from : https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-a-simon-game/
