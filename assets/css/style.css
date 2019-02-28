@@ -40,12 +40,12 @@ p {
     width: 145px;
     z-index: 5;
     border: 5px solid black;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .red-square {
     background-color: red;
     border-radius: 300px 0 0 0;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .yellow-square {
@@ -55,11 +55,13 @@ p {
     -webkit-transform: translateY(-155px);
     -ms-transform: translateY(-155px);
     transform: translateY(-155px);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .green-square {
     background-color: green;
     border-radius: 0 0 0 300px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .blue-square {
@@ -69,6 +71,7 @@ p {
     -webkit-transform: translateY(-155px);
     -ms-transform: translateY(-155px);
     transform: translateY(-155px);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .strict-square,
