@@ -40,6 +40,7 @@ p {
     width: 145px;
     z-index: 5;
     border: 5px solid black;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .red-square {

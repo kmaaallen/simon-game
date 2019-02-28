@@ -23,6 +23,8 @@ var segment = {
     }
 };
 
+document.addEventListener("touchstart", function(){}, true);
+
 document.getElementById('strict-toggle').onclick = function() {
     gameData.strictStatus = !gameData.strictStatus;
     if (gameData.strictStatus === true) {
