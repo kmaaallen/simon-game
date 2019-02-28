@@ -131,6 +131,12 @@ A full explanation of the manual testing for this project can be found at: https
 
 ## Deployment // NEED TO FIX THIS PART - MARKED DOWN LAST TIME.
 This project was deployed on GitHub Pages and can be viewed at: https://kmaaallen.github.io/simon-game/
+Steps for deployment:
+1) A local git repository was initiated at the beginning of the project
+2) A remote git repository was initiated on github and linked to local repository
+3) As each function or significant code development was added to project, project was committed to local repository then pushed to remote repository on github
+4) On github, under the settings tab for this remote repository, available at: https://github.com/kmaaallen/simon-game/settings , in the GitHub Pages section,
+I published my site from the master branch.
 
 
 ## Credits
