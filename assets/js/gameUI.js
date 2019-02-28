@@ -23,6 +23,7 @@ var segment = {
     }
 };
 
+// One line code snippet immediately below is from https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/ and was written by Chris Coyier on css-tricks.com.
 document.addEventListener("touchstart", function(){}, true);
 
 document.getElementById('strict-toggle').onclick = function() {

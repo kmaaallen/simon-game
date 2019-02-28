@@ -42,6 +42,10 @@ p {
     border: 5px solid black;
 }
 
+/*webkit-tap-highlight-color code snippet in colour-square classes below is from 
+https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/
+and was written by Chris Coyier on css-tricks.com.*/
+
 .red-square {
     background-color: red;
     border-radius: 300px 0 0 0;
