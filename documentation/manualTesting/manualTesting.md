@@ -149,8 +149,9 @@ The game needs to look well and function on different browsers.
 To test this I used my Google Chrome, Safari and Firefox browser on my own laptop - checking for responsiveness and function.
 
 #### Problems Identified
-##### Safari- On Safari desktop, all the sounds play but are delayed.
+##### Safari - if player presses start too quickly after power - sounds play
 
+##### Safari- On Safari desktop, all the sounds play but are delayed.
 
 ###### Safari - On Safari desktop if a colour is displayed multiple times in a row it only flashes and sounds once instead of multiple times (this is not an issue on mobile)
 
