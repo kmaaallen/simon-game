@@ -67,10 +67,10 @@ function playerInput() {
             checkSequence();
         }
     }
-    (segment.red).onclick = function() { playerclick(redAudio, 1, 'red-light') };
-    (segment.yellow).onclick = function() { playerclick(yellowAudio, 2, 'yellow-light') };
-    (segment.green).onclick = function() { playerclick(greenAudio, 3, 'green-light') };
-    (segment.blue).onclick = function() { playerclick(blueAudio, 4, 'blue-light') };
+    (segment.red).onclick = function() { playerclick(redAudio, 1, 'red-light'); };
+    (segment.yellow).onclick = function() { playerclick(yellowAudio, 2, 'yellow-light'); };
+    (segment.green).onclick = function() { playerclick(greenAudio, 3, 'green-light'); };
+    (segment.blue).onclick = function() { playerclick(blueAudio, 4, 'blue-light'); };
 }
 
 

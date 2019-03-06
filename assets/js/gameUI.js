@@ -63,8 +63,8 @@ function soundReady(audioArray, mute) {
         }
     }
     else {
-        for (var i = 0; i < audioArray.length; i++) {
-            audioArray[i].muted = false;
+        for (var j = 0; j < audioArray.length; j++) {
+            audioArray[j].muted = false;
         }
     }
 }
