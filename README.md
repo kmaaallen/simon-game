@@ -129,7 +129,7 @@ Or follow these instructions from the Jasmine documentation on how to install an
 A full explanation of the manual testing for this project can be found at: https://github.com/kmaaallen/simon-game/tree/master/documentation/manualTesting
 
 
-## Deployment // NEED TO FIX THIS PART - MARKED DOWN LAST TIME.
+## Deployment
 This project was deployed on GitHub Pages and can be viewed at: https://kmaaallen.github.io/simon-game/
 Steps for deployment:
 1) A local git repository was initiated at the beginning of the project
