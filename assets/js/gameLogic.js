@@ -54,8 +54,6 @@ function displaySequence(i) {
     }
 }
 
-
-
 function playerInput() {
     function playerclick(colourAudio, id, className) {
         gameData.playerSequence.push(id);
