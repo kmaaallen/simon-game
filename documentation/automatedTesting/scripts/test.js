@@ -147,10 +147,10 @@ var segment = {
     green: document.getElementById('3'),
     blue: document.getElementById('4'),
     clickoff: function(colour) {
-        (this.red).onclick = function() {};
-        (this.yellow).onclick = function() {};
-        (this.green).onclick = function() {};
-        (this.blue).onclick = function() {};
+        (this.red).onclick = function() {null};
+        (this.yellow).onclick = function() {null};
+        (this.green).onclick = function() {null};
+        (this.blue).onclick = function() {null};
     }
 }
 
