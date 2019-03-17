@@ -14,9 +14,6 @@ var yellowAudio = new Audio('/assets/sounds/simonSound1.mp3');
 var greenAudio = new Audio('/assets/sounds/simonSound1.mp3');
 var blueAudio = new Audio('/assets/sounds/simonSound1.mp3');
 // Game Logic ------------------------------------------------------------------
-//function pageReload(){
-//   location.reload();
-//}
 
 function powerClick() { // for testing purposes only
     document.getElementById('power-toggle').click();
