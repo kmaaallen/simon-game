@@ -222,23 +222,3 @@ describe("power button display test suite", function() {
     });
 });
 
-
-
-/*
-describe("power button display test suite", function() {
-    describe("power button appearance depending on mode", function() {
-        it("should display power on message when power is on", function() {
-            gameData.powerStatus = false;
-            powerClick();
-            expect(document.getElementById('power-button').innerHTML).toBe('Power ON');
-            expect(document.getElementById('power-button').className).toBe('on');
-        });
-        it("should display power off message when power is off", function() {
-            gameData.powerStatus = true;
-            powerClick();
-            expect(document.getElementById('power-button').innerHTML).toBe('Power OFF');
-            expect(document.getElementById('power-button').className).toBe('off');
-        });
-    });
-});
-*/
