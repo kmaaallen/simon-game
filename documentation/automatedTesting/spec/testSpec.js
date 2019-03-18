@@ -319,9 +319,11 @@ describe("game reset testing suite", function() {
             expect(gameData.gameSequence).toEqual([]);
         });
         it("should reset playerSequence to an empty array", function() {
+            jasmine.clock().tick(10);
             expect(gameData.playerSequence).toEqual([]);
         });
         it("should reset count to zero", function() {
+            jasmine.clock().tick(10);
             expect(gameData.count).toEqual(0);
         });
     });
