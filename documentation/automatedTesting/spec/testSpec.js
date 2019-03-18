@@ -309,10 +309,10 @@ describe("game reset testing suite", function() {
     describe("when newGame is called game variables should be reset to initial values", function() {
         beforeEach(function() {
             jasmine.clock().install();
-            newGame();
+            TestNewGame();
         });
         afterEach(function() {
-            jasmine.clock().uninstall();
+           jasmine.clock().uninstall();
         });
         it("should reset gameSequence to an empty array", function() {
             jasmine.clock().tick(10);

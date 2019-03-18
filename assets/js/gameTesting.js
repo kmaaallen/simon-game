@@ -27,7 +27,7 @@ function blueClick() { // for testing purposes only
     document.getElementById('4').click();
 }
 
-function newGame() {
+function TestNewGame() {
     gameData.count = 0;
     gameData.gameSequence = [];
     gameData.playerSequence = [];
