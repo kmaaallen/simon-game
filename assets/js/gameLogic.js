@@ -1,5 +1,5 @@
 jQuery(document).ready(function() {
-    $.getScript('assets/js/gameData.js');
+    $.getScript('https://simon-game-3-kmaaallen.c9users.io/assets/js/gameData.js');
 });
 
 
@@ -35,21 +35,22 @@ function showSequence() {
 }
 
 function displaySequence(i) {
-    if (gameData.powerStatus === true){
-    if (gameData.gameSequence[i] === 1) {
-        colour(redAudio, 1, 'red-light');
-    }
-    else if (gameData.gameSequence[i] === 2) {
-        colour(yellowAudio, 2, 'yellow-light');
-    }
-    else if (gameData.gameSequence[i] === 3) {
-        colour(greenAudio, 3, 'green-light');
+    if (gameData.powerStatus === true) {
+        if (gameData.gameSequence[i] === 1) {
+            colour(redAudio, 1, 'red-light');
+        }
+        else if (gameData.gameSequence[i] === 2) {
+            colour(yellowAudio, 2, 'yellow-light');
+        }
+        else if (gameData.gameSequence[i] === 3) {
+            colour(greenAudio, 3, 'green-light');
+        }
+        else {
+            colour(blueAudio, 4, 'blue-light');
+        }
+        gameData.playerSequence = [];
     }
     else {
-        colour(blueAudio, 4, 'blue-light');
-    }
-    gameData.playerSequence = [];
-    } else {
         return;
     }
 }
@@ -87,7 +88,6 @@ function checkSequence() {
             setTimeout(newGame, 3000);
         }
         else {
-            console.log('wrongInput');
             displayMessage(display.tryAgain);
             setTimeout(showSequence, 1000);
         }
