@@ -177,7 +177,7 @@ describe("display sequence test suite", function() {
             displaySequence(0);
             expect(window.colour).toHaveBeenCalledWith(redAudio, 1, 'red-light');
         });
-        it("should call the the colour function with (yellowAudio, 2, 'yellow-light')when the number is 2", function() {
+        it("should call the the colour function with (yellowAudio, 2, 'yellow-light') when the number is 2", function() {
             spyOn(window, 'colour');
             displaySequence(1);
             expect(window.colour).toHaveBeenCalledWith(yellowAudio, 2, 'yellow-light');
