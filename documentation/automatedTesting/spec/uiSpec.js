@@ -36,7 +36,7 @@ describe("color functions test suite", function() {
     afterEach(function() {
         jasmine.clock().uninstall();
     });
-    describe("color function should add and remove red-light class to coloured square when called with (redAudio, 1, 'redFlash') arguments", function() {
+    describe("color function should add and remove red-light class at 500ms intervals to coloured square when called with (redAudio, 1, 'redFlash') arguments", function() {
         it("should have class of red-light", function() {
             colour(redAudio, 1, 'red-light');
             expect(document.getElementById('1').className).toBe('red-square red-light');
@@ -47,7 +47,7 @@ describe("color functions test suite", function() {
             expect(document.getElementById('1').className).toBe('red-square');
         });
     });
-    describe("color function should add and remove yellow-light class to coloured square when called with (yellowAudio, 2, 'yellowFlash') arguments", function() {
+    describe("color function should add and remove yellow-light class at 500ms intervals to coloured square when called with (yellowAudio, 2, 'yellowFlash') arguments", function() {
         it("should have class of yellow-light", function() {
             colour(yellowAudio, 2, 'yellow-light');
             expect(document.getElementById('2').className).toBe('yellow-square yellow-light');
@@ -58,7 +58,7 @@ describe("color functions test suite", function() {
             expect(document.getElementById('2').className).toBe('yellow-square');
         });
     });
-    describe("color function should add and remove green-light class to coloured square when called with (greenAudio, 3, 'greenFlash') arguments", function() {
+    describe("color function should add and remove green-light class at 500ms intervals to coloured square when called with (greenAudio, 3, 'greenFlash') arguments", function() {
         it("should have class of green-light", function() {
             colour(greenAudio, 3, 'green-light');
             expect(document.getElementById('3').className).toBe('green-square green-light');
@@ -69,7 +69,7 @@ describe("color functions test suite", function() {
             expect(document.getElementById('3').className).toBe('green-square');
         });
     });
-    describe("color function should add and remove blue-light class to coloured square when called with (blueAudio, 4, 'blueFlash') arguments", function() {
+    describe("color function should add and remove blue-light class at 500ms intervals to coloured square when called with (blueAudio, 4, 'blueFlash') arguments", function() {
         it("should have class of blue-light after blue function called", function() {
             colour(blueAudio, 4, 'blue-light');
             expect(document.getElementById('4').className).toBe('blue-square blue-light');
@@ -82,59 +82,19 @@ describe("color functions test suite", function() {
     });
 });
 
-describe("color flashing intervals test suite", function() {
+describe("color function called when showSequence called", function() {
     beforeEach(function() {
-        jasmine.clock().install();
-        gameData.gameSequence = [1, 2, 3, 4]
         showSequence();
     });
-    afterEach(function() {
-        jasmine.clock().uninstall();
-    });
-    describe("color function should add and remove red-light class", function() {
-        it("should have class of red-light 1000ms after showSequence function called", function() {
-            jasmine.clock().tick(1000);
-            expect(document.getElementById('1').className).toBe('red-square red-light');
+    describe("color function should be called when showSequence is called", function() {
+        it("should call colour function after showSequence function called", function() {
+            spyOn(window,'colour')
+            expect(window.colour).toHaveBeenCalled();
         });
-        it("should remove class of red-light after 1500ms", function() {
-            jasmine.clock().tick(1500);
-            expect(document.getElementById('1').className).toBe('red-square');
-        });
-    });
-    describe("color function should add yellow-light class", function() {
-        it("should have class of yellow-light 2000ms after showSequence function called", function() {
-            jasmine.clock().tick(2000);
-            expect(document.getElementById('2').className).toBe('yellow-square yellow-light');
-        });
-        it("should remove class of yellow-light after 2500ms", function() {
-            jasmine.clock().tick(2500);
-            expect(document.getElementById('2').className).toBe('yellow-square');
-        });
-    });
-    describe("color function should add green-light class", function() {
-        it("should have class of green-light 3000ms after showSequence function called", function() {
-            jasmine.clock().tick(3000);
-            expect(document.getElementById('3').className).toBe('green-square green-light');
-        });
-        it("should remove class of green-light after 3500ms", function() {
-            jasmine.clock().tick(3500);
-            expect(document.getElementById('3').className).toBe('green-square');
-        });
-    });
-    describe("color function should add blue-light class", function() {
-        it("should have class of blue-light 4000ms after showSequence function called", function() {
-            jasmine.clock().tick(4000);
-            expect(document.getElementById('4').className).toBe('blue-square blue-light');
-        });
-        it("should remove class of blue-light after 4500ms", function() {
-            jasmine.clock().tick(4500);
-            expect(document.getElementById('4').className).toBe('blue-square');
-        });
-    });
-});
+       
 
 describe("player input visual/audio test suite", function() {
-    beforeEach(function(){
+    beforeEach(function() {
         playerInput();
     });
     describe("player should see colour flash corresponding to their choice made by clicking on square", function() {
@@ -181,10 +141,10 @@ describe("player messages when sequence checked test suite", function() {
     });
 });
 
-describe("strictmode fail display", function(){
-    it("should display start again message when player wrong in strict mode", function(){
-         displayMessage(display.startAgain);
-         expect(document.getElementById('display').innerHTML).toBe('Start Again!');
+describe("strictmode fail display", function() {
+    it("should display start again message when player wrong in strict mode", function() {
+        displayMessage(display.startAgain);
+        expect(document.getElementById('display').innerHTML).toBe('Start Again!');
     });
 });
 
@@ -221,4 +181,3 @@ describe("power button display test suite", function() {
         });
     });
 });
-
