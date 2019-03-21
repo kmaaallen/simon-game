@@ -1,5 +1,5 @@
 jQuery(document).ready(function() {
-    $.getScript('assets/js/gameLogic.js');
+    $.getScript('https://simon-game-3-kmaaallen.c9users.io/assets/js/gameLogic.js');
 });
 
 var display = {
@@ -93,3 +93,4 @@ function colour(colourAudio, id, className) {
         $(document.getElementById(id)).removeClass(className);
     }, 500);
 }
+
