@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document - test index.html</title>
 
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/jasmine.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/jasmine-html.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/boot.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/jasmine.css" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/jasmine.css">
 </head>
 
 <body>
@@ -26,13 +25,13 @@
 
         <div class="controls">
             <div class="strict-square" id="strict">
-                <button id="strict-btn" class="btn-before">Strict<div id="strict-toggle" class="positionBefore"></div></button>
+                <div id="strict-btn" class="btn-before">Strict<div id="strict-toggle" class="positionBefore"></div></div>
             </div>
 
             <div class="start-square " id="start"><button>Start</button></div>
 
             <div class="power-square " id="power">
-                <button id="power-btn" class="btn-before">Power<div id="power-toggle" class="positionBefore"></div></button>
+                <div id="power-btn" class="btn-before">Power<div id="power-toggle" class="positionBefore"></div></div>
             </div>
 
             <div id="display" class="display-square"></div>
@@ -40,11 +39,11 @@
     </div>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="../../assets/js/gameTesting.js"></script>
+    <script src="../../assets/libs/jquery.js"></script>
     <script src="../../assets/js/gameData.js"></script>
     <script src="../../assets/js/gameLogic.js"></script>
     <script src="../../assets/js/gameUI.js"></script>
+    <script src="../../assets/js/gameTesting.js"></script>
     <script src="spec/testSpec.js"></script>
     <script src="spec/uiSpec.js"></script>
 </body>
