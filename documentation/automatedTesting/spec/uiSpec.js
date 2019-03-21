@@ -30,96 +30,96 @@ describe("game display test suite", function() {
 });
 
 describe("color functions test suite", function() {
+    beforeEach(function() {
+        jasmine.clock().install();
+    });
+    afterEach(function() {
+        jasmine.clock().uninstall();
+    });
+    describe("color function should add and remove red-light class at 500ms intervals to coloured square when called with (redAudio, 1, 'redFlash') arguments", function() {
+        it("should have class of red-light", function() {
+            colour(redAudio, 1, 'red-light');
+            expect(document.getElementById('1').className).toBe('red-square red-light');
+        });
+        it("should remove class of red-light after 500ms", function() {
+            colour(redAudio, 1, 'red-light');
+            jasmine.clock().tick(500);
+            expect(document.getElementById('1').className).toBe('red-square');
+        });
+    });
+    describe("color function should add and remove yellow-light class at 500ms intervals to coloured square when called with (yellowAudio, 2, 'yellowFlash') arguments", function() {
+        it("should have class of yellow-light", function() {
+            colour(yellowAudio, 2, 'yellow-light');
+            expect(document.getElementById('2').className).toBe('yellow-square yellow-light');
+        });
+        it("should remove class of yellow-light after 500ms", function() {
+            colour(yellowAudio, 2, 'yellow-light');
+            jasmine.clock().tick(500);
+            expect(document.getElementById('2').className).toBe('yellow-square');
+        });
+    });
+    describe("color function should add and remove green-light class at 500ms intervals to coloured square when called with (greenAudio, 3, 'greenFlash') arguments", function() {
+        it("should have class of green-light", function() {
+            colour(greenAudio, 3, 'green-light');
+            expect(document.getElementById('3').className).toBe('green-square green-light');
+        });
+        it("should remove class of green-light after 500ms", function() {
+            colour(greenAudio, 3, 'green-light');
+            jasmine.clock().tick(500);
+            expect(document.getElementById('3').className).toBe('green-square');
+        });
+    });
+    describe("color function should add and remove blue-light class at 500ms intervals to coloured square when called with (blueAudio, 4, 'blueFlash') arguments", function() {
+        it("should have class of blue-light after blue function called", function() {
+            colour(blueAudio, 4, 'blue-light');
+            expect(document.getElementById('4').className).toBe('blue-square blue-light');
+        });
+        it("should remove class of blue-light after 500ms", function() {
+            colour(blueAudio, 4, 'blue-light');
+            jasmine.clock().tick(500);
+            expect(document.getElementById('4').className).toBe('blue-square');
+        });
+    });
+    describe("color function called when showSequence called", function() {
+        beforeEach(function() {
+            showSequence();
+        });
+        describe("color function should be called when showSequence is called", function() {
+            it("should call colour function after showSequence function called", function() {
+                spyOn(window, 'colour')
+                expect(window.colour).toHaveBeenCalled();
+            });
+        });
+    });
+});
+
+describe("player input visual/audio test suite", function() {
             beforeEach(function() {
-                jasmine.clock().install();
+                playerInput();
             });
-            afterEach(function() {
-                jasmine.clock().uninstall();
-            });
-            describe("color function should add and remove red-light class at 500ms intervals to coloured square when called with (redAudio, 1, 'redFlash') arguments", function() {
-                it("should have class of red-light", function() {
-                    colour(redAudio, 1, 'red-light');
-                    expect(document.getElementById('1').className).toBe('red-square red-light');
+            describe("player should see colour flash corresponding to their choice made by clicking on square", function() {
+                it("should call colour function with (redAudio, 1, 'red-light') when red square is clicked", function() {
+                    spyOn(window, 'colour');
+                    redClick();
+                    expect(window.colour).toHaveBeenCalledWith(redAudio, 1, 'red-light');
                 });
-                it("should remove class of red-light after 500ms", function() {
-                    colour(redAudio, 1, 'red-light');
-                    jasmine.clock().tick(500);
-                    expect(document.getElementById('1').className).toBe('red-square');
+                it("should call colour function with (yellowAudio, 2, 'yellow-light') when yellow square is clicked", function() {
+                    spyOn(window, 'colour');
+                    yellowClick();
+                    expect(window.colour).toHaveBeenCalledWith(yellowAudio, 2, 'yellow-light');
                 });
-            });
-            describe("color function should add and remove yellow-light class at 500ms intervals to coloured square when called with (yellowAudio, 2, 'yellowFlash') arguments", function() {
-                it("should have class of yellow-light", function() {
-                    colour(yellowAudio, 2, 'yellow-light');
-                    expect(document.getElementById('2').className).toBe('yellow-square yellow-light');
+                it("should call colour function with (greenAudio, 3, 'green-light') when green square is clicked", function() {
+                    spyOn(window, 'colour');
+                    greenClick();
+                    expect(window.colour).toHaveBeenCalledWith(greenAudio, 3, 'green-light');
                 });
-                it("should remove class of yellow-light after 500ms", function() {
-                    colour(yellowAudio, 2, 'yellow-light');
-                    jasmine.clock().tick(500);
-                    expect(document.getElementById('2').className).toBe('yellow-square');
-                });
-            });
-            describe("color function should add and remove green-light class at 500ms intervals to coloured square when called with (greenAudio, 3, 'greenFlash') arguments", function() {
-                it("should have class of green-light", function() {
-                    colour(greenAudio, 3, 'green-light');
-                    expect(document.getElementById('3').className).toBe('green-square green-light');
-                });
-                it("should remove class of green-light after 500ms", function() {
-                    colour(greenAudio, 3, 'green-light');
-                    jasmine.clock().tick(500);
-                    expect(document.getElementById('3').className).toBe('green-square');
-                });
-            });
-            describe("color function should add and remove blue-light class at 500ms intervals to coloured square when called with (blueAudio, 4, 'blueFlash') arguments", function() {
-                it("should have class of blue-light after blue function called", function() {
-                    colour(blueAudio, 4, 'blue-light');
-                    expect(document.getElementById('4').className).toBe('blue-square blue-light');
-                });
-                it("should remove class of blue-light after 500ms", function() {
-                    colour(blueAudio, 4, 'blue-light');
-                    jasmine.clock().tick(500);
-                    expect(document.getElementById('4').className).toBe('blue-square');
-                });
-            });
-            describe("color function called when showSequence called", function() {
-                beforeEach(function() {
-                    showSequence();
-                });
-                describe("color function should be called when showSequence is called", function() {
-                    it("should call colour function after showSequence function called", function() {
-                        spyOn(window, 'colour')
-                        expect(window.colour).toHaveBeenCalled();
-                    });
+                it("should call colour function with (blueAudio, 4, 'blue-light') when blue square is clicked", function() {
+                    spyOn(window, 'colour');
+                    blueClick();
+                    expect(window.colour).toHaveBeenCalledWith(blueAudio, 4, 'blue-light');
                 });
             });
 
-
-            describe("player input visual/audio test suite", function() {
-                beforeEach(function() {
-                    playerInput();
-                });
-                describe("player should see colour flash corresponding to their choice made by clicking on square", function() {
-                    it("should call colour function with (redAudio, 1, 'red-light') when red square is clicked", function() {
-                        spyOn(window, 'colour');
-                        redClick();
-                        expect(window.colour).toHaveBeenCalledWith(redAudio, 1, 'red-light');
-                    });
-                    it("should call colour function with (yellowAudio, 2, 'yellow-light') when yellow square is clicked", function() {
-                        spyOn(window, 'colour');
-                        yellowClick();
-                        expect(window.colour).toHaveBeenCalledWith(yellowAudio, 2, 'yellow-light');
-                    });
-                    it("should call colour function with (greenAudio, 3, 'green-light') when green square is clicked", function() {
-                        spyOn(window, 'colour');
-                        greenClick();
-                        expect(window.colour).toHaveBeenCalledWith(greenAudio, 3, 'green-light');
-                    });
-                    it("should call colour function with (blueAudio, 4, 'blue-light') when blue square is clicked", function() {
-                        spyOn(window, 'colour');
-                        blueClick();
-                        expect(window.colour).toHaveBeenCalledWith(blueAudio, 4, 'blue-light');
-                    });
-                });
-            });
 
             describe("player messages when sequence checked test suite", function() {
                 describe("player should get win message when game won", function() {
