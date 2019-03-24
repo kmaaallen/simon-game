@@ -2,10 +2,6 @@ jQuery(document).ready(function() {
     $.getScript('https://simon-game-3-kmaaallen.c9users.io/assets/js/gameTesting.js');
 });
 
-document.getElementById("instruction-btn").onclick=function(){
-    $(document.getElementById("instruction-text")).toggleClass("vis-instructions");
-};
-
 var display = {
     ready: 'Ready',
     blank: '',
@@ -25,6 +21,10 @@ var segment = {
         (this.green).onclick = null;
         (this.blue).onclick = null;
     }
+};
+
+document.getElementById("instruction-btn").onclick = function(){
+    $(document.getElementById("instruction-text")).toggleClass("vis-instructions");
 };
 
 // One line code snippet immediately below is from https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/ and was written by Chris Coyier on css-tricks.com.
