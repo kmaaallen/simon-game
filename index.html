@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,36 +12,42 @@
 
 <body>
     <h1>Simon Game</h1>
-    <p>It's a simple test of memory!<br> The game will light and sound a sequence. Copy that sequence by clicking on the appropriate color buttons. Get the sequence right: move up a round! Get 20 rounds right: You win!<br> In 'strict mode' one wrong
-        move restarts the game, when not in strict mode a wrong move will re-show you the sequence to copy.<br> Good Luck!</p>
+    <div class="instruction-field">
+        <button id="instruction-btn">Instructions</button>
+        <p id="instruction-text" class="invis-instructions">It's a simple test of memory!<br> The game will light and sound a sequence. Copy that sequence by clicking on the appropriate color buttons. Get the sequence right: move up a round! Get 20 rounds right: You win!<br> In 'strict mode' one wrong
+            move restarts the game, when not in strict mode a wrong move will re-show you the sequence to copy.<br> Good Luck!</p>
+    </div>
 
-   
     <div class="game-field">
         <div class="red-square square" id="1"></div>
         <div class="yellow-square square" id="2"></div>
         <div class="green-square square" id="3"></div>
         <div class="blue-square square" id="4"></div>
     </div>
-        <div class="controls">
-            <div class="strict-square" id="strict">
-                <div id="strict-btn" class="btn-before">Strict<div id="strict-toggle" class="positionBefore"></div></div>
+    <div class="controls">
+        <div class="strict-square" id="strict">
+            <div id="strict-btn" class="btn-before">Strict
+                <div id="strict-toggle" class="positionBefore"></div>
             </div>
-
-            <div class="start-square " id="start">
-                <button>Start</button>
-            </div>
-
-            <div class="power-square " id="power">
-                <div id="power-btn" class="btn-before">Power<div id="power-toggle" class="positionBefore"></div></div>
-            </div>
-
-            <div id="display" class="display-square"></div>
         </div>
 
-        <script src="assets/libs/jquery.js"></script>
-        <script src="assets/js/gameData.js"></script>
-        <script src="assets/js/gameLogic.js"></script>
-        <script src="assets/js/gameUI.js"></script>
+        <div class="start-square " id="start">
+            <button>Start</button>
+        </div>
+
+        <div class="power-square " id="power">
+            <div id="power-btn" class="btn-before">Power
+                <div id="power-toggle" class="positionBefore"></div>
+            </div>
+        </div>
+
+        <div id="display" class="display-square"></div>
+    </div>
+
+    <script src="assets/libs/jquery.js"></script>
+    <script src="assets/js/gameData.js"></script>
+    <script src="assets/js/gameLogic.js"></script>
+    <script src="assets/js/gameUI.js"></script>
 
 </body>
 
