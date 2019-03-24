@@ -5,12 +5,41 @@ body {
     background-color: #333745;
 }
 
-h1,
-p {
+h1{
     color: #fff;
     text-align: center;
     letter-spacing: 2px;
 }
+
+/*--------instructions-------------------*/
+
+.instruction-field{
+    width: 600px;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+.invis-instructions{
+    display:none;
+}
+
+.vis-instructions{
+    display: block;
+}
+
+#instruction-btn{
+    margin:0;
+}
+
+p {
+    color: #fff;
+    text-align: center;
+    letter-spacing: 2px;
+    padding-top:20px;
+    width:600px;
+}
+
+
 
 /*---------Game Board --------------------*/
 
