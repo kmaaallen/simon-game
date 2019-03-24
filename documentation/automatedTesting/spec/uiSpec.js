@@ -80,17 +80,6 @@ describe("color functions test suite", function() {
             expect(document.getElementById('4').className).toBe('blue-square');
         });
     });
-    describe("color function called when showSequence called", function() {
-        beforeEach(function() {
-            showSequence();
-        });
-        describe("color function should be called when showSequence is called", function() {
-            it("should call colour function after showSequence function called", function() {
-                spyOn(window, 'colour')
-                expect(window.colour).toHaveBeenCalled();
-            });
-        });
-    });
 });
 
 describe("player input visual/audio test suite", function() {
@@ -181,3 +170,4 @@ describe("power button display test suite", function() {
         });
     });
 });
+
