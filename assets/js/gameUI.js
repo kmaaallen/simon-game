@@ -1,6 +1,10 @@
 jQuery(document).ready(function() {
-    $.getScript('https://simon-game-3-kmaaallen.c9users.io/assets/js/gameLogic.js');
+    $.getScript('https://simon-game-3-kmaaallen.c9users.io/assets/js/gameTesting.js');
 });
+
+document.getElementById("instruction-btn").onclick=function(){
+    $(document.getElementById("instruction-text")).toggleClass("vis-instructions");
+};
 
 var display = {
     ready: 'Ready',
