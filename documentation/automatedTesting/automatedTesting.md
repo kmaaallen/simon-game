@@ -13,6 +13,7 @@ To set up my testing environment I did the following steps:
 2) Created a automatedTesting directory within documentation - this contains specs, scripts and the html page used for automated testing
 3) Created a scripts directory within the automatedTesting directory
 4) Created a test.js file within the scripts directory - this is where I will write the code to be tested
+NOTE: I later deleted this test.js file and linked my specs to my deployed js files to avoid duplication.
 5) Created a specs directory within the automatedTesting directory
 6) Created a testSpec.js file within the specs directory - this is where I will write unit tests related to game logic
 7) Created a uiSpec.js file within the specs directory - this is where I will write unit tests related to user interface changes
@@ -45,14 +46,19 @@ The order of the files is important:
 The specs and the script need to be loaded into the HTML boilerplate. <br>
 The order of this loading is also important so the files were loaded at the bottom of the body of the text index.html as follows:
 <pre><code>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="scripts/test.js"></script>
-    <script type="text/javascript" src="spec/testSpec.js"></script>
-    <script type="text/javascript" src="spec/uiSpec.js"></script>
+     <script src="../../assets/libs/jquery.js"></script>
+    <script src="../../assets/js/gameData.js"></script>
+    <script src="../../assets/js/gameLogic.js"></script>
+    <script src="../../assets/js/gameUI.js"></script>
+    <script src="../../assets/js/gameTesting.js"></script>
+    <script src="spec/testSpec.js"></script>
+    <script src="spec/uiSpec.js"></script>
 </code></pre>
 
-The script uses jquery with JavaScript so that has to be loaded first.<br>
-The script is what the tests will be acting on so it is loaded before the specs. <br>
+The script uses jquery with JavaScript so that has to be loaded first. I initially used jQuery from a Content Delivery Network but found
+this to be a little slow when running my specs. Therefore I downloaded the library (that can be found under the 'libs' directory) and linked through
+to this using a relative path<br>
+The scripts are what the tests will be acting on so it is loaded before the specs. <br>
 
 
 ## Writing the tests
@@ -60,8 +66,11 @@ As much as possible I tried to use the 'red-green-refactor' philosophy of testin
 adding in the code that will make them pass and then refactoring the code / tests.
 For this project most of the refactoring and stream-lining took place towards the end once my game was fully functional.
 <br>
-I didn't separate out the game data from the user interface and game logic code in my test.js script for ease, however I did separate
-these elements with comments for readability. The full test.js document can be viewed here: https://github.com/kmaaallen/simon-game/blob/master/documentation/automatedTesting/scripts/test.js
+Initially I didn't separate out the game data from the user interface and game logic code and ran the specs on a single test.js file.
+However I later ran the specs on my deployed js files (in the js directory within the assets directory) to avoid code duplication.
+I also added the gameTesting.js file which contained functions used only for testing and not for running the game in the browser.
+
+The gameTesting.js file can be viewed at: https://github.com/kmaaallen/simon-game/blob/master/assets/js/gameTesting.js
 
 The full list of specs for testing game logic can be viewed at: https://github.com/kmaaallen/simon-game/blob/master/documentation/automatedTesting/spec/testSpec.js
 
