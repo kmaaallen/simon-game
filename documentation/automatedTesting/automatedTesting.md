@@ -82,3 +82,7 @@ I also decided to separate my tests into suites that focused on a particular fun
 
 ## Running the tests
 I ran these tests in cloud9 by 'previewing' the file : /documentation/automatedTesting/index.html in my browser.
+
+## Problems encountered
+When running the jasmine specs in my browser, the specs passed however the following error appeared in the console:
+"Uncaught (in promise) DOMException"
