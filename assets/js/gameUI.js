@@ -23,7 +23,7 @@ var segment = {
     }
 };
 
-document.getElementById("instruction-btn").onclick = function(){
+document.getElementById('instruction-btn').onclick = function(){
     $(document.getElementById("instruction-text")).toggleClass("vis-instructions");
 };
 
