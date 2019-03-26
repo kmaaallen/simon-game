@@ -149,18 +149,25 @@ describe("generateSequence test suite", function() {
     });
 });
 
-describe("showSequence test suite", function(){
+describe("showSequence test suite", function() {
     beforeEach(function() {
-            jasmine.clock().install();
+        jasmine.clock().install();
+        gameData.gameSequence = [1];
+        showSequence();
+    });
+    afterEach(function() {
+        jasmine.clock().uninstall();
+    });
+    describe("should call displaySequence function", function() {
+        it("it should call displaySequence function", function() {
+            spyOn(window, 'displaySequence');
+            jasmine.clock().tick(1000);
+            expect(window.displaySequence).toHaveBeenCalled();
         });
-        afterEach(function() {
-            jasmine.clock().uninstall();
-        });
+    });
     describe("should call playerInput function", function() {
         it("it should call playerInput function when displaySequence is finished", function() {
             spyOn(window, 'playerInput');
-            gameData.gameSequence = [1];
-            showSequence();
             jasmine.clock().tick(1000);
             expect(window.playerInput).toHaveBeenCalled();
         });
@@ -170,6 +177,7 @@ describe("showSequence test suite", function(){
 describe("display sequence test suite", function() {
     describe("game should match numbers in gameSequence array with coloured squares", function() {
         beforeEach(function() {
+            gameData.powerStatus = true;
             gameData.gameSequence = [1, 2, 3, 4];
         });
         it("should call the colour function with (redAudio, 1, 'red-light') when the number is 1", function() {
@@ -247,7 +255,7 @@ describe("check playerSequence length test suite", function() {
             expect(window.checkSequence).toHaveBeenCalled();
         });
     });
-});
+}); 
 
 describe("check playerSequence test suite", function() {
     beforeEach(function() {
@@ -312,7 +320,7 @@ describe("game reset testing suite", function() {
             TestNewGame();
         });
         afterEach(function() {
-           jasmine.clock().uninstall();
+            jasmine.clock().uninstall();
         });
         it("should reset gameSequence to an empty array", function() {
             jasmine.clock().tick(10);
