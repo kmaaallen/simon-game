@@ -150,6 +150,6 @@ Sounds for the simon game were taken from : https://learn.freecodecamp.org/codin
 
 ### Acknowledgements
 The game board is styled similar to the original simon game, an example of which can be found here: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Simon_Electronic_Game.jpg/693px-Simon_Electronic_Game.jpg
-
+With thanks to the tutors at Code Institute who helped with questions on Jasmine unit tests and provided a fresh pair of eyes to find typos.
 
 
