@@ -88,7 +88,7 @@ function displayCount() {
 
 function colour(colourAudio, id, className) {
     $(document.getElementById(id)).addClass(className);
-    (colourAudio).play();
+    colourAudio.play();
     setTimeout(function() {
         $(document.getElementById(id)).removeClass(className);
     }, 500);
