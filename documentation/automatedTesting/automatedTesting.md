@@ -83,6 +83,21 @@ I also decided to separate my tests into suites that focused on a particular fun
 ## Running the tests
 I ran these tests in cloud9 by 'previewing' the file : /documentation/automatedTesting/index.html in my browser.
 
-## Problems encountered
+## Problems encountered but not fixed
+### "Uncaught (in promise) DOMException"
 When running the jasmine specs in my browser, the specs passed however the following error appeared in the console:
-"Uncaught (in promise) DOMException"
+"Uncaught (in promise) DOMException" (This message was displayed in chrome but similar message displays in safari).
+After some research I established this error was to do with Chrome changing their autoplay policy, the full extent of which 
+can be viewed here: https://developers.google.com/web/updates/2017/09/autoplay-policy-changes
+As this 'error' did not impact my specs nor the functioning of the game I decided not to fix it at this time as this would require
+changing the audio from assigned variables to html elements and 'catching the promise'. This is something I will continute to work on after submission
+to try and get it right.
+
+### "Expected $.length = 0 to equal 1. Expected $[0] = undefined to equal 2."
+Rarely when running my specs one will fail (in the playerInput suite or even more infrequently in the displaySequence suite) with this
+error message.
+After some dicussions with the tutors at Code Institute and my own investigations it appears that somewhere 
+in the code there is a change of state happening either too early or too late which sometimes causes a spec to fail.
+This will require further investigation that I will continue after submission.
+The specs to pass most of the time and pass every time when run sequentially (i.e the 'run tests in random order' option is unchecked in Jasmine options)
+therefore I am satisfied my tests are robust enough to achieve their purpose.
