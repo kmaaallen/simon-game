@@ -301,10 +301,10 @@ The fix for this bug is outlined in the problem labelled 'haywire display' above
 
 ## Bugs not fixed
 ### Problem 
-If there is no player input the game stops at this point - the sequence should replay after an interval?
+If there is no player input the game stops at this point - should I get the sequence to replay after an interval?
 ### Result
 I initially wanted the sequence to replay after a time of inactivity and did attempt to develop some code to this effect.
 However I realised if the player had left the game and it continued to play sound and lights not only might it be irritating, but it might
 run down the device battery.
 
-I decided not to implement this fix at this time and come up with an alternative solution.
+I decided not to implement this fix at this time and come up with an alternative solution perhaps a 'repeat sequence' button could be implemented at a later date.
