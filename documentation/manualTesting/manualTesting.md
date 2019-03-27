@@ -282,6 +282,31 @@ function displaySequence(i) {
 }
 </code></pre>
 
+### Problem
+In Safari, if power was turned off whilst game sequence was still displaying then turned back on again, the last sequence would continue until finished.
+The sequence should no longer be displayed once power is off.
+### Resolution
+To resolve this I reset gameData.gameSequence to an empty array within the power button function:
+<pre><code>
+document.getElementById('power-toggle').onclick = function() {
+    gameData.powerStatus = !gameData.powerStatus;
+    if (gameData.powerStatus === true) {
+        displayMessage(display.ready);
+        $(this).removeClass('positionBefore').addClass('positionAfter');
+        $(document.getElementById('power-btn')).removeClass('btn-before').addClass('btn-after');
+        //soundReady([redAudio, yellowAudio, greenAudio, blueAudio], 'off');
+    }
+    else {
+        gameData.startStatus = false;
+        gameData.gameSequence=[]; // this line here was added
+        segment.clickoff();
+        displayMessage(display.blank);
+        $(this).removeClass('positionAfter').addClass('positionBefore');
+        $(document.getElementById('power-btn')).removeClass('btn-after').addClass('btn-before');
+    }
+};
+</code></pre>
+
 ## User Feedback (from family and friends)
 ### Issue: When player gets sequence wrong - replay of sequence goes haywire - not playing in nice order 6/2/19
 #### Resolution
