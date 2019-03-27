@@ -202,6 +202,10 @@ describe("display sequence test suite", function() {
         });
     });
     describe("playerSequence should be reset", function() {
+        beforeEach(function() {
+            gameData.powerStatus = true;
+            gameData.gameSequence = [1, 2, 3, 4];
+        });
         it("should be empty when displaySequence is first called", function() {
             displaySequence();
             expect(gameData.playerSequence).toEqual([]);
@@ -212,8 +216,8 @@ describe("display sequence test suite", function() {
 describe("player input test suite", function() {
     describe("player clicks on square and value is added to playerSequence array", function() {
         beforeEach(function() {
-            playerInput();
             gameData.playerSequence = [];
+            playerInput();
         });
         it("should push the value 1 into playerSequence array when the red square is clicked", function() {
             redClick();
