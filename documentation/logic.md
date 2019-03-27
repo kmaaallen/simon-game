@@ -26,6 +26,8 @@ This is because if the "Initial power status" spec is run after the "power statu
 the test doesn't pass (as it may see the initial value as 'true' if some of the other tests have run before it).
 I did try to mitigate this by using the 'location.reload()' function however this caused my jasmine application
 to continuously reload the page and crash.
+NOTE: At the end of my project I reviewed this spec and whilst it was useful during development I decided it was not necessary to run
+once the project was completed so I inactivated it using 'xit' so the test is marked as pending and does not throw an error when run non-sequentially.
 
 I gave powerStatus a default value of false so the game is OFF when the page first loads.
 <pre><code>var gameData = {
@@ -106,6 +108,8 @@ document.getElementById('power-toggle').onclick = function() {
 
 ## The player clicks the start button
 The start button has to change state when clicked.
+NOTE: At the end of my project I reviewed this spec and (similar to the test for power button initial state) whilst it was useful during development I decided it was not necessary to run
+once the project was completed so I inactivated it using 'xit' so the test is marked as pending and does not throw an error when run non-sequentially.
 #### Game Logic
 1) The start button is in OFF state (i.e false) when page is first opened.
 
