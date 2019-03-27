@@ -19,12 +19,12 @@ var segment = {
     }
 };
 
-document.getElementById('instruction-btn').onclick = function(){
+document.getElementById('instruction-btn').onclick = function() {
     $(document.getElementById("instruction-text")).toggleClass("vis-instructions");
 };
 
 // One line code snippet immediately below is from https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/ and was written by Chris Coyier on css-tricks.com.
-document.addEventListener("touchstart", function(){}, true);
+document.addEventListener("touchstart", function() {}, true);
 
 document.getElementById('strict-toggle').onclick = function() {
     gameData.strictStatus = !gameData.strictStatus;
@@ -44,10 +44,11 @@ document.getElementById('power-toggle').onclick = function() {
         displayMessage(display.ready);
         $(this).removeClass('positionBefore').addClass('positionAfter');
         $(document.getElementById('power-btn')).removeClass('btn-before').addClass('btn-after');
-        soundReady([redAudio, yellowAudio, greenAudio, blueAudio], 'off');
+        //soundReady([redAudio, yellowAudio, greenAudio, blueAudio], 'off');
     }
     else {
         gameData.startStatus = false;
+        gameData.gameSequence=[];
         segment.clickoff();
         displayMessage(display.blank);
         $(this).removeClass('positionAfter').addClass('positionBefore');
@@ -55,7 +56,7 @@ document.getElementById('power-toggle').onclick = function() {
     }
 };
 
-function soundReady(audioArray, mute) {
+/*function soundReady(audioArray, mute) {
     if (mute === 'off') {
         for (var i = 0; i < audioArray.length; i++) {
             audioArray[i].muted = true;
@@ -67,12 +68,12 @@ function soundReady(audioArray, mute) {
             audioArray[j].muted = false;
         }
     }
-}
+}*/
 
 document.getElementById('start').onclick = function() {
     if (gameData.powerStatus === true && gameData.startStatus === false) {
         gameData.startStatus = !gameData.startStatus;
-        soundReady([redAudio, yellowAudio, greenAudio, blueAudio], 'on');
+       // soundReady([redAudio, yellowAudio, greenAudio, blueAudio], 'on');
         newGame();
     }
 };
@@ -93,4 +94,3 @@ function colour(colourAudio, id, className) {
         $(document.getElementById(id)).removeClass(className);
     }, 500);
 }
-
