@@ -1,7 +1,3 @@
-jQuery(document).ready(function() {
-    $.getScript('https://simon-game-3-kmaaallen.c9users.io/assets/js/gameTesting.js');
-});
-
 var display = {
     ready: 'Ready',
     blank: '',
@@ -92,7 +88,7 @@ function displayCount() {
 
 function colour(colourAudio, id, className) {
     $(document.getElementById(id)).addClass(className);
-    colourAudio.play();
+    (colourAudio).play();
     setTimeout(function() {
         $(document.getElementById(id)).removeClass(className);
     }, 500);
