@@ -5,7 +5,7 @@ body {
     background-color: #333745;
 }
 
-h1{
+h1 {
     color: #fff;
     text-align: center;
     letter-spacing: 2px;
@@ -13,30 +13,31 @@ h1{
 
 /*--------instructions-------------------*/
 
-.instruction-field{
-    width: 600px;
-    margin: 0 auto 20px;
-    text-align: center;
+.instruction-field {
+    display: flex;
+    width: 300px;
+    margin:0px auto 20px auto;
+    justify-content: center;
 }
 
-.invis-instructions{
-    display:none;
+.invis-instructions {
+    display: none;
 }
 
-.vis-instructions{
+.vis-instructions {
     display: block;
 }
 
-#instruction-btn{
-    margin:0;
+#instruction-btn {
+    margin: 0;
 }
 
 p {
     color: #fff;
     text-align: center;
     letter-spacing: 2px;
-    padding-top:20px;
-    width:600px;
+    padding-top: 20px;
+    width: 600px;
 }
 
 
@@ -78,7 +79,7 @@ and was written by Chris Coyier on css-tricks.com.*/
 .red-square {
     background-color: red;
     border-radius: 300px 0 0 0;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .yellow-square {
@@ -88,13 +89,13 @@ and was written by Chris Coyier on css-tricks.com.*/
     -webkit-transform: translateY(-155px);
     -ms-transform: translateY(-155px);
     transform: translateY(-155px);
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .green-square {
     background-color: green;
     border-radius: 0 0 0 300px;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .blue-square {
@@ -104,7 +105,7 @@ and was written by Chris Coyier on css-tricks.com.*/
     -webkit-transform: translateY(-155px);
     -ms-transform: translateY(-155px);
     transform: translateY(-155px);
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .strict-square,
@@ -140,7 +141,7 @@ and was written by Chris Coyier on css-tricks.com.*/
     border: 5px solid black;
 }
 
-button{
+button {
     width: 100px;
     height: 40px;
     background-color: #fff;
@@ -176,8 +177,9 @@ button:focus {
 }
 
 /*--------toggle switch classes that are added and removed ------ */
-#power-btn, 
-#strict-btn{
+
+#power-btn,
+#strict-btn {
     width: 82px;
     height: 29px;
     border-radius: 23px;
@@ -190,14 +192,14 @@ button:focus {
 
 .btn-before {
     background-color: red;
-    color:black;
-    text-align:right;
+    color: black;
+    text-align: right;
 }
 
-.btn-after{
+.btn-after {
     background-color: green;
-    color:black;
-    text-align:left;
+    color: black;
+    text-align: left;
 }
 
 .positionBefore {
