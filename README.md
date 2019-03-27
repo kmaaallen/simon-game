@@ -36,15 +36,17 @@ The following user stories were used to help generate the logic for the game:
 
 A full explanation of the logic behind this project can be found at: https://github.com/kmaaallen/simon-game/blob/master/documentation/logic.md
 
-During this project I also created some wireframes of how I wanted the project to look.
+During this project I also created some wireframes of how I wanted the project to look, this was inspired by the original simon game style.
 These can be viewed at : https://github.com/kmaaallen/simon-game/tree/master/documentation/wireframe
  
 
 ## Features
 ### Existing Features
-#### Feature 1 - Instruction paragraph
-This paragraph is shown at the top of the webpage to ensure prominence.
-It is important the player reads this information first so the text has good contrast to the background.
+#### Feature 1 - Instruction button opening to instruction paragraph on click
+This button labelled "Instructions" when clicked reveals the instruction paragraph
+It is situated at the top of the webpage to ensure prominence and styled like the game buttons so it is intuitive to click it.
+It is initially hidden behind a button to avoid cluttering up the screen and to allow the player to see the whole simon game board in desktop without having to scroll down.
+It is important the player reads this information properly so the text has good contrast to the background.
 
 #### Feature 2 - game board
 The game board contains the coloured segments, the control panel and the buttons/toggles for using the game.
@@ -99,10 +101,11 @@ Local git repository was pushed to remote repository on GitHub and site was publ
 https://git-scm.com/ 
 https://github.com/
 
-### W3C HTML and CSS online validators
-Online validators were used to check code was valid for both HTML and CSS. 
+### W3C HTML and CSS online validators and JSHint for JavaScript
+Online validators were used to check code was valid for HTML and CSS and to help catch errors in Javascript. 
 HTML validator: https://validator.w3.org 
 CSS Validator: http://jigsaw.w3.org/css-validator/
+JavaScript correction tool: https://jshint.com/
 
 ### Autoprefix tool
 This online autoprefix tool was used to check when vendor pre-fixes were necessary.
@@ -116,12 +119,12 @@ The online generator tool is available at: https://www.favicongenerator.com/
 ## Testing
 ### Automated Testing
 <br>This project used Jasmine to unit test the game. 
-<br>Specs, the test script and the index page used to run the Jasmine unit tests can be found here: https://github.com/kmaaallen/simon-game/tree/master/documentation/automatedTesting
+<br>Specs and the index page used to run the Jasmine unit tests can be found here: https://github.com/kmaaallen/simon-game/tree/master/documentation/automatedTesting
 
 For a full outline of my automated testing process please view: https://github.com/kmaaallen/simon-game/blob/master/documentation/automatedTesting/automatedTesting.md
 
 To run the tests:
-As I did: run the file /documentation/automatedTesting/index.html in preview in cloud9.
+As I did: run the file /documentation/automatedTesting/index.html in preview in cloud9 or preview in browser.
 Or follow these instructions from the Jasmine documentation on how to install and run Jasmine available at: https://github.com/jasmine/jasmine#installation
 
 
@@ -131,6 +134,7 @@ A full explanation of the manual testing for this project can be found at: https
 
 ## Deployment
 This project was deployed on GitHub Pages and can be viewed at: https://kmaaallen.github.io/simon-game/
+
 Steps for deployment:
 1) A local git repository was initiated at the beginning of the project
 2) A remote git repository was initiated on github and linked to local repository
@@ -150,6 +154,7 @@ Sounds for the simon game were taken from : https://learn.freecodecamp.org/codin
 
 ### Acknowledgements
 The game board is styled similar to the original simon game, an example of which can be found here: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Simon_Electronic_Game.jpg/693px-Simon_Electronic_Game.jpg
-With thanks to the tutors at Code Institute who helped with questions on Jasmine unit tests and provided a fresh pair of eyes to find typos.
+
+With thanks to the tutors at Code Institute who helped with my many questions on Jasmine unit tests.
 
 
