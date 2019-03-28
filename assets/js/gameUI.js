@@ -44,11 +44,10 @@ document.getElementById('power-toggle').onclick = function() {
         displayMessage(display.ready);
         $(this).removeClass('positionBefore').addClass('positionAfter');
         $(document.getElementById('power-btn')).removeClass('btn-before').addClass('btn-after');
-        //soundReady([redAudio, yellowAudio, greenAudio, blueAudio], 'off');
     }
     else {
         gameData.startStatus = false;
-        gameData.gameSequence=[];
+        gameData.gameSequence = [];
         segment.clickoff();
         displayMessage(display.blank);
         $(this).removeClass('positionAfter').addClass('positionBefore');
@@ -56,24 +55,9 @@ document.getElementById('power-toggle').onclick = function() {
     }
 };
 
-/*function soundReady(audioArray, mute) {
-    if (mute === 'off') {
-        for (var i = 0; i < audioArray.length; i++) {
-            audioArray[i].muted = true;
-            audioArray[i].play();
-        }
-    }
-    else {
-        for (var j = 0; j < audioArray.length; j++) {
-            audioArray[j].muted = false;
-        }
-    }
-}*/
-
 document.getElementById('start').onclick = function() {
     if (gameData.powerStatus === true && gameData.startStatus === false) {
         gameData.startStatus = !gameData.startStatus;
-       // soundReady([redAudio, yellowAudio, greenAudio, blueAudio], 'on');
         newGame();
     }
 };
