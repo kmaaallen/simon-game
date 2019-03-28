@@ -170,8 +170,8 @@ function soundReady(audioArray, mute) {
         }
     }
     else {
-        for (var i = 0; i < audioArray.length; i++) {
-            audioArray[i].muted = false;
+        for (var j = 0; j < audioArray.length; j++) {
+            audioArray[j].muted = false;
         }
     }
 }
@@ -180,6 +180,25 @@ function soundReady(audioArray, mute) {
 Within this function if the mute argument is 'off' the sounds will play but be muted (the player won't hear anything).
 I called soundReady with the 'off' argument in the power-toggle click function so set up the sounds for mobile safari to use later.
 Then in the start button click function I called soundReady with an 'on' argument so mute is false for the sounds and they will play when displayed or a square is clicked by the user.
+<br>
+Towards the end of my project I realised that I did not need to create a whole function and indeed my soundReady function was not functioning well every time, there were still occasional delays in sound. 
+After some further research and in subsequent tests adding an audio context worked better with less lines of code.
+The only issue with this is that when AudioContext is used it needs to be called outside a function to work in Safari and within a function to avoid notices in Chrome due to Chrome's autoplay policy.
+On balance I decided functionality was more important than being completely notice free and called it outside a function like so:
+
+Using AudioContext:
+<pre><code>
+var AudioContext = window.AudioContext || window.webkitAudioContext;
+var audioCtx = new AudioContext;
+var oscillatorNode = audioCtx.createOscillator();
+var gainNode = audioCtx.createGain();
+var finish = audioCtx.destination;
+</code></pre>
+
+I placed this code in my gameData.js file to keep all the sound components together.
+
+The code used to set AudioContext in my gameUI.js file was from: https://developer.mozilla.org/en-US/docs/Web/API/AudioContext
+Further information regarding Chrome's Autoplay policy was found here: https://developers.google.com/web/updates/2017/09/autoplay-policy-changes#webaudio
 
 ##### On Safari mobile - when player clicks on segment - box shadow appears
 To remove this shadow effect on tap in mobile I used the following code:<br>
