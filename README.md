@@ -129,7 +129,7 @@ Or follow these instructions from the Jasmine documentation on how to install an
 
 
 ### Manual Testing
-A full explanation of the manual testing for this project can be found at: https://github.com/kmaaallen/simon-game/tree/master/documentation/manualTesting
+A full explanation of the manual testing for this project can be found at:https://github.com/kmaaallen/simon-game/blob/master/documentation/manualTesting/manualTesting.md
 
 
 ## Deployment
