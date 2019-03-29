@@ -145,15 +145,15 @@ I published my site from the master branch.
 
 ## Credits
 ### Content
-This game is inspired by the original electronic Simon game invented by Ralph Baer and Howard Morrison.
-The code snippets used to remove the gray highlight on tap in mobile devices was taken from :  https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/
-and was written by Chris Coyier on css-tricks.com.
+This game is inspired by the original electronic Simon game invented by Ralph Baer and Howard Morrison. <br>
+The code snippets used to remove the gray highlight on tap in mobile devices was taken from :  https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/ 
+and was written by Chris Coyier on css-tricks.com.  <br>
 The AudioContext code snipper used to fix Safari delay issue in gameData.js was taken from: The code used to set AudioContext in my gameUI.js file was from: https://developer.mozilla.org/en-US/docs/Web/API/AudioContext
 ### Media
 Sounds for the simon game were taken from : https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-a-simon-game/
 
 ### Acknowledgements
-The game board is styled similar to the original simon game, an example of which can be found here: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Simon_Electronic_Game.jpg/693px-Simon_Electronic_Game.jpg
+The game board is styled similar to the original simon game, an example of which can be found here:  <br> https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Simon_Electronic_Game.jpg/693px-Simon_Electronic_Game.jpg
 
 With thanks to the tutors at Code Institute who helped with my many questions on Jasmine unit tests.
 
