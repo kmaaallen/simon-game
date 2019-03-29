@@ -71,60 +71,60 @@ If the game displays and the player does not click any of the buttons to copy th
 
 ## Technologies Used
 ### HTML, CSS and JavaScript
-Used as base languages to write and style webpages. 
-HTML: https://www.w3.org/TR/html/ 
-CSS: https://www.w3.org/Style/CSS/Overview.en.html 
-JavaScript: https://www.w3schools.com/js/default.asp
+Used as base languages to write and style webpages. <br>
+HTML: https://www.w3.org/TR/html/ <br>
+CSS: https://www.w3.org/Style/CSS/Overview.en.html <br>
+JavaScript: https://www.w3schools.com/js/default.asp<br>
 
 ### Cloud9
-This project was written on Cloud9. 
+This project was written on Cloud9. <br>
 https://c9.io/login
 
 ### JavaScript
-This project uses JavaScript for the game logic and some styling.
+This project uses JavaScript for the game logic and some styling.<br>
 JavaScript: https://www.w3schools.com/js/default.asp
 
 ### JQuery
-This project uses JQuery to assist in execution of javaScript features. 
+This project uses JQuery to assist in execution of javaScript features. <br>
 https://jquery.com/
 
 ### Jasmine
-Used for automated testing
+Used for automated testing.<br>
 Jasmine: https://jasmine.github.io/
 
 ### Google Fonts
-Main theme font "Roboto" was imported from Google fonts. 
+Main theme font "Roboto" was imported from Google fonts. <br>
 https://fonts.google.com/
 
 ### Git
-Local git repository was pushed to remote repository on GitHub and site was published using GitHub pages. 
-https://git-scm.com/ 
+Local git repository was pushed to remote repository on GitHub and site was published using GitHub pages. <br>
+https://git-scm.com/ <br>
 https://github.com/
 
 ### W3C HTML and CSS online validators and JSHint for JavaScript
-Online validators were used to check code was valid for HTML and CSS and to help catch errors in Javascript. 
-HTML validator: https://validator.w3.org 
-CSS Validator: http://jigsaw.w3.org/css-validator/
+Online validators were used to check code was valid for HTML and CSS and to help catch errors in Javascript.<br> 
+HTML validator: https://validator.w3.org <br>
+CSS Validator: http://jigsaw.w3.org/css-validator/<br>
 JavaScript correction tool: https://jshint.com/
 
 ### Autoprefix tool
-This online autoprefix tool was used to check when vendor pre-fixes were necessary.
+This online autoprefix tool was used to check when vendor pre-fixes were necessary.<br>
 Available at : https://autoprefixer.github.io/
 
 ### Favicon generator tool
-This online tool was used to generate a favicon for my site.
-The favicon image can be viewed at: https://github.com/kmaaallen/simon-game/tree/master/assets/favicon
+This online tool was used to generate a favicon for my site.<br>
+The favicon image can be viewed at: https://github.com/kmaaallen/simon-game/tree/master/assets/favicon<br>
 The online generator tool is available at: https://www.favicongenerator.com/
 
 ## Testing
 ### Automated Testing
-<br>This project used Jasmine to unit test the game. 
-<br>Specs and the index page used to run the Jasmine unit tests can be found here: https://github.com/kmaaallen/simon-game/tree/master/documentation/automatedTesting
+<br>This project used Jasmine to unit test the game. <br>
+<br>Specs and the index page used to run the Jasmine unit tests can be found here: https://github.com/kmaaallen/simon-game/tree/master/documentation/automatedTesting <br>
 
-For a full outline of my automated testing process please view: https://github.com/kmaaallen/simon-game/blob/master/documentation/automatedTesting/automatedTesting.md
+For a full outline of my automated testing process please view: https://github.com/kmaaallen/simon-game/blob/master/documentation/automatedTesting/automatedTesting.md <br>
 
-To run the tests:
-As I did: run the file /documentation/automatedTesting/index.html in preview in cloud9 or preview in browser.
+To run the tests:<br>
+As I did: run the file /documentation/automatedTesting/index.html in preview in cloud9 or preview in browser.<br>
 Or follow these instructions from the Jasmine documentation on how to install and run Jasmine available at: https://github.com/jasmine/jasmine#installation
 
 
