@@ -43,9 +43,9 @@ These can be viewed at : https://github.com/kmaaallen/simon-game/tree/master/doc
 ## Features
 ### Existing Features
 #### Feature 1 - Instruction button opening to instruction paragraph on click
-This button labelled "Instructions" when clicked reveals the instruction paragraph
+This button labelled "Instructions" when clicked reveals the instruction paragraph.
 It is situated at the top of the webpage to ensure prominence and styled like the game buttons so it is intuitive to click it.
-It is initially hidden behind a button to avoid cluttering up the screen and to allow the player to see the whole simon game board in desktop without having to scroll down.
+The instructions are initially hidden behind a button to avoid cluttering up the screen and to allow the player to see the whole simon game board in desktop without having to scroll down.
 It is important the player reads this information properly so the text has good contrast to the background.
 
 #### Feature 2 - game board
