@@ -43,9 +43,9 @@ These can be viewed at : https://github.com/kmaaallen/simon-game/tree/master/doc
 ## Features
 ### Existing Features
 #### Feature 1 - Instruction button opening to instruction paragraph on click
-This button labelled "Instructions" when clicked reveals the instruction paragraph
+This button labelled "Instructions" when clicked reveals the instruction paragraph.
 It is situated at the top of the webpage to ensure prominence and styled like the game buttons so it is intuitive to click it.
-It is initially hidden behind a button to avoid cluttering up the screen and to allow the player to see the whole simon game board in desktop without having to scroll down.
+The instructions are initially hidden behind a button to avoid cluttering up the screen and to allow the player to see the whole simon game board in desktop without having to scroll down.
 It is important the player reads this information properly so the text has good contrast to the background.
 
 #### Feature 2 - game board
@@ -71,65 +71,65 @@ If the game displays and the player does not click any of the buttons to copy th
 
 ## Technologies Used
 ### HTML, CSS and JavaScript
-Used as base languages to write and style webpages. 
-HTML: https://www.w3.org/TR/html/ 
-CSS: https://www.w3.org/Style/CSS/Overview.en.html 
-JavaScript: https://www.w3schools.com/js/default.asp
+Used as base languages to write and style webpages. <br>
+HTML: https://www.w3.org/TR/html/ <br>
+CSS: https://www.w3.org/Style/CSS/Overview.en.html <br>
+JavaScript: https://www.w3schools.com/js/default.asp<br>
 
 ### Cloud9
-This project was written on Cloud9. 
+This project was written on Cloud9. <br>
 https://c9.io/login
 
 ### JavaScript
-This project uses JavaScript for the game logic and some styling.
+This project uses JavaScript for the game logic and some styling.<br>
 JavaScript: https://www.w3schools.com/js/default.asp
 
 ### JQuery
-This project uses JQuery to assist in execution of javaScript features. 
+This project uses JQuery to assist in execution of javaScript features. <br>
 https://jquery.com/
 
 ### Jasmine
-Used for automated testing
+Used for automated testing.<br>
 Jasmine: https://jasmine.github.io/
 
 ### Google Fonts
-Main theme font "Roboto" was imported from Google fonts. 
+Main theme font "Roboto" was imported from Google fonts. <br>
 https://fonts.google.com/
 
 ### Git
-Local git repository was pushed to remote repository on GitHub and site was published using GitHub pages. 
-https://git-scm.com/ 
+Local git repository was pushed to remote repository on GitHub and site was published using GitHub pages. <br>
+https://git-scm.com/ <br>
 https://github.com/
 
 ### W3C HTML and CSS online validators and JSHint for JavaScript
-Online validators were used to check code was valid for HTML and CSS and to help catch errors in Javascript. 
-HTML validator: https://validator.w3.org 
-CSS Validator: http://jigsaw.w3.org/css-validator/
+Online validators were used to check code was valid for HTML and CSS and to help catch errors in Javascript.<br> 
+HTML validator: https://validator.w3.org <br>
+CSS Validator: http://jigsaw.w3.org/css-validator/<br>
 JavaScript correction tool: https://jshint.com/
 
 ### Autoprefix tool
-This online autoprefix tool was used to check when vendor pre-fixes were necessary.
+This online autoprefix tool was used to check when vendor pre-fixes were necessary.<br>
 Available at : https://autoprefixer.github.io/
 
 ### Favicon generator tool
-This online tool was used to generate a favicon for my site.
-The favicon image can be viewed at: https://github.com/kmaaallen/simon-game/tree/master/assets/favicon
+This online tool was used to generate a favicon for my site.<br>
+The favicon image can be viewed at: https://github.com/kmaaallen/simon-game/tree/master/assets/favicon<br>
 The online generator tool is available at: https://www.favicongenerator.com/
 
 ## Testing
 ### Automated Testing
-<br>This project used Jasmine to unit test the game. 
-<br>Specs and the index page used to run the Jasmine unit tests can be found here: https://github.com/kmaaallen/simon-game/tree/master/documentation/automatedTesting
+<br>This project used Jasmine to unit test the game. <br>
+<br>Specs and the index page used to run the Jasmine unit tests can be found here: https://github.com/kmaaallen/simon-game/tree/master/documentation/automatedTesting <br>
 
-For a full outline of my automated testing process please view: https://github.com/kmaaallen/simon-game/blob/master/documentation/automatedTesting/automatedTesting.md
+For a full outline of my automated testing process please view: https://github.com/kmaaallen/simon-game/blob/master/documentation/automatedTesting/automatedTesting.md <br>
 
-To run the tests:
-As I did: run the file /documentation/automatedTesting/index.html in preview in cloud9 or preview in browser.
+To run the tests:<br>
+As I did: run the file /documentation/automatedTesting/index.html in preview in cloud9 or preview in browser.<br>
 Or follow these instructions from the Jasmine documentation on how to install and run Jasmine available at: https://github.com/jasmine/jasmine#installation
 
 
 ### Manual Testing
-A full explanation of the manual testing for this project can be found at: https://github.com/kmaaallen/simon-game/tree/master/documentation/manualTesting
+A full explanation of the manual testing for this project can be found at:https://github.com/kmaaallen/simon-game/blob/master/documentation/manualTesting/manualTesting.md
 
 
 ## Deployment
@@ -145,15 +145,15 @@ I published my site from the master branch.
 
 ## Credits
 ### Content
-This game is inspired by the original electronic Simon game invented by Ralph Baer and Howard Morrison.
-The code snippets used to remove the gray highlight on tap in mobile devices was taken from :  https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/
-and was written by Chris Coyier on css-tricks.com.
+This game is inspired by the original electronic Simon game invented by Ralph Baer and Howard Morrison. <br>
+The code snippets used to remove the gray highlight on tap in mobile devices was taken from :  https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/ 
+and was written by Chris Coyier on css-tricks.com.  <br>
 The AudioContext code snipper used to fix Safari delay issue in gameData.js was taken from: The code used to set AudioContext in my gameUI.js file was from: https://developer.mozilla.org/en-US/docs/Web/API/AudioContext
 ### Media
 Sounds for the simon game were taken from : https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/build-a-simon-game/
 
 ### Acknowledgements
-The game board is styled similar to the original simon game, an example of which can be found here: https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Simon_Electronic_Game.jpg/693px-Simon_Electronic_Game.jpg
+The game board is styled similar to the original simon game, an example of which can be found here:  <br> https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Simon_Electronic_Game.jpg/693px-Simon_Electronic_Game.jpg
 
 With thanks to the tutors at Code Institute who helped with my many questions on Jasmine unit tests.
 
