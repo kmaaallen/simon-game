@@ -313,7 +313,6 @@ document.getElementById('power-toggle').onclick = function() {
         displayMessage(display.ready);
         $(this).removeClass('positionBefore').addClass('positionAfter');
         $(document.getElementById('power-btn')).removeClass('btn-before').addClass('btn-after');
-        //soundReady([redAudio, yellowAudio, greenAudio, blueAudio], 'off');
     }
     else {
         gameData.startStatus = false;
