@@ -30,6 +30,7 @@ h1 {
 }
 
 #instruction-btn {
+    margin:0px auto;
     display:flex;
     justify-content:center;
 }
