@@ -259,7 +259,7 @@ describe("check playerSequence length test suite", function() {
             expect(window.checkSequence).toHaveBeenCalled();
         });
     });
-}); 
+});
 
 describe("check playerSequence test suite", function() {
     beforeEach(function() {
