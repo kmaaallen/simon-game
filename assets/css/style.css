@@ -15,7 +15,7 @@ h1 {
 
 .instruction-field {
     display: flex;
-    width: 600px;
+    width: 90vw;
     margin:0px auto 20px auto;
     justify-content: center;
 }
@@ -40,7 +40,6 @@ p {
     text-align: center;
     letter-spacing: 2px;
     padding-top: 20px;
-    width: 600px;
 }
 
 
