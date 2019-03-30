@@ -33,4 +33,5 @@ function TestNewGame() {
     gameData.playerSequence = [];
     setTimeout(newRound, 11); // set timeout only for testing purposes to check game variables reset
 }
-// ----------------------------------------------------
+
+
