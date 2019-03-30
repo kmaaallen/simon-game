@@ -83,13 +83,20 @@ I also decided to separate my tests into suites that focused on a particular fun
 ## Running the tests
 I ran these tests in cloud9 by 'previewing' the file : /documentation/automatedTesting/index.html in my browser.
 
-## Problems encountered but not fixed
+## Problems encountered but not completely fixed
 ### "Uncaught (in promise) DOMException"
 When running the jasmine specs in my browser, the specs passed however the following error appeared in the console:
-"Uncaught (in promise) DOMException" (This message was displayed in chrome).
+"Uncaught (in promise) DOMException" (This particular message was displayed in chrome but a similar message was displayed in Safari).
 After some research I established this error was to do with Chrome changing their autoplay policy, the full extent of which 
-can be viewed here: https://developers.google.com/web/updates/2017/09/autoplay-policy-changes
-As this 'error' did not impact my specs nor the functioning of the game I decided not to fix it at this time as this would require changing the audio from assigned variables to html elements and 'catching the promise', this is something I will continue to work on.
+can be viewed here: https://developers.google.com/web/updates/2017/09/autoplay-policy-changes<br>
+Safari has also disabled autoplay until a user interacts with the page.
+
+In Chrome - when the browser window first loads this error appears in console. However when you interact with the browser window
+,for example, I used the options button in Jasmine to uncheck 'run in random order' to get the tests to run again, this error no longer appears
+because you have interacted with the web browser and autoplay is allowed.
+
+In Safari - turning on autoplay (through Safari > preferences > autoplay > always allow autoplay) for the browser window in which you are running the specs
+allows them to be run without any error in console.
 
 ### "Expected $.length = 0 to equal 1. Expected $[0] = undefined to equal 2."
 Rarely when running my specs one will fail (in the playerInput suite or even more infrequently in the displaySequence suite) with this error message.
