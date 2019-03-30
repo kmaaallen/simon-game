@@ -15,13 +15,14 @@ h1 {
 
 .instruction-field {
     display: flex;
-    width: 300px;
+    width: 600px;
     margin:0px auto 20px auto;
     justify-content: center;
 }
 
 .invis-instructions {
     display: none;
+    padding-top:20px;
 }
 
 .vis-instructions {
