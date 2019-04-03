@@ -127,6 +127,36 @@ To run the tests:<br>
 As I did: run the file /documentation/automatedTesting/index.html in preview in cloud9 or preview in browser.<br>
 Or follow these instructions from the Jasmine documentation on how to install and run Jasmine available at: https://github.com/jasmine/jasmine#installation
 
+### Testing Console Errors
+#### During Automated testing
+##### "Uncaught (in promise) DOMException"
+When running the jasmine specs in my browser, the specs passed however the following error appeared in the console:
+"Uncaught (in promise) DOMException" (This particular message was displayed in chrome but a similar message was displayed in Safari).
+After some research I established this error was to do with Chrome and Safari's autoplay policies.<br>
+Chrome's autoplay policy can be viewed here: https://developers.google.com/web/updates/2017/09/autoplay-policy-changes<br>
+Safari has also disabled autoplay until a user interacts with the page.
+
+In Chrome - when the browser window first loads this error appears in console. However when you interact with the browser window
+,for example, I used the options button in Jasmine to uncheck 'run in random order' to get the tests to run again, this error no longer appears
+because you have interacted with the web browser and autoplay is allowed.
+
+In Safari - turning on autoplay (through Safari > preferences > autoplay > always allow autoplay) for the browser window in which you are running the specs
+allows them to be run without any error in console.
+
+These are the only solutions I could find to these particular errors at this time. Ideally I would like to find a way of mocking user interaction before running the 
+Jasmine specs to avoid these work arounds but have not yet found a solution.
+
+##### "Expected $.length = 0 to equal 1. Expected $[0] = undefined to equal 2."
+Rarely when running my specs one will fail (in the playerInput suite or even more infrequently in the displaySequence suite) with this error message.
+After some dicussions with the tutors at Code Institute and my own investigations it appears that somewhere 
+in the code there is a change of state happening either too early or too late which sometimes causes a spec to fail.
+The specs pass most of the time and pass every time when run sequentially (i.e the 'run tests in random order' option is unchecked in Jasmine options) therefore I am satisfied my tests are robust enough to achieve their purpose.
+
+#### During Manual Testing
+When using AudioContext to remove sound delay in Safari browser it has to be called outside of a function in order to work.
+However in Chrome this results in a notice (not an error) that AudioContext needs to be resumed or called within a function.
+Doing this prevents the AudioContext from running properly in Safari. 
+On balance I decided functionality was more important than being completely notice free and called it outside a function.
 
 ### Manual Testing
 A full explanation of the manual testing for this project can be found at:https://github.com/kmaaallen/simon-game/blob/master/documentation/manualTesting/manualTesting.md
